@@ -1,6 +1,6 @@
 import React from "react";
 import Gallery from "./Gallery/Gallery";
-import Sponser from "./Sponser/Sponser"
+import Sponser from "./Sponser/Sponser";
 import Testimonail from "./Testimonial/Testimonial";
 
 const Home = () => {
