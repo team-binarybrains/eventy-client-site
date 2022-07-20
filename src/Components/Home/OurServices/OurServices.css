@@ -30,3 +30,26 @@
     transform-origin: 0%;
     transform: scaleX(1);
   }
+
+  .title_line::before {
+    content: "";
+    background: rgb(74 222 128);
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);
+}
+
+.title_line::after {
+    content: "";
+    background: rgb(74 222 128);
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(15px);
+}
