@@ -11,7 +11,7 @@ function OurServices() {
 
             <div className="grid grid-cols-3 gap-5">
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/fSkLx14/marrige.webp" className="max-w-xs" alt="Louvre" />
 
@@ -27,7 +27,7 @@ function OurServices() {
                     </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/vqZ2qKw/fashion.webp" className="max-w-xs h-[213px]" alt="Louvre" />
 
@@ -43,7 +43,7 @@ function OurServices() {
                     </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/t2pj2VC/iftar.jpg" className="max-w-xs h-[215px]" alt="Louvre" />
 
@@ -59,7 +59,7 @@ function OurServices() {
                     </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/XVhFNcB/crits.jpg" className="max-w-xs" alt="Louvre" />
 
@@ -75,7 +75,7 @@ function OurServices() {
                     </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/2v1Sg87/Birthday.jpg" className="max-w-xs h-[215px] w-[400px]" alt="Louvre" />
 
@@ -91,7 +91,7 @@ function OurServices() {
                     </div>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
                         <img src="https://i.ibb.co/M7L8JXM/eid.jpg" className="max-w-xs h-[215px] w-[400px]" alt="Louvre" />
 
