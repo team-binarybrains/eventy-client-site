@@ -9,7 +9,7 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 
 function App() {
   return (
-    <div className="App">
+    <div className="">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
