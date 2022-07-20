@@ -1,0 +1,85 @@
+	/* .Employer{
+	transition: all 2s ease-in-out;
+	-webkit-transition: all 2s ease-in-out;
+	-moz-transition: all 2s ease-in-out;
+	-ms-transition: all 2s ease-in-out;
+	-o-transition: all 2s ease-in-out;
+	} */
+	#EmployerImg {
+		position: relative;
+		cursor: pointer;
+		overflow: hidden;
+		/* transition:all 8s ease-in-out ;
+	-webkit-transition:all 8s ease-in-out ;
+	-moz-transition:all 8s ease-in-out ;
+	-ms-transition:all 8s ease-in-out ;
+	-o-transition:all 8s ease-in-out ; */
+	}
+
+	#EmployerContent {
+		position: absolute;
+		bottom: -30%;
+		left: 0%;
+		width: 100%;
+		height: auto;
+		display: none;
+		background: rgba(0, 0, 0, 0.562);
+		transition: all .8s ease-in-out;
+		-webkit-transition: all .8s ease-in-out;
+		-moz-transition: all .8s ease-in-out;
+		-ms-transition: all .8s ease-in-out;
+		-o-transition: all .8s ease-in-out;
+	}
+
+	/* #EmployerText {
+	transition: all 10s ease-in-out;
+	-webkit-transition: all 10s ease-in-out;
+	-moz-transition: all 10s ease-in-out;
+	-ms-transition: all 10s ease-in-out;
+	-o-transition: all 10s ease-in-out;
+	} */
+
+	#EmployerImg:hover #EmployerContent {
+		transition: all .8s ease-in;
+		-webkit-transition: all .8s ease-in;
+		-moz-transition: all .8s ease-in;
+		-ms-transition: all .8s ease-in;
+		-o-transition: all .8s ease-in;
+		bottom: 0%;
+		display: block;
+	}
+
+	.btn-gradient {
+		background: #1462ff;
+		color: #fff;
+		border-radius: 12px;
+		padding: 12px 48px;
+		box-shadow: 0 6px 30px -10px #4a74c9;
+		transition: all 0.5s ease;
+		border: 0;
+		letter-spacing: 1px;
+		text-transform: uppercase;
+	}
+
+	.btn-gradient:hover {
+		box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+		transform: scale(0.93);
+	}
+
+	.gradient2 {
+		background-image: linear-gradient(60deg,
+				#4aa5fb 10%,
+				#1ccafa 50%,
+				#00e1f9 100%);
+		border-top-left-radius: 20px;
+		border-top-right-radius: 0px;
+		border-bottom-right-radius: 20px;
+		border-bottom-left-radius: 0px;
+	}
+
+	.gradient2:hover {
+		border-top-left-radius: 0px;
+		border-top-right-radius: 12px;
+		border-bottom-right-radius: 0px;
+		border-bottom-left-radius: 12px;
+	}
