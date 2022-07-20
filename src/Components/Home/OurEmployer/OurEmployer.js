@@ -22,7 +22,7 @@ const OurEmployer = () => {
       <div className='container mx-auto px-2 '>
         <div id="OurEmployer">
           <div className="">
-            <h1 className='text-3xl py-4 pb-8 text-center'>Our Employer</h1>
+            <h1 className='text-4xl py-4 pb-8 text-center title_line uppercase'>Our Employer</h1>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center gap-4">
             {

@@ -1,3 +1,6 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,4 +30,9 @@ code {
 ::-webkit-scrollbar-thumb {
   background-color: rgb(95, 209, 95);
   border-radius: 20px;
+}
+
+h1{
+  font-family: 'Ubuntu', sans-serif;
+  letter-spacing: 3px;
 }
