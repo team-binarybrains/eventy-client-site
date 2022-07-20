@@ -1,0 +1,13 @@
+@keyframes text-color-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .gradient-color-text {
+    background-size: 400% 400%;
+    background-image: linear-gradient(to right, #BAD4B6, #ff8000, #fff200, #51ff00, #00d0ff, #9000ff,#ff008c,#7ae114);
+    -webkit-background-clip: text;
+    animation: text-color-gradient 15s ease infinite;
+    color: transparent;
+  
+  }
