@@ -18,7 +18,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>Marrige</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>Marrige</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
@@ -34,7 +34,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>fashion</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>fashion</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
@@ -50,7 +50,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>iftar</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>iftar</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
@@ -66,7 +66,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>christmas</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>christmas</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
@@ -82,7 +82,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>birthday</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>birthday</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
@@ -98,7 +98,7 @@ function OurServices() {
                         <div className="absolute top-0 right-0 bottom-0 left-0 w-full h-full overflow-hidden bg-fixed opacity-0 hover:opacity-100 transition duration-300 ease-in-out bg-green-700 bg-opacity-40">
 
                             <div className='text-white grid items-end justify-center h-full'>
-                                <h1 className='text-5xl uppercase text-center'>Eid Event</h1>
+                                <h1 className='text-5xl uppercase text-center text-white'>Eid Event</h1>
 
                                 <button className='btn-selection type-1'>Full Details</button>
 
