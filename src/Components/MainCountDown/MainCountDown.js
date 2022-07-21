@@ -10,8 +10,8 @@ const MainCountDown = () => {
             <img src="https://i.ibb.co/dt1KrNy/deal-ofthe-week.png" alt="" />
           </div>
           <div className="text-center mt-20 pb-9">
-            <h1 className="text-center text-2xl text-green-400 font-bold  pt-8 border-b-2 mb-20" >
-              hello
+            <h1 className="text-center  text-black font-bold  pt-8  mb-20 text-4xl uppercase  title_line" >
+              Our Next Event
             </h1>
             <CountDown></CountDown>
           </div>
