@@ -57,7 +57,7 @@ const Testimonail = () => {
 
     return (
         <div>
-            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 text-gray-800 pt-20 uppercase  text-center title_line">
+            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
                 What our client says
             </h1>
             <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
