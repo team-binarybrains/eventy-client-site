@@ -141,7 +141,7 @@ const Footer = () => {
                 placeholder="Enter your email"
               />
               <svg
-                className="mr-4 fill-current text-gray-800 hover:text-gray-500"
+                className="w-10 fill-current text-gray-800 hover:text-gray-500"
                 width="16"
                 height="17"
                 viewBox="0 0 16 17"
@@ -166,9 +166,9 @@ const Footer = () => {
               className="text-base leading-4 p-4 relative z-0 w-full focus:outline-none text-gray-800 placeholder-gray-800"
               placeholder="Enter your email"
             />
-            <div className="cursor-pointer mr-4 cursor-pointer relative z-40">
+            <div className="  cursor-pointer relative z-40">
               <svg
-                className="fill-current text-gray-800 hover:text-gray-500"
+                className="w-10 fill-current text-gray-800 hover:text-gray-500"
                 width="16"
                 height="17"
                 viewBox="0 0 16 17"
