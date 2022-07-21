@@ -185,7 +185,11 @@ const Testimonail = () => {
                     ))}
                 </Slider>
             </div>
-            <button class="btn btn-success capitalize text-white">Veiw Testimonial page</button>
+            <div className="text-center mb-12">
+                <button className="btnc btn-gradient gradient2 text-center">
+                    See More
+                </button>
+            </div>
         </div>
     );
 };
