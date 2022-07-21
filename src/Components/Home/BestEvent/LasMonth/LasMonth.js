@@ -13,16 +13,16 @@ function LasMonth() {
                         <div className="flex flex-wrap w-1/2">
 
                             <div className="w-1/2 p-1 md:p-2">
-                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg" src="https://i.ibb.co/k9Y7gPF/7.jpg" />
+                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all" src="https://i.ibb.co/k9Y7gPF/7.jpg" />
                             </div>
 
                             <div className="w-1/2 p-1 md:p-2">
-                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg"
+                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/rbYNcgz/8.jpg" />
                             </div>
 
                             <div className="w-full p-1 md:p-2">
-                                {/* <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg"
+                                {/* <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/5j9cdzD/5.jpg" /> */}
 
                                    <video autoPlay loop muted className="block object-cover  w-full h-full rounded-lg" src={video_1}>
@@ -36,7 +36,7 @@ function LasMonth() {
                         <div className="flex flex-wrap w-1/2">
 
                             <div className="w-full p-1 md:p-2">
-                                {/* <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg"
+                                {/* <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/ync0N3k/3.jpg" /> */}
                                      <video autoPlay loop muted className="block object-cover  w-full h-full rounded-lg" src={video_3}>
                                    
@@ -44,12 +44,12 @@ function LasMonth() {
                             </div>
 
                             <div className="w-1/2 p-1 md:p-2">
-                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg"
+                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/HDKyXYR/4.jpg" />
                             </div>
 
                             <div className="w-1/2 p-1 md:p-2">
-                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg"
+                                <img alt="LasMonth" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/6tMqJ4v/1.jpg" />
                             </div>
 

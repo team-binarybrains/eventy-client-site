@@ -9,7 +9,7 @@ function OurServices() {
                 <h1 className='uppercase title_line text-center text-4xl'>our services</h1>
             </div>
 
-            <div className="grid grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
 
                 <div className="mb-4 cursor-pointer">
                     <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">

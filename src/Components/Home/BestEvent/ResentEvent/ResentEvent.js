@@ -15,7 +15,7 @@ function ResentEvent() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="ResentEvent"
-                  className="block object-cover object-center w-full h-full rounded-lg"
+                  className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                   src="https://i.ibb.co/k9Y7gPF/7.jpg"
                 />
               </div>
@@ -23,13 +23,13 @@ function ResentEvent() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="ResentEvent"
-                  className="block object-cover object-center w-full h-full rounded-lg"
+                  className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                   src="https://i.ibb.co/rbYNcgz/8.jpg"
                 />
               </div>
 
               <div className="w-full p-1 md:p-2">
-                {/* <img alt="ResentEvent" className="block object-cover object-center w-full h-full rounded-lg"
+                {/* <img alt="ResentEvent" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/5j9cdzD/5.jpg" /> */}
                 <video
                   autoPlay
@@ -43,7 +43,7 @@ function ResentEvent() {
 
             <div className="flex flex-wrap w-1/2">
               <div className="w-full p-1 md:p-2">
-                {/* <img alt="ResentEvent" className="block object-cover object-center w-full h-full rounded-lg"
+                {/* <img alt="ResentEvent" className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                                     src="https://i.ibb.co/ync0N3k/3.jpg" /> */}
 
                 <video
@@ -58,7 +58,7 @@ function ResentEvent() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="ResentEvent"
-                  className="block object-cover object-center w-full h-full rounded-lg"
+                  className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                   src="https://i.ibb.co/HDKyXYR/4.jpg"
                 />
               </div>
@@ -66,7 +66,7 @@ function ResentEvent() {
               <div className="w-1/2 p-1 md:p-2">
                 <img
                   alt="ResentEvent"
-                  className="block object-cover object-center w-full h-full rounded-lg"
+                  className="block object-cover object-center w-full h-full rounded-lg  hover:scale-110 transition-all"
                   src="https://i.ibb.co/6tMqJ4v/1.jpg"
                 />
               </div>
