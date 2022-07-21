@@ -36,7 +36,7 @@ export default function CountDown() {
     }
 
     return (
-      <span className="text-green-400 text-xl md:text-3xl mb-3  font-bold shadow-lg shadow-stone-500 bg-white mx-1 mt-3 md:inline-block  rounded-lg p-5 md:p-8 justify-items-center">
+      <span className="text-green-400 text-xl md:text-xl mb-3  font-bold shadow-lg shadow-stone-500 bg-white mx-1 mt-3 md:inline-block  rounded-lg p-2 md:p-8 justify-items-center">
         {<span className="">{timeLeft[interval]}</span>}
         <span className=" pl-1">{interval}</span>{" "}
       </span>
