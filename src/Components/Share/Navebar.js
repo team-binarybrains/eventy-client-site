@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./navebar.css";
 import {
   faQuestionCircle,
   faBell,
@@ -21,10 +22,9 @@ const Navebar = () => {
   };
 
   return (
-    <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-50">
-      <div className="h-60">
-        {/* <img src={logo} className="h-60 w-60" /> */}
-      </div>
+    <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
+      <h2 className=" text-black text-4xl logo">EVENTY</h2>
+
       <div className="flex-1 justify-center items-center hidden lg:flex">
         <Link
           to="/"
@@ -33,15 +33,6 @@ const Navebar = () => {
         >
           <FontAwesomeIcon icon={faHome} className=" mr-2" />
           Home
-        </Link>
-
-        <Link
-          to="/products"
-          className="no-underline px-2 mr-3 text-gray-700 font-bold
-          text-xl hover:text-white"
-        >
-          <FontAwesomeIcon icon={faBox} className=" mr-2" />
-          About Us
         </Link>
         <Link
           to="/dashboard"
@@ -52,7 +43,16 @@ const Navebar = () => {
           Dashboard
         </Link>
         <Link
-          to="/blog"
+          to="/about-us"
+          className="no-underline px-2 mr-3 text-gray-700 font-bold
+          text-xl hover:text-white"
+        >
+          <FontAwesomeIcon icon={faBox} className=" mr-2" />
+          About Us
+        </Link>
+
+        <Link
+          to="/contact-us"
           className="no-underline px-2 mr-3 text-gray-700 font-bold
           text-xl hover:text-white"
         >
