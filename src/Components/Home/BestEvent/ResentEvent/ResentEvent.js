@@ -5,7 +5,7 @@ function ResentEvent() {
     return (
         <div>
             <section className="overflow-hidden text-gray-700">
-                <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+                <div className="container px-5 py-2 mx-auto lg:pt-9 lg:px-32">
                 {/* <div className='my-4'>
                     <h1 className='text-4xl font-serif'>ResentEvent</h1>
                 </div> */}
