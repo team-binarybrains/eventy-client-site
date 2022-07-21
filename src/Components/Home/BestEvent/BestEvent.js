@@ -10,8 +10,8 @@ const BestEvent = () => {
   const year = new Date().getFullYear();
 
   return (
-    <div className='mt-10'>
-      <h1 className="gradient-color-text text-center font-bold text-4xl">
+    <div className='mt-24'>
+      <h1 className="title_line text-center font-bold text-4xl uppercase ">
       {/* <Typed
                     className="text-4xl"
                     strings={["Abdullah"]}
@@ -21,21 +21,26 @@ const BestEvent = () => {
                   ></Typed> */}
         Our best events {year}</h1>
       <div className='mt-10'>
-        <Tabs className="border-none">
-          <TabList className="border-none text-center">
-            <Tab><p className='text-4xl font-serif'>Recent Event</p></Tab>
-            <Tab><p className='text-4xl font-serif'>Last Month</p> </Tab>
-            <Tab><p className='text-4xl font-serif'>Last Year</p></Tab>
+        <Tabs className="border-none grid justify-center">
+
+          <TabList className="flex text-[10px] lg:text-lg md:text-lg md:pl-2 lg:pl-[119px] mt-7">
+            <Tab><h1 className='uppercase'>Recent Event</h1></Tab>
+            <Tab><h1 className='uppercase'>Last Month</h1> </Tab>
+            <Tab><h1 className='uppercase'>Last Year</h1></Tab>
           </TabList>
+
           <TabPanel>
            <ResentEvent></ResentEvent>
           </TabPanel>
+
           <TabPanel>
           <LasMonth></LasMonth>
           </TabPanel>
+
           <TabPanel>
             <LasYear></LasYear>
           </TabPanel>
+
         </Tabs>
       </div>
     </div>
