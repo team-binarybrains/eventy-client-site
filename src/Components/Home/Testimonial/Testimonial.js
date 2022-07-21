@@ -3,11 +3,9 @@ import "./Testimonail.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { useNavigate } from "react-router-dom";
 
 const Testimonail = () => {
 
-    const navigate = useNavigate();
     const settings = {
         className: "center",
         centerMode: true,
@@ -187,7 +185,7 @@ const Testimonail = () => {
                     ))}
                 </Slider>
             </div>
-            <button onClick={() => navigate("/AllTestimonail")} class="btn btn-success capitalize text-white">Veiw Testimonial page</button>
+            <button class="btn btn-success capitalize text-white">Veiw Testimonial page</button>
         </div>
     );
 };
