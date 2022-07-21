@@ -3,6 +3,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import Typed from 'react-typed';
 import "react-tabs/style/react-tabs.css";
 import "./BestEvent.css";
+import LasMonth from "./LasMonth/LasMonth";
+import LasYear from "./LasYear/LasYear";
+import ResentEvent from "./ResentEvent/ResentEvent";
 const BestEvent = () => {
   const year = new Date().getFullYear();
 
@@ -20,18 +23,18 @@ const BestEvent = () => {
       <div className='mt-10'>
         <Tabs className="border-none">
           <TabList className="border-none text-center">
-            <Tab>Last Week</Tab>
-            <Tab>Las Month</Tab>
-            <Tab>Las Year</Tab>
+            <Tab><p className='text-4xl font-serif'>Recent Event</p></Tab>
+            <Tab><p className='text-4xl font-serif'>Last Month</p> </Tab>
+            <Tab><p className='text-4xl font-serif'>Last Year</p></Tab>
           </TabList>
           <TabPanel>
-            <h2 className="text-4xl">Any content 1</h2>
+           <ResentEvent></ResentEvent>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 2</h2>
+          <LasMonth></LasMonth>
           </TabPanel>
           <TabPanel>
-            <h2>Any content 3</h2>
+            <LasYear></LasYear>
           </TabPanel>
         </Tabs>
       </div>
