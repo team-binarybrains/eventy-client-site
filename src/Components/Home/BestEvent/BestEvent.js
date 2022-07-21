@@ -11,7 +11,7 @@ const BestEvent = () => {
 
   return (
     <div className='mt-24'>
-      <h1 className="title_line text-center font-bold text-4xl uppercase ">
+      <h1 className="title_line text-center font-bold lg:text-4xl md:text-3xl text-[27px] uppercase ">
       {/* <Typed
                     className="text-4xl"
                     strings={["Abdullah"]}
@@ -19,7 +19,7 @@ const BestEvent = () => {
                     backSpeed={50}
                     loop
                   ></Typed> */}
-        Our best events {year}</h1>
+        Our best events </h1>
       <div className='mt-10'>
         <Tabs className="border-none grid justify-center">
 
