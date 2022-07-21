@@ -12,9 +12,9 @@ import Testimonail from "./Testimonial/Testimonial";
 const Home = () => {
   return (
     <div>
-      <BestEvent></BestEvent>
-      <MainCountDown></MainCountDown>
       <Carusel></Carusel>
+      <BestEvent></BestEvent>
+      <MainCountDown></MainCountDown> 
       <Gallery></Gallery>
       <OurServices></OurServices>
       <OurEmployer />
