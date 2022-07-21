@@ -141,7 +141,7 @@ const Footer = () => {
                 placeholder="Enter your email"
               />
               <svg
-                className="mr-4 fill-current text-gray-800 hover:text-gray-500"
+                className="w-10 fill-current text-gray-800 hover:text-gray-500"
                 width="16"
                 height="17"
                 viewBox="0 0 16 17"
