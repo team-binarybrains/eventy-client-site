@@ -23,7 +23,7 @@ const BestEvent = () => {
       <div className='mt-10'>
         <Tabs className="border-none grid justify-center">
 
-          <TabList className="flex text-[10px] lg:text-lg md:text-lg md:pl-2 lg:pl-32 mt-7">
+          <TabList className="flex text-[10px] lg:text-lg md:text-lg md:pl-2 lg:pl-[119px] mt-7">
             <Tab><h1 className='uppercase'>Recent Event</h1></Tab>
             <Tab><h1 className='uppercase'>Last Month</h1> </Tab>
             <Tab><h1 className='uppercase'>Last Year</h1></Tab>
