@@ -57,7 +57,7 @@ const Navebar = () => {
           text-xl hover:text-white"
         >
           <FontAwesomeIcon icon={faBlog} className=" mr-2" />
-          Cantact Us
+          Contact Us
         </Link>
       </div>
       {/* <div className="items-center hidden lg:flex">
@@ -150,7 +150,7 @@ const Navebar = () => {
           text-xl hover:text-white"
             >
               <FontAwesomeIcon icon={faDashboard} className=" mr-2 mt-6 " />
-              Cantact Us
+              Contact Us
             </Link>
             {/* <div className="flex">
             {user ? (
