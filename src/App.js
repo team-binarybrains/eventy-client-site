@@ -14,7 +14,7 @@ import Register from "./Components/Authentication/Register";
 
 function App() {
   return (
-    <div className="">
+    <div className="overflow-x-hidden">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

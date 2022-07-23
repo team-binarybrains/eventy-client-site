@@ -74,7 +74,8 @@ const Navebar = () => {
         <label
           for="login-modal"
           className="text-gray-700 font-bold
-          text-xl hover:text-gray-500 cursor-pointer">
+          text-xl hover:text-gray-500 cursor-pointer"
+        >
           Login
         </label>
 
@@ -108,7 +109,7 @@ const Navebar = () => {
       <FontAwesomeIcon
         icon={mobileOpen ? faTimes : faBars}
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="text-black text-3xl cursor-pointer lg:hidden"
+        className="text-black ml-[45vw] md:ml-[70vw] text-3xl cursor-pointer lg:hidden"
       />
       {mobileOpen && (
         <div className=" absolute bg-slate-600 top-full left-0 flex flex-col w-full pb-8 lg:hidden">
@@ -155,6 +156,13 @@ const Navebar = () => {
                 size="sm"
               />
 
+              <label
+                for="login-modal"
+                className="text-gray-700 font-bold
+                    text-xl hover:text-gray-500"
+              >
+                Login
+              </label>
               <Button
                 // onClick={handlelogin}
                 className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:text-green-400 cursor-pointer"
