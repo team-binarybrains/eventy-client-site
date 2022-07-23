@@ -74,8 +74,7 @@ const Navebar = () => {
         <label
           for="login-modal"
           className="text-gray-700 font-bold
-          text-xl hover:text-gray-500"
-        >
+          text-xl hover:text-gray-500 cursor-pointer">
           Login
         </label>
 
@@ -158,7 +157,7 @@ const Navebar = () => {
 
               <Button
                 // onClick={handlelogin}
-                className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:text-green-400 "
+                className=" text-gray-200 bg-transparent bottom-1 border-gray-200 mt-6 hover:text-green-400 cursor-pointer"
                 text="Login"
                 size="sm"
               />
