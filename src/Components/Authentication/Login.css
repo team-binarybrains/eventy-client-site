@@ -70,7 +70,7 @@ h6 span {
   color: #ffeba7;
   background-color: #323335;
   font-family: "unicons";
-  content: "→  ";
+  content: "↖";
   z-index: 20;
   top: -10px;
   left: -10px;
@@ -80,7 +80,7 @@ h6 span {
   transition: all 0.5s ease;
 }
 .checkbox:checked + label:before {
-  transform: translateX(44px) rotate(-180deg);
+  transform: translateX(44px) rotate(-270deg);
 }
 
 .card-3d-wrap {
