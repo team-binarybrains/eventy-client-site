@@ -1,0 +1,37 @@
+@keyframes text-color-gradient {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+  }
+  .gradient-color-text {
+    background-size: 400% 400%;
+    background-image: linear-gradient(to right, #BAD4B6, #ff8000, #fff200, #51ff00, #00d0ff, #9000ff,#ff008c,#7ae114);
+    -webkit-background-clip: text;
+    animation: text-color-gradient 15s ease infinite;
+    color: transparent;
+  
+  }
+
+
+  .title_line::before {
+    content: "";
+    background: rgb(74 222 128);
+    height: 5px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    transform: translateY(63px);
+}
+
+.title_line::after {
+    content: "";
+    background: rgb(74 222 128);
+    height: 10px;
+    width: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    display: block;
+    transform: translateY(15px);
+}

@@ -29,7 +29,7 @@ const Testimonail = () => {
                 }
             },
             {
-                breakpoint: 600,
+                breakpoint: 768,
                 settings: {
                     slidesToShow: 2,
                     slidesToScroll: 2,
@@ -37,7 +37,7 @@ const Testimonail = () => {
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 576,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -57,13 +57,10 @@ const Testimonail = () => {
 
     return (
         <div>
-            <h2 className="text-base md:text-xl font-medium leading-6 text-gray-800 text-center px-4 pt-10">
-                Testimonials
-            </h2>
-            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 text-gray-800 mt-0 sm:mt-3 text-center">
+            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 text-gray-800 pt-10 uppercase  text-center title_line">
                 What our client says
             </h1>
-            <div className="overflow-x-hidden overflow-y-hidden pt-12 pb-20">
+            <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
                 <Slider {...settings}>
                     {reviews?.slice(0, 6).map((review) => (
                         <div className="px-5">
@@ -187,6 +184,11 @@ const Testimonail = () => {
                         </div>
                     ))}
                 </Slider>
+            </div>
+            <div className="text-center mb-12">
+                <button className="btnc btn-gradient gradient2 text-center">
+                    See More
+                </button>
             </div>
         </div>
     );
