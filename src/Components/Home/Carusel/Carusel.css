@@ -28,7 +28,7 @@
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: fill;
 }
 
 @media only screen and (max-width: 644px) {
