@@ -1,12 +1,13 @@
 import React from "react";
 import "./Login.css";
 import Register from "./Register";
+import SocialLogin from "./SocialLogin";
 const Login = () => {
   return (
     <div className="bg-transparent">
       <input type="checkbox" id="login-modal" class="modal-toggle" />
       <div class="modal">
-        <div class="modal-box rounded-md overflow-y-hidden">
+        <div class="modal-box rounded-md">
           <div className="flex justify-end">
             <label
               for="login-modal"
@@ -85,6 +86,9 @@ const Login = () => {
           </div>
 
           {/* end */}
+
+          {/* social login */}
+          <SocialLogin></SocialLogin>
 
           {/* <div class="modal-action  flex justify-center">
             <button
