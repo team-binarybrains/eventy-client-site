@@ -7,7 +7,7 @@ function calculateTimeLeft() {
 
   if (difference > 0) {
     timeLeft = {
-      Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      Days: Math.floor(difference / (10000 * 60 * 60 * 24)),
       HR: Math.floor((difference / (1000 * 60 * 60)) % 24),
       MIN: Math.floor((difference / 1000 / 60) % 60),
       SEC: Math.floor((difference / 1000) % 60),
@@ -36,7 +36,7 @@ export default function CountDown() {
     }
 
     return (
-      <span className="text-green-400 text-xl md:text-3xl mb-3  font-bold shadow-lg shadow-stone-500 bg-white mx-1 mt-3 md:inline-block  rounded-lg p-5 md:p-8 justify-items-center">
+      <span className="text-green-400 text-xl lg:text-4xl md:text-xl mb-3  font-bold shadow-lg shadow-stone-500 bg-white mx-1 mt-3 md:inline-block  rounded-lg p-2 md:p-5 justify-items-center">
         {<span className="">{timeLeft[interval]}</span>}
         <span className=" pl-1">{interval}</span>{" "}
       </span>
@@ -48,7 +48,7 @@ export default function CountDown() {
       {CountDownComponents.length ? (                                                                              
         CountDownComponents
       ) : (
-        <span>Time's up!</span>
+        <span className="text-3xl uppercase"> next event is comming soon!</span>
       )}
     </div>
   );

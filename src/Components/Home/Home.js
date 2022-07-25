@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <Carusel></Carusel>
       <BestEvent></BestEvent>
-      <MainCountDown></MainCountDown> 
+      <MainCountDown></MainCountDown>
       <Gallery></Gallery>
       <OurServices></OurServices>
       <OurEmployer />

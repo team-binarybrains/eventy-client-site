@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -30,7 +31,7 @@ export default function Carusel() {
         className="mySwiper"
       >
         <SwiperSlide>
-          <img className="" src="https://i.ibb.co/jf3d28m/BANNER-1.jpg" />
+          <img className="" src="https://i.ibb.co/jf3d28m/BANNER-1.jpg" alt="" />
         </SwiperSlide>
         <SwiperSlide>
           <img className="" src="https://i.ibb.co/DkqHxR9/5907824.jpg" alt="" />
