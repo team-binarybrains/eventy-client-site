@@ -32,7 +32,7 @@ const Login = () => {
     <div className="bg-transparent">
       <input type="checkbox" id="login-modal" class="modal-toggle" />
       <div class="modal">
-        <div class="modal-box rounded-md overflow-y-hidden">
+        <div class="modal-box rounded-md">
           <div className="flex justify-end">
             <label
               for="login-modal"
@@ -153,20 +153,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-
-          {/* end */}
-
-          {/* social login */}
           <SocialLogin></SocialLogin>
-
-          {/* <div class="modal-action  flex justify-center">
-            <button
-              for="login-modal"
-              class="  btn bg-green-400 border-none w-36 "
-            >
-              Login
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
