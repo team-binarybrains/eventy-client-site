@@ -4,8 +4,7 @@ import { useForm } from "react-hook-form";
 import auth from "../../Firebase/Firebase.init";
 
 const Register = () => {
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
   const {
     register,
     formState: { errors },
