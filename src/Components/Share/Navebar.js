@@ -26,6 +26,7 @@ import { signOut } from "firebase/auth";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  
   const [user, loading, error] = useAuthState(auth);
 
   const handleSignOut = () => {
@@ -38,6 +39,8 @@ const Navebar = () => {
     navigate("/login");
   };
   const [loginModal, SetloginModal] = useState(null);
+
+
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
       <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
