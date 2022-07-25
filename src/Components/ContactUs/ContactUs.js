@@ -8,13 +8,13 @@ const ContactUs = () => {
             <div className="container mx-auto">
                 <div
                     data-aos="zoom-out-down"
-                    className="flex flex-col items-center text-center space-y-5 mb-16"
+                    className="space-y-5 mb-8 text-center"
                 >
-                    <h2 className="before:content-contact relative before:absolute before:opacity-40 before:-top-7 before:-left-40 before:hidden before:lg:block text-2xl">
+                    <h2 className="text-2xl">
                         Contact Us
                     </h2>
-                    <p className="text-base text-gray-600 text-paragraph max-w-[520px]">
-                        ...
+                    <p className="text-base text-gray-600 text-paragraph max-w-lg mx-auto">
+                        .....
                     </p>
                 </div>
                 <div className="flex flex-row justify-between sm:justify-center gap-x-10 gap-y-5 flex-wrap items-start">
