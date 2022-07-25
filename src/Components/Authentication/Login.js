@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className="bg-transparent">
       <input type="checkbox" id="login-modal" class="modal-toggle" />
-      <div class="modal">
+      <div class="modal overflow-x-hidden">
         <div class="modal-box rounded-md">
           <div className="flex justify-end">
             <label
@@ -130,11 +130,10 @@ const Login = () => {
                                   <i class="input-icon uil uil-lock-alt"></i>
                                 </div>
                                 <div className="flex justify-center">
-                                  <input
+                                  <button
                                     type="submit"
-                                    value="Log in"
                                     class=" at-selection type-2  mt-4"
-                                  />
+                                  >Log in</button>
                                 </div>
                               </form>
                               <p class="mb-0 mt-4 text-center">
