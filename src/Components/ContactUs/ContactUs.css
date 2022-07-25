@@ -33,6 +33,14 @@ h6 {
     -o-animation: bounce 2s infinite;
 }
 
+.bounce:hover{
+    animation: none;
+    -webkit-animation: none;
+    -moz-animation: none;
+    -o-animation: none;
+}
+
+
 @-webkit-keyframes bounce {
 
     0%,
