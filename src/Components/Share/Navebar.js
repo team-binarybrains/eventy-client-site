@@ -99,6 +99,7 @@ const Navebar = () => {
         <span className="px-4 caret-black text-black text-2xl">|</span>
         {user ? (
           <>
+          
             <div class="dropdown dropdown-end">
               <Avatar
                 tabindex="0"
