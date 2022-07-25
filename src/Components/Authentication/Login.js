@@ -2,7 +2,32 @@ import React from "react";
 import "./Login.css";
 import Register from "./Register";
 import SocialLogin from "./SocialLogin";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../Firebase/Firebase.init";
+import { useForm } from "react-hook-form";
+
 const Login = () => {
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    reset,
+  } = useForm();
+
+  const onSubmit = async (data) => {
+    signInWithEmailAndPassword(data.email, data.password);
+    console.log(data.email, data.password);
+    reset();
+  };
+
+  let signInError;
+  if (error) {
+    signInError = (
+      <p className="text-red-600 text-[18px] py-3">{error?.message}</p>
+    );
+  }
   return (
     <div className="bg-transparent">
       <input type="checkbox" id="login-modal" class="modal-toggle" />
@@ -40,34 +65,78 @@ const Login = () => {
                           <div class="center-wrap">
                             <div class="section space-y-5 text-center">
                               <h4 class="mb-4 pb-3 text-white">Log In</h4>
-                              <div class="form-group">
-                                <input
-                                  type="email"
-                                  name="logemail"
-                                  class="form-style "
-                                  placeholder="Your Email"
-                                  id="logemail"
-                                  autocomplete="off"
-                                />
-                                <i class="input-icon uil uil-at"></i>
-                              </div>
-                              <div class="form-group mt-2">
-                                <input
-                                  type="password"
-                                  name="logpass"
-                                  class="form-style"
-                                  placeholder="Your Password"
-                                  id="logpass"
-                                  autocomplete="off"
-                                />
-                                <i class="input-icon uil uil-lock-alt"></i>
-                              </div>
-                              <div className="flex justify-center">
-                                <button class=" at-selection type-2  mt-4">
-                                  Log in
-                                </button>
-                              </div>
-
+                              <form onSubmit={handleSubmit(onSubmit)}>
+                                <div class="form-group">
+                                  <input
+                                    type="email"
+                                    name="logemail"
+                                    class="form-style "
+                                    placeholder="Your Email"
+                                    id="logemail"
+                                    autocomplete="off"
+                                    {...register("email", {
+                                      required: {
+                                        value: true,
+                                        message: "Email is Required",
+                                      },
+                                    })}
+                                  />
+                                  <label className="label">
+                                    {errors.email?.type === "required" && (
+                                      <span className="label-text-alt text-red-500">
+                                        {errors.email.message}
+                                      </span>
+                                    )}
+                                    {errors.email?.type === "pattern" && (
+                                      <span className="label-text-alt text-red-500">
+                                        {errors.email.message}
+                                      </span>
+                                    )}
+                                  </label>
+                                  <i class="input-icon uil uil-at"></i>
+                                </div>
+                                <div class="form-group mt-2">
+                                  <input
+                                    type="password"
+                                    name="logpass"
+                                    class="form-style"
+                                    placeholder="Your Password"
+                                    id="logpass"
+                                    autocomplete="off"
+                                    {...register("password", {
+                                      required: {
+                                        value: true,
+                                        message: "Password is Required",
+                                      },
+                                      minLength: {
+                                        value: 6,
+                                        message:
+                                          "Password Must be 6 characters or longer",
+                                      },
+                                    })}
+                                  />
+                                  <label className="label">
+                                    {errors.password?.type === "required" && (
+                                      <span className="label-text-alt text-red-500">
+                                        {errors.password.message}
+                                      </span>
+                                    )}
+                                    {errors.password?.type === "minLength" && (
+                                      <span className="label-text-alt text-red-500">
+                                        {errors.password.message}
+                                      </span>
+                                    )}
+                                  </label>
+                                  <i class="input-icon uil uil-lock-alt"></i>
+                                </div>
+                                <div className="flex justify-center">
+                                  <input
+                                    type="submit"
+                                    value="Log in"
+                                    class=" at-selection type-2  mt-4"
+                                  />
+                                </div>
+                              </form>
                               <p class="mb-0 mt-4 text-center">
                                 <a href="#0" class="link">
                                   Forgot your password?
@@ -84,20 +153,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-
-          {/* end */}
-
-          {/* social login */}
           <SocialLogin></SocialLogin>
-
-          {/* <div class="modal-action  flex justify-center">
-            <button
-              for="login-modal"
-              class="  btn bg-green-400 border-none w-36 "
-            >
-              Login
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
