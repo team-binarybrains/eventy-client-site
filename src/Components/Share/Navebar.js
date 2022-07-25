@@ -17,8 +17,11 @@ import {
   faMobileAndroidAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import Login from "../Authentication/Login";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Firebase/Firebase.init";
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
 
   const navigate = useNavigate();
   const handlelogin = () => {
@@ -65,20 +68,6 @@ const Navebar = () => {
         </Link>
       </div>
       <div className="items-center hidden lg:flex">
-        {/* <button
-          className="text-gray-700 font-bold
-          text-xl hover:text-gray-500"
-        >
-          Login
-        </button> */}
-        <label
-          for="login-modal"
-          className="text-gray-700 font-bold
-          text-xl hover:text-gray-500 cursor-pointer"
-        >
-          Login
-        </label>
-
         <span className="px-4 caret-black text-black">|</span>
 
         <FontAwesomeIcon
@@ -91,20 +80,22 @@ const Navebar = () => {
           icon={faBell}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
         />
-
-        <Avatar
-          className="ml-3"
-          size="base"
-          // image={user?.image}
-          status="online"
-        />
-
-        <Avatar
-          className="ml-3"
-          size="base"
-          // image={user?.image}
-          status="busy"
-        />
+        {user ? (
+          <Avatar
+            className="ml-3"
+            size="base"
+            // image={user?.image}
+            status="online"
+          />
+        ) : (
+          <label
+            for="login-modal"
+            className="text-gray-700 font-bold
+          text-xl hover:text-gray-500 cursor-pointer"
+          >
+            Login
+          </label>
+        )}
       </div>
       <FontAwesomeIcon
         icon={mobileOpen ? faTimes : faBars}
