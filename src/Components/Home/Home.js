@@ -8,7 +8,7 @@ import Gallery from "./Gallery/Gallery";
 import OurServices from "./OurServices/OurServices";
 import Sponser from "./Sponser/Sponser";
 import Testimonail from "./Testimonial/Testimonial";
-import EventDetails from "../Home/OurServices/EventDetails/EventDetails"
+import EventDetails from "./OurServices/EventDetails/EventDetails";
 
 const Home = () => {
   return (

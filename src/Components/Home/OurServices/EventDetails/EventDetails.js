@@ -28,7 +28,7 @@ const EventDetails = () => {
               naturalSlideWidth={100}
               isIntrinsicHeight={true}
               totalSlides={8}
-              className="lg:w-1/2 flex justify-between items-strech bg-gray-50 px-2 pt-5 md:pt-5 md:px-3 lg:pt-10"
+              className="lg:w-1/2 flex justify-between items-strech bg-gray-50 px-2 pt-1 md:pt-2 md:px-3 lg:pt-3"
             >
               <div className="flex items-center">
                 <ButtonBack
@@ -67,6 +67,7 @@ const EventDetails = () => {
                           <p className="text-base pt-1"><b>Price :</b> {v.price}</p>
                           <p className="text-base pt-1"><b>Quantity :</b> {v.quantity} peoples</p>
                           <p className="w-full pt-1"><b>Details : </b> {v.description.slice(0, 190)}...</p>
+                          <button className="bg-gray-800 text-white mt-3 px-10 py-2">Select Venu</button>
                         </div>
                       </div>
                     </Slide>)}
@@ -107,12 +108,7 @@ const EventDetails = () => {
                 Order Form
               </p>
               <div className="flex flex-col gap-3 mt-3">
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Event name</span>
-                  </label>
-                  <input type="text" placeholder="Name" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
-                </div>
+                <p className="text-base">Event Name : Marrige Event</p>
                 <div class="form-control w-full max-w-xs">
                   <label class="label">
                     <span class="label-text">Event Price</span>
