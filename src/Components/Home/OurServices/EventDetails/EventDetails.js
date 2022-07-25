@@ -7,7 +7,7 @@ import {
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import "./EventDetailsl.css"
+import "./EventDetails.css"
 
 const EventDetails = () => {
 
