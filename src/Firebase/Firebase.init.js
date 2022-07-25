@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
-  authDomain: process.env.REACT_APP_authDomain,
-  projectId: process.env.REACT_APP_projectId,
-  storageBucket: process.env.REACT_APP_storageBucket,
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId,
+  apiKey: "AIzaSyC8HzDCsPd0-1dlaHpUCwjWSi6O2RmvZbo",
+  authDomain: "eventy-b.firebaseapp.com",
+  projectId: "eventy-b",
+  storageBucket: "venty-b.appspot.com",
+  messagingSenderId: "307175668732",
+  appId: "1:307175668732:web:ddde8d90f797e45a709079",
 };
 
 // Initialize Firebase
