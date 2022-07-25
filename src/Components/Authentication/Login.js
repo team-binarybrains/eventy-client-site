@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className="bg-transparent">
       <input type="checkbox" id="login-modal" class="modal-toggle" />
-      <div class="modal">
+      <div class="modal overflow-x-hidden">
         <div class="modal-box rounded-md">
           <div className="flex justify-end">
             <label
