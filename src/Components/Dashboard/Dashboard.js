@@ -9,7 +9,7 @@ const DashBoard = () => {
 
   return (
     <>
-      <div className="container mx-auto px-2 lg:px-0">
+      <div className="mx-auto px-2 lg:px-0">
         <div className="drawer drawer-mobile bg-slate-200">
           <input id="open-dashboard-menu" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content  flex flex-col">
