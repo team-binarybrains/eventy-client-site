@@ -84,20 +84,7 @@ const Login = () => {
               </div>
             </div>
           </div>
-
-          {/* end */}
-
-          {/* social login */}
           <SocialLogin></SocialLogin>
-
-          {/* <div class="modal-action  flex justify-center">
-            <button
-              for="login-modal"
-              class="  btn bg-green-400 border-none w-36 "
-            >
-              Login
-            </button>
-          </div> */}
         </div>
       </div>
     </div>
