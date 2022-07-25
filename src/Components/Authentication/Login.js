@@ -130,11 +130,10 @@ const Login = () => {
                                   <i class="input-icon uil uil-lock-alt"></i>
                                 </div>
                                 <div className="flex justify-center">
-                                  <input
+                                  <button
                                     type="submit"
-                                    value="Log in"
                                     class=" at-selection type-2  mt-4"
-                                  />
+                                  >Log in</button>
                                 </div>
                               </form>
                               <p class="mb-0 mt-4 text-center">
