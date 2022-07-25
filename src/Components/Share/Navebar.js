@@ -38,6 +38,9 @@ const Navebar = () => {
     navigate("/login");
   };
   const [loginModal, SetloginModal] = useState(null);
+
+  const [currentStep, setCurrentStep] = useState(3)
+
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
       <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
@@ -103,7 +106,7 @@ const Navebar = () => {
             <div class="dropdown dropdown-end">
               <Avatar
                 tabindex="0"
-                className="ml-3 dropdown dropdown-end"
+                className="ml-3"
                 size="base"
                 image={user?.image}
                 status="online"
@@ -114,6 +117,7 @@ const Navebar = () => {
               >
                 <button onClick={handleSignOut}>Sign out</button>
               </ul>
+              
             </div>
           </>
         ) : (
