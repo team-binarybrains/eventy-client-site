@@ -1,8 +1,24 @@
 import React from 'react';
 import { FiMail } from "react-icons/fi";
 import './ContactUs.css';
+import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const ContactUs = () => {
+
+    const submission = (e)=> {
+        e.preventDefault();
+
+        emailjs.sendForm('service_9azmkim', 'template_btw71qt', e.target, 'o9Z3tWsWjPM6vPC1M')
+            .then((result) => {
+                toast.success('Email send successfully',{theme:'dark'});
+            }, (error) => {
+                toast.error(error.text,{theme:'light'});
+            });
+
+        e.target.reset();
+    }
+
     return (
         <section className="py-10 px-5" id="contact">
             <div className="container mx-auto">
@@ -28,19 +44,18 @@ const ContactUs = () => {
                             <p className="text-accent font-normal">Email us at binarybrains777@gmail.com</p>
                         </div>
                     </div>
-                    <form className="space-y-8 w-full max-w-[780px]">
+                    <form onSubmit={submission} className="space-y-8 w-full max-w-[780px]">
                         <div className="flex gap-8">
-                            <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="text" placeholder="Your name" />
-                            <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="email" placeholder="Your email" />
+                            <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="text" placeholder="Your name" name='user_name'/>
+                            <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="email" placeholder="Your email" name='user_email'/>
                         </div>
-                        <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="text" placeholder="Subject" />
+                        <input className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50" type="text" placeholder="Subject" name='subject'/>
                         <textarea
                             className="border-2 border-gray-900/30 resize-none w-full outline-none p-6 rounded-md h-[200px] focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
-                            placeholder="Your message"
+                            placeholder="Your message" name='message'
                         ></textarea>
-                        <button className="py-4 px-7 font-medium text-white flex items-center justify-center rounded-md hover:bg-accent-hover transition-all h-[54px] bg-accent">
-                            Send message
-                        </button>
+                        <input type='submit' className="py-2 px-5 bg-green-500/70 hover:bg-green-500/90 font-medium text-white rounded-md transition-all cursor-pointer" value='submit'>
+                        </input>
                     </form>
                 </div>
             </div>
