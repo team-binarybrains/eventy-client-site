@@ -43,6 +43,8 @@ const Navebar = () => {
 
   const [currentStep, setCurrentStep] = useState(3)
 
+  const [show, setShow] = useState('hidden');
+
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
       <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
@@ -104,22 +106,24 @@ const Navebar = () => {
         <span className="px-4 caret-black text-black text-2xl">|</span>
         {user ? (
           <>
-          
             <div class="dropdown dropdown-end">
-              <Avatar
-                tabindex="0"
+              <div tabindex="0" class=" m-1" onClick={() => {
+                show === 'hidden' ? setShow('block') : setShow('hidden');
+              }}>
+                <Avatar
+                // tabindex="0"
                 className="ml-3"
                 size="base"
-                image={user?.image}
+                // image={user?.photoURL}
                 status="online"
               />
-              <ul
-                tabindex="0"
-                class="text-black dropdown-content menu p-2 shadow bg-base-100 rounded-sm mt-4 -mr-5 w-60"
-              >
-                <button onClick={handleSignOut}>Sign out</button>
+              </div>
+
+              <ul tabindex="0" class={`dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ${show} text-black text-center`}>
+
+              <button onClick={handleSignOut}>Sign out</button>
+
               </ul>
-              
             </div>
           </>
         ) : (

@@ -12,6 +12,7 @@
     "@testing-library/user-event": "^13.5.0",
     "daisyui": "^2.19.0",
     "firebase": "^9.9.0",
+    "pure-react-carousel": "^1.28.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-firebase-hooks": "^5.0.3",
