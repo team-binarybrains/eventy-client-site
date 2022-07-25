@@ -15,6 +15,9 @@ import {
   faBlog,
   faCartShopping,
   faMobileAndroidAlt,
+  faPhone,
+  faVoicemail,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import Login from "../Authentication/Login";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -66,11 +69,19 @@ const Navebar = () => {
         </Link>
 
         <Link
-          to="/contact-us"
+          to="/blogs"
           className="no-underline px-2 mr-3 text-gray-700 font-bold
           text-xl hover:text-gray-500"
         >
           <FontAwesomeIcon icon={faBlog} className=" mr-2" />
+          Blogs
+        </Link>
+        <Link
+          to="/contact-us"
+          className="no-underline px-2 mr-3 text-gray-700 font-bold
+          text-xl hover:text-gray-500"
+        >
+          <FontAwesomeIcon icon={faEnvelope} className=" mr-2" />
           Contact Us
         </Link>
       </div>
