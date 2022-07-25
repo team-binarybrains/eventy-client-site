@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.css";
 import Register from "./Register";
+import SocialLogin from "./SocialLogin";
 const Login = () => {
   return (
     <div className="bg-transparent">
@@ -85,6 +86,9 @@ const Login = () => {
           </div>
 
           {/* end */}
+
+          {/* social login */}
+          <SocialLogin></SocialLogin>
 
           {/* <div class="modal-action  flex justify-center">
             <button
