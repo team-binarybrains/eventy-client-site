@@ -111,7 +111,6 @@ const Navebar = () => {
                 show === 'hidden' ? setShow('block') : setShow('hidden');
               }}>
                 <Avatar
-                // tabindex="0"
                 className="ml-3"
                 size="base"
                 // image={user?.photoURL}
@@ -119,7 +118,7 @@ const Navebar = () => {
               />
               </div>
 
-              <ul tabindex="0" class={`dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 ${show} text-black text-center`}>
+              <ul tabindex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
 
               <button onClick={handleSignOut}>Sign out</button>
 
