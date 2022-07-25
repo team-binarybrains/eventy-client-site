@@ -4,21 +4,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./navebar.css";
 import Button from "./Button";
 import Avatar from "./Avatar";
-import {
-  faQuestionCircle,
-  faBell,
-  faBars,
-  faTimes,
-  faDashboard,
-  faHome,
-  faBox,
-  faBlog,
-  faCartShopping,
-  faMobileAndroidAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle, faBell, faBars, faTimes, faDashboard, faHome, faBox, faBlog, faCartShopping, faMobileAndroidAlt, } from "@fortawesome/free-solid-svg-icons";
 import Login from "../Authentication/Login";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../Firebase/Firebase.init";
+import { signOut } from "firebase/auth";
+
+
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [user, loading, error] = useAuthState(auth);
+
+  const handleSignOut = () => {
+    signOut(auth)
+    // localStorage.removeItem('accessToken')
+  }
 
   const navigate = useNavigate();
   const handlelogin = () => {
@@ -64,22 +64,7 @@ const Navebar = () => {
           Contact Us
         </Link>
       </div>
-      <div className="items-center hidden lg:flex">
-        {/* <button
-          className="text-gray-700 font-bold
-          text-xl hover:text-gray-500"
-        >
-          Login
-        </button> */}
-        <label
-          for="login-modal"
-          className="text-gray-700 font-bold
-          text-xl hover:text-gray-500 cursor-pointer"
-        >
-          Login
-        </label>
-
-        <span className="px-4 caret-black text-black">|</span>
+      <div className="items-center hidden lg:flex ">
 
         <FontAwesomeIcon
           // onClick={handleGotocart}
@@ -91,20 +76,29 @@ const Navebar = () => {
           icon={faBell}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
         />
-
-        <Avatar
-          className="ml-3"
-          size="base"
-          // image={user?.image}
-          status="online"
-        />
-
-        <Avatar
-          className="ml-3"
-          size="base"
-          // image={user?.image}
-          status="busy"
-        />
+        <span className="px-4 caret-black text-black text-2xl">|</span>
+        {user ? (<>
+          <div class="dropdown dropdown-end">
+            <Avatar
+              tabindex="0"
+              className="ml-3 dropdown dropdown-end"
+              size="base"
+              image={user?.image}
+              status="online" />
+            <ul tabindex="0" class="text-black dropdown-content menu p-2 shadow bg-base-100 rounded-sm mt-4 -mr-5 w-60">
+              <button onClick={handleSignOut}>Sign out</button>
+            </ul>
+          </div>
+        </>
+        ) : (
+          <label
+            for="login-modal"
+            className="text-gray-700 font-bold
+          text-xl hover:text-gray-500 cursor-pointer ml-4"
+          >
+            Login
+          </label>
+        )}
       </div>
       <FontAwesomeIcon
         icon={mobileOpen ? faTimes : faBars}

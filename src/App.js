@@ -11,6 +11,7 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/Authentication/Login";
 import Register from "./Components/Authentication/Register";
+import Overview from "./Components/Dashboard/Overview/Overview";
 
 function App() {
   return (
@@ -20,9 +21,18 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
-        <Route path="/dashboard" element={<Dashboard></Dashboard>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
+        {/* Dash board */}
+        <Route path="/dashboard" element={
+          <Dashboard />
+        } >
+          <Route index path='/dashboard' element={
+              <Overview></Overview>
+          }></Route>
+
+
+        </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
