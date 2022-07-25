@@ -4,9 +4,7 @@ import { useSignInWithFacebook, useSignInWithGoogle, useSignInWithTwitter } from
 import { FcGoogle } from 'react-icons/fc';
 import { BsFacebook } from 'react-icons/bs';
 import { useLocation, useNavigate } from 'react-router-dom';
-// import Loading from '../../../Shared/Loading/Loading';
-// import { toast, ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 // import axios from 'axios';
 import '../ContactUs/ContactUs.css'
 
