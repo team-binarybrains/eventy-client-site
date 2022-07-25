@@ -1,7 +1,7 @@
-.slider{
+.slider {
     width: 400px !important;
     height: 500px !important;
     position: relative;
     overflow: visible;
-    margin-left:10px;
+    margin-left: 10px;
 }

@@ -62,7 +62,7 @@ const EventDetails = () => {
                           alt="A black chair with wooden legs"
                           className=""
                         />
-                        <div className="border p-3">
+                        <div className="p-3">
                           <p className="text-lg"><b>Event Location :</b> {v.location}</p>
                           <p className="text-base pt-1"><b>Price :</b> {v.price}</p>
                           <p className="text-base pt-1"><b>Quantity :</b> {v.quantity} peoples</p>
