@@ -26,7 +26,9 @@ import { signOut } from "firebase/auth";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [user, loading, error] = useAuthState(auth);
+
+  const [user] = useAuthState(auth)
+  console.log(user);
 
   const handleSignOut = () => {
     signOut(auth);
