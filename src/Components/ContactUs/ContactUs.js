@@ -2,6 +2,7 @@ import React from 'react';
 import { FiMail } from "react-icons/fi";
 import './ContactUs.css';
 import emailjs from '@emailjs/browser';
+import { toast } from 'react-toastify';
 
 const ContactUs = () => {
 
@@ -10,9 +11,9 @@ const ContactUs = () => {
 
         emailjs.sendForm('service_9azmkim', 'template_btw71qt', e.target, 'o9Z3tWsWjPM6vPC1M')
             .then((result) => {
-                console.log(result.text);
+                toast.success('Email send successfully',{theme:'dark'});
             }, (error) => {
-                console.log(error.text);
+                toast.error(error.text,{theme:'light'});
             });
 
         e.target.reset();
