@@ -122,11 +122,10 @@ const Register = () => {
             </div>
             {signInError}
             <div className="flex justify-center">
-              <input
+              <button
                 type="submit"
                 class=" at-selection type-2  mt-4"
-                value="submit"
-              />
+              >Register</button>
             </div>
           </form>
         </div>
