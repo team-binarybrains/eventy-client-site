@@ -15,6 +15,7 @@ import Overview from "./Components/Dashboard/Overview/Overview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Blogs from "./Components/Blogs/Blogs";
+import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <BackTopBtn></BackTopBtn>
       <ToastContainer />
     </div>
   );
