@@ -4,7 +4,7 @@ import React from 'react';
 const Overview = () => {
    return (
       <div>
-         <h1>this profile page </h1>
+         <h1>this overview </h1>
       </div>
    );
 };
