@@ -54,7 +54,7 @@ const ContactUs = () => {
                             className="border-2 border-gray-900/30 resize-none w-full outline-none p-6 rounded-md h-[200px] focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
                             placeholder="Your message" name='message'
                         ></textarea>
-                        <input type='submit' className="py-2 px-5 bg-green-500/70 hover:bg-green-500/90 font-medium text-white rounded-md transition-all" value='submit'>
+                        <input type='submit' className="py-2 px-5 bg-green-500/70 hover:bg-green-500/90 font-medium text-white rounded-md transition-all cursor-pointer" value='submit'>
                         </input>
                     </form>
                 </div>
