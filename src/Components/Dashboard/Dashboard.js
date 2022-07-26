@@ -32,9 +32,10 @@ const DashBoard = () => {
             <label htmlFor="open-dashboard-menu" className="drawer-overlay"></label>
             <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 border-r-1 shadow-lg  text-zinc-800">
               {/* <!-- Sidebar content here --> */}
-              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard'}>Overview</CustomLink></li>
-              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/event'}>My Event</CustomLink></li>
-
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard'}>Booking</CustomLink></li>
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/my-booking'}>My Booking</CustomLink></li>
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/review'}>Review</CustomLink></li>
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/add-review'}>Add Review</CustomLink></li>
             </ul>
           </div>
         </div>
