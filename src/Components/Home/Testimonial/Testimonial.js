@@ -54,10 +54,23 @@ const Testimonail = () => {
             .then((data) => setReviews(data));
     }, []);
 
+    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>;
+
+    const showStars = (star)=> {
+        if(star>1){
+            return <>
+                {ratingStar}
+                {showStars(star-1)}
+            </>
+        }
+        else{
+            return ratingStar;
+        }
+    }
 
     return (
         <div>
-            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 text-gray-800 pt-20 uppercase  text-center title_line">
+            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
                 What our client says
             </h1>
             <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
@@ -97,6 +110,11 @@ const Testimonail = () => {
                                     <p className="xl:w-80 text-base leading-normal text-center mt-4">
                                         {review.description.slice(0, 100)}
                                     </p>
+                                    <div className="rating rating-sm">
+                                        {
+                                            showStars(review?.rating)
+                                        }
+                                    </div>
                                 </div>
                                 <div className="text-white group-hover:text-green-400 absolute bottom-0 -mb-6">
                                     <svg
@@ -176,9 +194,6 @@ const Testimonail = () => {
                                 <img src={review.image} alt="profile pictre" className="testimonial-image rounded-full" />
                                 <p className="text-base font-semibold leading-4 my-2 text-gray-800">
                                     {review.name}
-                                </p>
-                                <p className="text-base leading-4 text-center text-gray-600">
-                                    Developer
                                 </p>
                             </div>
                         </div>
