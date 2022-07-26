@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 import auth from '../../../Firebase/Firebase.init';
 import Loading from '../../Share/Loading';
 // import Swal from 'sweetalert2';
@@ -9,12 +10,20 @@ import './AddReview.css'
 const AddReview = () => {
    const [user, loading, error] = useAuthState(auth);
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+   const [stars,setStars] = useState(5);
+
+   const countStars = (e)=> {
+      setStars(e.target.value);
+   }
+
    const onSubmit = data => {
+      
+
       // total review data
-      const products = {
+      const review = {
          userName: user?.displayName,
          reviewDescription: data.reviewDescription,
-         rating: user?.rating,
+         rating: stars,
          image: user?.photoURL
       }
       // send services data to database
@@ -24,7 +33,7 @@ const AddReview = () => {
             'content-type': 'application/json',
             // authorization: `Bearer ${localStorage.getItem('token')}`
          },
-         body: JSON.stringify(products)
+         body: JSON.stringify(review)
       })
          .then(res => res.json())
          .then(inserted => {
@@ -34,12 +43,12 @@ const AddReview = () => {
                //    '',
                //    'success'
                // )
-               alert('review added successful')
+               toast.success('review added successful',{theme:'dark'})
                reset();
             }
          })
          // 
-      console.log(products);
+      console.log(review);
    }
    if (loading) {
       return <Loading />
@@ -54,20 +63,10 @@ const AddReview = () => {
                <h1 className="text-2xl text-slate-800 pt-4 " >Add Review</h1>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-               <div className="text-center pt-10 pb-8">
-                  <div class="rating rating-md">
-                     <input type="radio" name="rating"  class="rating-hidden cursor-default" disabled />
-                     <input type="radio" name="rating"  class="mask mask-star bg-yellow-500" />
-                     <input type="radio" name="rating"  class="mask mask-star bg-yellow-500" />
-                     <input type="radio" name="rating"  class="mask mask-star bg-yellow-500" />
-                     <input type="radio" name="rating"  class="mask mask-star bg-yellow-500" />
-                     <input type="radio" name="rating"  class="mask mask-star bg-yellow-500" />
-                  </div>
-               </div>
-               <div className="p-4">
-                  <div className='pb-4'>
+               <div className="mx-4 pt-8">
+                  <div className=''>
                      <label htmlFor="reviewDescription" className="text-slate-900 ">Review Description</label>
-                     <textarea id="reviewDescription" name="servicesDescription" type="text" className="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-slate-900/60 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Please provide the review here"
+                     <textarea id="reviewDescription" name="servicesDescription" type="text" className="mt-2 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-slate-900/60 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm max-h-40 min-h-[10rem] overflow-y-scroll" placeholder="Please provide the review here"
                         cols="30" rows="5"
                         {...register("reviewDescription", {
                            required: {
@@ -87,6 +86,18 @@ const AddReview = () => {
                   </div>
                   
                </div>
+
+               <div className="text-center flex items-center m-4 gap-x-3 mb-8">
+                  <h3 className='text-slate-900'>Ratings :</h3>
+                  <div onClick={countStars} className="rating">
+                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='1' />
+                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='2' />
+                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='3' />
+                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='4' />
+                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='5' />
+                  </div>
+               </div>
+
                <button className='uppercase bg-green-400 w-full py-2 text-white hover:bg-green-500 rounded-b transition-all'>submit</button>
             </form>
          </div>

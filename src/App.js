@@ -14,12 +14,13 @@ import Register from "./Components/Authentication/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Blogs from "./Components/Blogs/Blogs";
-import RequireAuth from "./Components/RequireAuth/RequireAuth"
-import Booking from "./Components/Dashboard/Booking/Booking"
-import MyBooking from "./Components/Dashboard/MyBooking/MyBooking"
-import Review from "./Components/Dashboard/Review/Review"
-import AddReview from "./Components/Dashboard/AddReview/AddReview"
-import BackTopBtn from "./Components/BackTopBtn/BackTopBtn"
+import Booking from "./Components/Dashboard/Booking/Booking";
+import MyBooking from "./Components/Dashboard/MyBooking/MyBooking";
+import Review from "./Components/Dashboard/Review/Review";
+import AddReview from "./Components/Dashboard/AddReview/AddReview";
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
+import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
+import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 
 function App() {
   return (
@@ -64,6 +65,14 @@ function App() {
             element={
               <RequireAuth>
                 <AddReview></AddReview>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/total-user"
+            element={
+              <RequireAuth>
+                <TotalUser></TotalUser>
               </RequireAuth>
             }
           ></Route>

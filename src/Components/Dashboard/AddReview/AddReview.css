@@ -28,8 +28,8 @@
 @media only screen and (min-width:1024px) {
    #services-content {
       width: 450px;
-      top: 55%;
-      left: 65%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       -webkit-transform: translate(-50%, -50%);
       -moz-transform: translate(-50%, -50%);
