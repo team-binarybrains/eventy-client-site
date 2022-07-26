@@ -20,6 +20,7 @@ import Review from "./Components/Dashboard/Review/Review";
 import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
+import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 
 function App() {
   return (
@@ -64,6 +65,14 @@ function App() {
             element={
               <RequireAuth>
                 <AddReview></AddReview>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/total-user"
+            element={
+              <RequireAuth>
+                <TotalUser></TotalUser>
               </RequireAuth>
             }
           ></Route>
