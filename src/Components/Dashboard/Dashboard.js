@@ -40,7 +40,7 @@ const DashBoard = () => {
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/my-booking'}>My Booking</CustomLink></li>
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/review'}>Review</CustomLink></li>
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/add-review'}>Add Review</CustomLink></li>
-              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/total-user'}>Total User</CustomLink></li>
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/total-user'}>All Users</CustomLink></li>
             </ul>
           </div>
         </div>
