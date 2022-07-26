@@ -1,9 +1,12 @@
 import React from 'react';
 import {Outlet } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faChevronRight
+} from "@fortawesome/free-solid-svg-icons";
 import './Dashboard.css'
-// for hero icon 
-// import { ChevronRightIcon } from '@heroicons/react/solid'
+
 
 const DashBoard = () => {
 
@@ -15,8 +18,9 @@ const DashBoard = () => {
           <div className="drawer-content  flex flex-col">
             {/* <!-- Page content here --> */}
             {/* <ChevronRightIcon /> */}
-            <div className="text-left mt-4 ">
-              <label htmlFor="open-dashboard-menu" className="w-10 rounded h-10 inline-block cursor-pointer bg-blue-500 hover:bg-blue-800 text-white lg:hidden"><span>x</span> </label>
+            {/* fa-solid fa-square-arrow-right */}
+            <div className="text-left mt-4 z-10">
+              <label htmlFor="open-dashboard-menu" className="rounded inline-block cursor-pointer text-white lg:hidden z-50" ><span className='text-2xl bg-green-400 hover:bg-green-500 px-4 py-2 rounded '><FontAwesomeIcon  icon={faChevronRight} /></span> </label>
             </div>
             <div className="text-center ">
               <div id="header" className='py-6'>
@@ -36,6 +40,7 @@ const DashBoard = () => {
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/my-booking'}>My Booking</CustomLink></li>
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/review'}>Review</CustomLink></li>
               <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/add-review'}>Add Review</CustomLink></li>
+              <li className='py-1 text-lg hover:bg-slate-300 rounded'><CustomLink className='' to={'/dashboard/total-user'}>Total User</CustomLink></li>
             </ul>
           </div>
         </div>
