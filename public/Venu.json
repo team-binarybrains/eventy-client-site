@@ -1,58 +1,58 @@
 [
     {
-        "image": "./venus/1.jpg",
-        "location":"kishorejonj, Bangladesh",
-        "price":"$700",
+        "image": "https://i.ibb.co/Zmnbvmj/1.jpg",
+        "location":"Uttara, Dhaka",
+        "price":550,
         "quantity":"500",
-        "description": "The good reviews are true! I went in for a keratin appointment and I’m very happy with the process and results. My stylist was Alexis and she was great to work with"
+        "description": "Perfect space for a romantic woodsy ceremony. Featuring ancient oak trees, flowers and lush green open space"
     },
     {
-        "image": "./venus/2.jpg",
+        "image": "https://i.ibb.co/YjhWnNK/2.jpg",
         "quantity":"600",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "I took my daughter in for a trim and she and I were so pleased with the care and treatment as we were walk ins. Our stylist did an incredible job and my daughter was so happy and took multiple selfies to send her friends."
+        "price":1400,
+        "location":"Demra, Dhaka",
+        "description": "Large rustic Main and West Terrace seats 520 guests - include the EastTerrace for a total of 600 guests. Surrounded by acres of lush open space, a park, majestic oaks and flowers."
     },
     {
-        "image": "./venus/3.jpg",
+        "image": "https://i.ibb.co/9Y9wXVB/3.jpg",
         "quantity":"650",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "Great service awesome people and I love Gloria’s work she’s amazing and expert woman she give me today beautiful haircut and color and I love it."
+        "price":1500,
+        "location":"Joypara, Dhaka",
+        "description": "Beautiful room with historic reclaimed beams, vaulted ceilings, with a chandelier and majestic fireplace. This magnificent centrally-located room can seat up to 600 guests (if side booths are used)."
     },
     {
-        "image": "./venus/4.jpg",
+        "image": "https://i.ibb.co/kBzbkMM/4.jpg",
         "quantity":"720",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "Walking in, the place is a super cute vibe. Moreover, Sébastien is a god-send when it comes down to catering shy folks.Super thoughtful and will help you find your style, if you come in with a general idea."
+        "price":550,
+        "location":"Jatrabari, Dhaka",
+        "description": "Elegant room features high ceilings, a chandelier and majestic fireplace. A lovely choice for an intimate Event, seating less than 500 guests."
     },
     {
-        "image": "./venus/5.jpg",
+        "image": "https://i.ibb.co/NjfbV0d/5.jpg",
         "quantity":"730",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "I had a great balayage experience with Sebastian, he took his time, listened, and executed! I have burnette hair and i was scared of a brassy look, he toned my hair just right, and guided me and my virgin hair! Very happy and reasonably priced. Excellent service and front desk staff."
+        "price":600,
+        "location":"Gulshan, Dhaka",
+        "description": "Perfect for a cocktail party, corporate event, private dinner or just to dance the night away , or up to 700 guests. Featuring a built-in wood dance floor,audiovisual equipment and a wonderful view of the Terrace and adjacent park & open space"
     },
     {
-        "image": "./venus/6.jpg",
+        "image": "https://i.ibb.co/zmFwFby/6.jpg",
         "quantity":"800",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "Marisol was the lady who worked on my hair and she did an amazing job! She was very patient and was understanding of what I wanted. Genesis was very welcoming and gave great service. I would definitely recommend this place to anyone!"
+        "price":750,
+        "location":"Dhanmondi, Dhaka",
+        "description": "Seats up to 1000 guests. The Lounge overlooks acres of open space.This space is equipped with it’s own private bar,private patio area, private restrooms, and a bridal suite (extra charge for use of bridal suite)"
     },
     {
-        "image": "./venus/7.jpg",
+        "image": "https://i.ibb.co/FxHH1BG/7.jpg",
         "quantity":"1500",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "Marisol was the lady who worked on my hair and she did an amazing job! She was very patient and was understanding of what I wanted. Genesis was very welcoming and gave great service. I would definitely recommend this place to anyone!"
+        "price":800,
+        "location":"Dhamrai, Dhaka",
+        "description": "Large rustic Main and West Terrace seats 1600 guests - include the East Terrace for a total of 1600 guests. Surrounded by acres of lush open space, a park, majestic oaks and flowers"
     },
     {
-        "image": "./venus/8.jpg",
+        "image": "https://i.ibb.co/8YbJk24/8.jpg",
         "quantity":"1200",
-        "price":"$700",
-        "location":"kishorejonj, Bangladesh",
-        "description": "Marisol was the lady who worked on my hair and she did an amazing job! She was very patient and was understanding of what I wanted. Genesis was very welcoming and gave great service. I would definitely recommend this place to anyone!"
+        "price":1000,
+        "location":"Dhaka Cantt, Dhaka",
+        "description": "Elegant room features high ceilings, a chandelier andmajestic fireplace. A lovely choice for an intimate Event, seating less than 1500 guests."
     }
 ]
