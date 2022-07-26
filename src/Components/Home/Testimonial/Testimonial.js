@@ -58,12 +58,12 @@ const Testimonail = () => {
     const showStars = (star)=> {
         if(star>1){
             return <>
-                <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked readOnly/>
+                <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>
                 {showStars(star-1)}
             </>
         }
         else{
-            return <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked readOnly/>
+            return <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>
         }
     }
 
