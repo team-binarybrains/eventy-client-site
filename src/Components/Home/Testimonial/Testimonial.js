@@ -55,6 +55,18 @@ const Testimonail = () => {
     }, []);
 
 
+    const showStars = (star)=> {
+        if(star>1){
+            return <>
+                <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked readOnly/>
+                {showStars(star-1)}
+            </>
+        }
+        else{
+            return <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked readOnly/>
+        }
+    }
+
     return (
         <div>
             <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
@@ -97,6 +109,11 @@ const Testimonail = () => {
                                     <p className="xl:w-80 text-base leading-normal text-center mt-4">
                                         {review.description.slice(0, 100)}
                                     </p>
+                                    <div className="rating rating-sm">
+                                        {
+                                            showStars(review?.rating)
+                                        }
+                                    </div>
                                 </div>
                                 <div className="text-white group-hover:text-green-400 absolute bottom-0 -mb-6">
                                     <svg
@@ -176,9 +193,6 @@ const Testimonail = () => {
                                 <img src={review.image} alt="profile pictre" className="testimonial-image rounded-full" />
                                 <p className="text-base font-semibold leading-4 my-2 text-gray-800">
                                     {review.name}
-                                </p>
-                                <p className="text-base leading-4 text-center text-gray-600">
-                                    Developer
                                 </p>
                             </div>
                         </div>
