@@ -14,15 +14,12 @@ import Register from "./Components/Authentication/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Blogs from "./Components/Blogs/Blogs";
-<<<<<<< HEAD
 import Booking from "./Components/Dashboard/Booking/Booking";
 import MyBooking from "./Components/Dashboard/MyBooking/MyBooking";
 import Review from "./Components/Dashboard/Review/Review";
 import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
-=======
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
->>>>>>> 64536148262b238a3364f6b8cab0c7d62d12dd72
 
 function App() {
   return (
