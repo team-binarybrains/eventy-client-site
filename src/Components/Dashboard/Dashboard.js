@@ -15,7 +15,7 @@ const DashBoard = () => {
       <div className="mx-auto px-2 lg:px-0">
         <div className="drawer drawer-mobile bg-slate-200">
           <input id="open-dashboard-menu" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content  flex flex-col">
+          <div className="drawer-content  flex flex-col" id='drawer'>
             {/* <!-- Page content here --> */}
             {/* <ChevronRightIcon /> */}
             {/* fa-solid fa-square-arrow-right */}
