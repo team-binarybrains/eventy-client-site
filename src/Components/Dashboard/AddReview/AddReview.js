@@ -22,12 +22,12 @@ const AddReview = () => {
       // total review data
       const review = {
          userName: user?.displayName,
-         reviewDescription: data.reviewDescription,
+         description: data.reviewDescription,
          rating: stars,
          image: user?.photoURL
       }
       // send services data to database
-      fetch('', {
+      fetch('http://localhost:5000/post-review', {
          method: 'POST',
          headers: {
             'content-type': 'application/json',

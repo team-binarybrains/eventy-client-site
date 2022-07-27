@@ -1,43 +1,37 @@
 [
     {
-        "image": "https://i.ibb.co/ZVV9ZZy/male1.pngimage.png",
-        "name": "Winson Herry",
-        "profession": "CEO, Techno-Ltd",
+        "image": "",
+        "userName": "Winson Herry",
         "description": "The good reviews are true! I went in for a keratin appointment and I’m very happy with the process and results. My stylist was Alexis and she was great to work with",
         "rating": 5
     },
     {
         "image": "https://i.ibb.co/zFcRdS5/Profile-Round-Sander-Lorier.jpg",
-        "name": "Alex Uran",
-        "profession": "CEO, Industry-Ltd",
+        "userName": "Alex Uran",
         "description": "I took my daughter in for a trim and she and I were so pleased with the care and treatment as we were walk ins. Our stylist did an incredible job and my daughter was so happy and took multiple selfies to send her friends.",
         "rating": 5
     },
     {
-        "image": "https://i.ibb.co/n7M36C6/d6kofdhg5a7jg64p8ytb.jpg",
-        "name": "Shafik Islam",
-        "profession": "CEO, Creative-It",
+        "image": "",
+        "userName": "Shafik Islam",
         "description": "Great service awesome people and I love Gloria’s work she’s amazing and expert woman she give me today beautiful haircut and color and I love it.",
         "rating": 4
     },
     {
         "image": "https://i.ibb.co/FYFFy3v/photo-1567784177951-6fa58317e16b.jpg",
-        "name": "Rafik Islam",
-        "profession": "CEO, It-carrer",
+        "userName": "Rafik Islam",
         "description": "Walking in, the place is a super cute vibe. Moreover, Sébastien is a god-send when it comes down to catering shy folks.Super thoughtful and will help you find your style, if you come in with a general idea.",
         "rating": 4
     },
     {
         "image": "https://i.ibb.co/vPDvKSQ/cropped-Profile-Picture-Round-Color.png",
-        "name":"Rony Islam",
-        "profession": "CEO, Takecare",
+        "userName":"Rony Islam",
         "description": "I had a great balayage experience with Sebastian, he took his time, listened, and executed! I have burnette hair and i was scared of a brassy look, he toned my hair just right, and guided me and my virgin hair! Very happy and reasonably priced. Excellent service and front desk staff.",
         "rating": 5
     },
     {
-        "image": "https://i.ibb.co/3TxmxKj/people1.png",
-        "name": "Taufik Islam",
-        "profession": "CEO, Manpol",
+        "image": "",
+        "userName": "Taufik Islam",
         "description": "Marisol was the lady who worked on my hair and she did an amazing job! She was very patient and was understanding of what I wanted. Genesis was very welcoming and gave great service. I would definitely recommend this place to anyone!",
         "rating": 3
     }
