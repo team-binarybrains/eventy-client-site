@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
+    "chart.js": "^3.8.2",
     "daisyui": "^2.19.0",
     "firebase": "^9.9.0",
     "pure-react-carousel": "^1.28.1",
