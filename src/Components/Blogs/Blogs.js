@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import ReadMoreAndLess from "react-read-more-less";
 const Blogs = () => {
   return (
     <div className="flex justify-center items-center">
@@ -21,16 +21,31 @@ const Blogs = () => {
                     12 April 2021
                   </p>
                   <div className="absolute bottom-0 left-0 p-6">
-                    <h2 className="text-xl font-semibold 5 text-white">
+                    <h2 className="text-xl font-semibold  text-white">
                       The Decorated Ways
                     </h2>
                     <p className="text-base leading-4 text-white mt-2">
                       Dive into minimalism
                     </p>
-                    <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                      <p className="pr-2 text-sm font-medium leading-none">
+                    <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                      {/* <p className="pr-2 text-sm font-medium leading-none">
                         Read More
-                      </p>
+                      </p> */}
+                      <ReadMoreAndLess
+                        className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                        charLimit={40}
+                        readMoreText="Read more"
+                        readLessText="Read less"
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Fuga amet quibusdam earum officia eligendi repudiandae?
+                        Eligendi eveniet labore, quia sapiente laborum, dolore
+                        quisquam modi placeat,
+                      </ReadMoreAndLess>
+
                       <svg
                         className="fill-stroke"
                         width="16"
@@ -51,7 +66,7 @@ const Blogs = () => {
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/DYxtCJq/img-1.png"
+                  src="https://i.ibb.co/D45D2Bc/0070f41c0e61c5fc8729aac0ad721b40.jpg"
                   className="w-full"
                   alt="chair"
                 />
@@ -68,10 +83,25 @@ const Blogs = () => {
                     <p className="text-base leading-4 text-white mt-2">
                       Dive into minimalism
                     </p>
-                    <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                      <p className="pr-2 text-sm font-medium leading-none">
+                    <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                      {/* <p className="pr-2 text-sm font-medium leading-none">
                         Read More
-                      </p>
+                      </p> */}
+                      <ReadMoreAndLess
+                        className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                        charLimit={40}
+                        readMoreText="Read more"
+                        readLessText="Read less"
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Fuga amet quibusdam earum officia eligendi repudiandae?
+                        Eligendi eveniet labore, quia sapiente laborum, dolore
+                        quisquam modi placeat,
+                      </ReadMoreAndLess>
+
                       <svg
                         className="fill-stroke"
                         width="16"
@@ -92,7 +122,7 @@ const Blogs = () => {
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/3C5HvxC/img-2.png"
+                  src="https://i.ibb.co/sVqPxM3/SL-010721-39730-51.jpg"
                   className="w-full"
                   alt="wall design"
                 />
@@ -110,10 +140,25 @@ const Blogs = () => {
                   <p className="text-base leading-4 text-white mt-2">
                     Dive into minimalism
                   </p>
-                  <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                    <p className="pr-2 text-sm font-medium leading-none">
+                  <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                    {/* <p className="pr-2 text-sm font-medium leading-none">
                       Read More
-                    </p>
+                    </p> */}
+                    <ReadMoreAndLess
+                      className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                      charLimit={40}
+                      readMoreText="Read more"
+                      readLessText="Read less"
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga amet quibusdam earum officia eligendi repudiandae?
+                      Eligendi eveniet labore, quia sapiente laborum, dolore
+                      quisquam modi placeat,
+                    </ReadMoreAndLess>
+
                     <svg
                       className="fill-stroke"
                       width="16"
@@ -134,9 +179,9 @@ const Blogs = () => {
                 </div>
               </div>
               <img
-                src="https://i.ibb.co/Ms4qyXp/img-3.png"
+                src="https://i.ibb.co/ZcKGxjG/3593747.jpg"
                 alt="sitting place"
-                className="w-full mt-8 md:mt-6 hidden sm:block"
+                className="w-full h-[500px] mt-8 md:mt-6 hidden sm:block"
               />
               <img
                 className="w-full mt-4 sm:hidden"
@@ -158,10 +203,25 @@ const Blogs = () => {
                   <p className="text-base leading-4 text-white mt-2">
                     Dive into minimalism
                   </p>
-                  <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                    <p className="pr-2 text-sm font-medium leading-none">
+                  <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                    {/* <p className="pr-2 text-sm font-medium leading-none">
                       Read More
-                    </p>
+                    </p> */}
+                    <ReadMoreAndLess
+                      className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                      charLimit={40}
+                      readMoreText="Read more"
+                      readLessText="Read less"
+                    >
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga amet quibusdam earum officia eligendi repudiandae?
+                      Eligendi eveniet labore, quia sapiente laborum, dolore
+                      quisquam modi placeat,
+                    </ReadMoreAndLess>
+
                     <svg
                       className="fill-stroke"
                       width="16"
@@ -182,13 +242,13 @@ const Blogs = () => {
                 </div>
               </div>
               <img
-                src="https://i.ibb.co/6Wfjf2w/img-4.png"
+                src="https://i.ibb.co/MnNjHJy/6128160.jpg"
                 alt="sitting place"
-                className="w-full sm:block hidden"
+                className="w-full h-[500px] sm:block hidden"
               />
               <img
                 className="w-full sm:hidden"
-                src="https://i.ibb.co/dpXStJk/Rectangle-29.png"
+                src="https://i.ibb.co/FgM9kBC/15894692-1117517468374749-5249705379307037174-n.jpg"
                 alt="sitting place"
               />
             </div>
@@ -205,10 +265,26 @@ const Blogs = () => {
                     <p className="text-base leading-4 text-white mt-2">
                       Dive into minimalism
                     </p>
-                    <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                      <p className="pr-2 text-sm font-medium leading-none">
-                        Read More
+                    <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                      {/* <p className="pr-2 text-sm font-medium leading-none">
+                        Read
                       </p>
+                       */}
+                      <ReadMoreAndLess
+                        className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                        charLimit={40}
+                        readMoreText="Read more"
+                        readLessText="Read less"
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Fuga amet quibusdam earum officia eligendi repudiandae?
+                        Eligendi eveniet labore, quia sapiente laborum, dolore
+                        quisquam modi placeat,
+                      </ReadMoreAndLess>
+
                       <svg
                         className="fill-stroke"
                         width="16"
@@ -229,8 +305,8 @@ const Blogs = () => {
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/3yvZBpm/img-5.png"
-                  className="w-full"
+                  src="https://i.ibb.co/p2yfpZg/invitation-card-01.jpg"
+                  className=" w-full h-[284px] "
                   alt="chair"
                 />
               </div>
@@ -246,11 +322,29 @@ const Blogs = () => {
                     <p className="text-base leading-4 text-white mt-2">
                       Dive into minimalism
                     </p>
-                    <div className="flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                    <div className="flex items-center mt-4 cursor-pointer text-white  ">
+                      {/*                      
                       <p className="pr-2 text-sm font-medium leading-none">
                         Read More
-                      </p>
-                      <svg
+                      </p>  */}
+ <ReadMoreAndLess
+                        className="pr-2 text-sm font-medium  read-more-content
+                    
+                         bottom text-[#bad4b6]
+                        "
+                        charLimit={40}
+                       
+                        readMoreText="Read more"
+                        readLessText="Read less"
+                      >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Fuga amet quibusdam earum officia eligendi repudiandae?
+                        Eligendi eveniet labore, quia sapiente laborum, dolore
+                        quisquam modi placeat, 
+                      </ReadMoreAndLess>
+
+
+                     <svg
                         className="fill-stroke"
                         width="16"
                         height="16"
@@ -265,13 +359,13 @@ const Blogs = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
+                      </svg> 
                     </div>
                   </div>
                 </div>
                 <img
-                  src="https://i.ibb.co/gDdnJb5/img-6.png"
-                  className="w-full"
+                  src="https://i.ibb.co/C7jM3jB/25659423-175199439745803-2051114183330359789-n-15-59975.jpg"
+                  className=" w-full h-[284px]"
                   alt="wall design"
                 />
               </div>
