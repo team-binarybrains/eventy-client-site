@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
+import useToken from "../Hooks/useToken";
 import SocialLogin from "./SocialLogin";
 
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+  const [token] = useToken(user);
+
   const {
     register,
     formState: { errors },
@@ -19,6 +23,12 @@ const Register = () => {
     console.log(data.name, data.email, data.password);
     reset();
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, user]);
 
   let signInError;
   if (error) {
@@ -122,10 +132,9 @@ const Register = () => {
             </div>
             {signInError}
             <div className="flex justify-center">
-              <button
-                type="submit"
-                class=" at-selection type-2  mt-4"
-              >Register</button>
+              <button type="submit" class=" at-selection type-2  mt-4">
+                Register
+              </button>
             </div>
           </form>
         </div>

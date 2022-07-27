@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Login.css";
 import Register from "./Register";
 import SocialLogin from "./SocialLogin";
@@ -9,10 +9,13 @@ import {
 import auth from "../../Firebase/Firebase.init";
 import { useForm } from "react-hook-form";
 import { TiTick } from "react-icons/ti";
+import useToken from "../Hooks/useToken";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [signInWithEmailAndPassword, emaiUuser, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
   const {
     register,
     formState: { errors },
@@ -28,14 +31,19 @@ const Login = () => {
     console.log(data.email, data.password);
     reset();
   };
-
+  const [token] = useToken(user);
   let signInError;
   if (error) {
     signInError = (
       <p className="text-red-600 text-[18px] py-3">{error?.message}</p>
     );
   }
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, user]);
   return (
     <div>
       <div className="bg-transparent">
