@@ -110,12 +110,7 @@ const Navebar = () => {
               <div tabindex="0" class=" m-1" onClick={() => {
                 show === 'hidden' ? setShow('block') : setShow('hidden');
               }}>
-                <Avatar
-                className="ml-3"
-                size="base"
-                // image={user?.photoURL}
-                status="online"
-              />
+                <Avatar className="ml-3" size="base" image={user?.photoURL} status="online"/>
               </div>
 
               <ul tabindex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
