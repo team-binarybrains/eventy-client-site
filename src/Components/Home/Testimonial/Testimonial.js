@@ -69,7 +69,6 @@ const Testimonail = () => {
         }
     }
 
-    console.log(reviews);
     return (
         <div>
             <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
