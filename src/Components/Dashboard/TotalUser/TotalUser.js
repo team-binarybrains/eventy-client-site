@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios'
+import DisplayTotalUsers from './DisplayTotalUsers';
 
 
 const TotalUser = () => {
 
-   const [allUser, setAllUser] = useState([])
-   console.log(allUser);
+   const [allUsers, setAllUsers] = useState([])
+   console.log(allUsers);
 
    useEffect(() => {
 
       axios.get('http://localhost:5000/allusers')
          .then(res => {
             const { data } = res
-            setAllUser(data);
+            setAllUsers(data);
          })
 
    }, [])
@@ -23,7 +24,12 @@ const TotalUser = () => {
 
    return (
       <div>
-         <h1>Total user</h1>
+         {
+            allUsers.map(allUser => <DisplayTotalUsers
+            key={allUser._id}
+            allUser={allUser}
+            />)
+         }
       </div>
    );
 };
