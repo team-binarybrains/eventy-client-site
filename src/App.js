@@ -11,10 +11,16 @@ import AboutUs from "./Components/AboutUs/AboutUs";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Login from "./Components/Authentication/Login";
 import Register from "./Components/Authentication/Register";
-import Overview from "./Components/Dashboard/Overview/Overview";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Blogs from "./Components/Blogs/Blogs";
+import Booking from "./Components/Dashboard/Booking/Booking";
+import MyBooking from "./Components/Dashboard/MyBooking/MyBooking";
+import Review from "./Components/Dashboard/Review/Review";
+import AddReview from "./Components/Dashboard/AddReview/AddReview";
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
+import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
+import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 
 function App() {
   return (
@@ -32,12 +38,49 @@ function App() {
           <Route
             index
             path="/dashboard"
-            element={<Overview></Overview>}
+            element={
+              <RequireAuth>
+                <Booking></Booking>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/my-booking"
+            element={
+              <RequireAuth>
+                <MyBooking></MyBooking>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/review"
+            element={
+              <RequireAuth>
+                <Review></Review>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/add-review"
+            element={
+              <RequireAuth>
+                <AddReview></AddReview>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/total-user"
+            element={
+              <RequireAuth>
+                <TotalUser></TotalUser>
+              </RequireAuth>
+            }
           ></Route>
         </Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+      <BackTopBtn></BackTopBtn>
       <ToastContainer />
     </div>
   );
