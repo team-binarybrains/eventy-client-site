@@ -2,22 +2,63 @@ import React, { useEffect, useState } from "react";
 import {
   CarouselProvider,
   Slider,
-  Slide,
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
 import "./EventDetails.css"
+import { useParams } from "react-router-dom";
+import SingleVenu from "./SingleVenu";
+
 
 const EventDetails = () => {
 
+  const { id } = useParams();
   const [venu, setVenu] = useState([]);
+  const [service, setService] = useState({});
+  const [selectVenu, setSelectVenu] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [talha, setTalha] = useState(0);
 
   useEffect(() => {
-    fetch("Venu.json")
+    fetch(`http://localhost:5000/allservices/${id}`)
+      .then(res => res.json())
+      .then(data => setService(data))
+  }, [id, selectVenu])
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allvenues")
       .then(res => res.json())
       .then(data => setVenu(data))
-  }, [])
+  }, [id])
+
+  useEffect(() => {
+    fetch("http://localhost:5000/selectVenu")
+      .then(res => res.json())
+      .then(data => {
+        setSelectVenu(data);
+      })
+  }, [talha])
+
+
+  const handleSelectVenu = (VenuDetails) => {
+
+    fetch('http://localhost:5000/venuInsert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(VenuDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setTotalPrice(VenuDetails.price + service.eventPrice);
+          setTalha(talha + 1);
+        }
+      })
+  }
+
 
   return (
     <div>
@@ -55,22 +96,7 @@ const EventDetails = () => {
               <div className="slider">
                 <div className="slide-ana">
                   <Slider className="w-full h-screen">
-                    {venu.map((v, i) => <Slide index={i}>
-                      <div>
-                        <img
-                          src={v.image}
-                          alt="A black chair with wooden legs"
-                          className=""
-                        />
-                        <div className="p-3">
-                          <p className="text-lg"><b>Event Location :</b> {v.location}</p>
-                          <p className="text-base pt-1"><b>Price :</b> {v.price}</p>
-                          <p className="text-base pt-1"><b>Quantity :</b> {v.quantity} peoples</p>
-                          <p className="w-full pt-1"><b>Details : </b> {v.description.slice(0, 190)}...</p>
-                          <button className="bg-gray-800 text-white mt-3 px-10 py-2">Select Venu</button>
-                        </div>
-                      </div>
-                    </Slide>)}
+                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu} selectVenu={selectVenu}></SingleVenu>)}
                   </Slider>
                 </div>
               </div>
@@ -99,16 +125,25 @@ const EventDetails = () => {
             </CarouselProvider>
             <div className="lg:w-1/2 mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0">
               <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">
-                Marrige Event
+                {service.eventName}
               </h1>
+              <p className="text-lg font-bold leading-normal text-gray-800 mt-2">
+                Price : {service.eventPrice}
+              </p>
               <p className="text-base leading-normal text-gray-600 mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nostrum nobis ut, beatae in amet repellendus molestiae error voluptatem delectus fugiat aliquid repellat magnam cumque?
+                {service.eventDetails}
+              </p>
+              <p className="text-base font-bold leading-normal text-green-400 mt-2">
+                Selcet Venu : {selectVenu.map(sv => <span>{sv.location},  Price : {sv.price}</span>)}
+              </p>
+              <button>Cancle</button>
+              <p className="text-lg font-bold leading-normal text-green-400 mt-2">
+                Total Price : {totalPrice}
               </p>
               <p className="text-3xl font-medium text-gray-800 mt-3 md:mt-5">
                 Order Form
               </p>
               <div className="flex flex-col gap-3 mt-3">
-                <p className="text-base">Event Name : Marrige Event</p>
                 <div class="form-control w-full max-w-xs">
                   <label class="label">
                     <span class="label-text">Event Price</span>
