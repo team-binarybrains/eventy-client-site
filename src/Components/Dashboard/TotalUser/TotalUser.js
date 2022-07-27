@@ -39,26 +39,24 @@ const TotalUser = () => {
 
 
    return (
-      <div>
-         <div className='overflow-x-auto w-full'>
+      <div className=''>
+         <div className='overflow-x-auto w-full flex justify-center'>
             <table class="table">
-            <thead>
-                <tr>
-                  
-                    <th>User</th>
-                    <th> Delete User</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
+               <thead>
+                  <tr>
+                     <th>User</th>
+                     <th> Delete User</th>
+                  </tr>
+               </thead>
 
-            <tbody>
-               {
-                  allUsers.map(allUser => <DisplayTotalUsers
-                     key={allUser._id}
-                     allUser={allUser}
-                     handleDeleteUser={handleDeleteUser}
-                  />)
-               }
+               <tbody>
+                  {
+                     allUsers.map(allUser => <DisplayTotalUsers
+                        key={allUser._id}
+                        allUser={allUser}
+                        handleDeleteUser={handleDeleteUser}
+                     />)
+                  }
                </tbody>
             </table>
          </div>

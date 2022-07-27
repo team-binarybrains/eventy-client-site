@@ -14,13 +14,13 @@ function DisplayTotalUsers({ allUser, handleDeleteUser }) {
                         <div class="flex items-center space-x-3">
 
                             <div>
-                                <div class="text-sm opacity-50">{email}</div>
+                                <div class="text-lg">{email}</div>
                             </div>
                         </div>
                     </td>
 
                     <th>
-                        <button onClick={() => handleDeleteUser(_id)} class="btn btn-xs">Delete</button>
+                        <button onClick={() => handleDeleteUser(_id)} class="bg-red-400 text-white px-4 py-1 rounded-sm">Delete</button>
                     </th>
                 </tr>
     )
