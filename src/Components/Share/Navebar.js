@@ -27,7 +27,7 @@ import { signOut } from "firebase/auth";
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const [user] = useAuthState(auth)
+  const [user] = useAuthState(auth);
   console.log(user);
 
   const handleSignOut = () => {
@@ -41,13 +41,15 @@ const Navebar = () => {
   };
   const [loginModal, SetloginModal] = useState(null);
 
-  const [currentStep, setCurrentStep] = useState(3)
+  const [currentStep, setCurrentStep] = useState(3);
 
-  const [show, setShow] = useState('hidden');
+  const [show, setShow] = useState("hidden");
 
   return (
     <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
-      <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
+      <Link to="/">
+        <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
+      </Link>
 
       <div className="flex-1 justify-center items-center hidden lg:flex">
         <Link
@@ -107,22 +109,33 @@ const Navebar = () => {
         {user ? (
           <>
             <div class="dropdown dropdown-end">
-              <div tabindex="0" class=" m-1" onClick={() => {
-                show === 'hidden' ? setShow('block') : setShow('hidden');
-              }}>
+              <div
+                tabindex="0"
+                class=" m-1"
+                onClick={() => {
+                  show === "hidden" ? setShow("block") : setShow("hidden");
+                }}
+              >
                 {/* <Avatar className="ml-3" size="base" image={user?.photoURL} status="online"/> */}
 
-                {user ?
-                  <img src={user?.photoURL} className="w-10 h-10 rounded-full" alt="" />
-                  :
-                  <p className="text-2xl text-black rounded-full px-3 py-1 bg-white " >{user?.displayName.slice(0, 1)}</p>
-                }
+                {user ? (
+                  <img
+                    src={user?.photoURL}
+                    className="w-10 h-10 rounded-full"
+                    alt=""
+                  />
+                ) : (
+                  <p className="text-2xl text-black rounded-full px-3 py-1 bg-white ">
+                    {user?.displayName.slice(0, 1)}
+                  </p>
+                )}
               </div>
 
-              <ul tabindex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
-
+              <ul
+                tabindex="0"
+                class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}
+              >
                 <button onClick={handleSignOut}>Sign out</button>
-
               </ul>
             </div>
           </>
@@ -139,34 +152,45 @@ const Navebar = () => {
 
       <div className="ml-[13vh] md:ml-[40vh] lg:hidden">
         <div class="dropdown dropdown-end">
-          <div tabindex="0" class=" m-1" onClick={() => {
-            show === 'hidden' ? setShow('block') : setShow('hidden');
-          }}>
+          <div
+            tabindex="0"
+            class=" m-1"
+            onClick={() => {
+              show === "hidden" ? setShow("block") : setShow("hidden");
+            }}
+          >
             {/* <Avatar className="ml-3" size="base" image={user?.photoURL} status="online"/> */}
 
-            {user ?
-              <img src={user?.photoURL} className="md:w-10 md:h-10 w-8 h-8 rounded-full" alt="" />
-              :
-              <p className="text-2xl text-black rounded-full px-3 py-1 bg-white " >{user?.displayName.slice(0, 1)}</p>
-            }
+            {user ? (
+              <img
+                src={user?.photoURL}
+                className="md:w-10 md:h-10 w-8 h-8 rounded-full"
+                alt=""
+              />
+            ) : (
+              <p className="text-2xl text-black rounded-full px-3 py-1 bg-white ">
+                {user?.displayName.slice(0, 1)}
+              </p>
+            )}
           </div>
 
-          <ul tabindex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
-
+          <ul
+            tabindex="0"
+            class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}
+          >
             <button onClick={handleSignOut}>Sign out</button>
-
           </ul>
         </div>
       </div>
-     
-     <div className="">
-     <FontAwesomeIcon
-        icon={mobileOpen ? faTimes : faBars}
-        onClick={() => setMobileOpen(!mobileOpen)}
-        className="text-black ml-[2vh] text-3xl cursor-pointer lg:hidden"
-      />
-     </div>
-      
+
+      <div className="">
+        <FontAwesomeIcon
+          icon={mobileOpen ? faTimes : faBars}
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="text-black ml-[2vh] text-3xl cursor-pointer lg:hidden"
+        />
+      </div>
+
       {mobileOpen && (
         <div className=" absolute bg-slate-600 top-full left-0 flex flex-col w-full pb-8 lg:hidden">
           <div className="flex-1 flex  flex-col items-center text-xl">
