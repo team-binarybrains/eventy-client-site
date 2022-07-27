@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react'
 import axios from 'axios'
 
@@ -6,13 +6,19 @@ import axios from 'axios'
 const TotalUser = () => {
 
    const [allUser, setAllUser] = useState([])
+   console.log(allUser);
 
-   axios.get('http://localhost:5000/allusers')
-   .then(res => {
-      const { data } = res
-      setAllUser(data);
-      console.log(data);
-   })
+   useEffect(() => {
+
+      axios.get('http://localhost:5000/allusers')
+         .then(res => {
+            const { data } = res
+            setAllUser(data);
+         })
+
+   }, [])
+
+
 
 
    return (
