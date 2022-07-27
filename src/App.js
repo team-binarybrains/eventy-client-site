@@ -18,9 +18,14 @@ import Booking from "./Components/Dashboard/Booking/Booking";
 import MyBooking from "./Components/Dashboard/MyBooking/MyBooking";
 import Review from "./Components/Dashboard/Review/Review";
 import AddReview from "./Components/Dashboard/AddReview/AddReview";
+<<<<<<< HEAD
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
+=======
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
+import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
+>>>>>>> f52679cc0f15f03ba7ea0d59cae2dc00d7867c72
 
 function App() {
   return (
