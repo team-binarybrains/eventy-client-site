@@ -39,7 +39,7 @@ const AddReview = () => {
          .then(res => res.json())
          .then(data => {
             if(data?.insert){
-               toast.success('Thanks for giving the review',{theme:'dark'});
+               toast.success('Thanks for giving the review',{theme:'colored'});
             }
             else{
                toast.error('You already added your review',{theme:'colored'})
