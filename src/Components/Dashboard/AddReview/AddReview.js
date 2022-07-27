@@ -21,6 +21,7 @@ const AddReview = () => {
 
       // total review data
       const review = {
+         email: auth?.currentUser?.email,
          userName: user?.displayName,
          description: data.reviewDescription,
          rating: stars,
@@ -36,19 +37,15 @@ const AddReview = () => {
          body: JSON.stringify(review)
       })
          .then(res => res.json())
-         .then(inserted => {
-            if (inserted.acknowledged) {
-               // Swal.fire(
-               //    'services add success',
-               //    '',
-               //    'success'
-               // )
-               toast.success('review added successful',{theme:'dark'})
-               reset();
+         .then(data => {
+            if(data?.insert){
+               toast.success('Thanks for giving the review',{theme:'dark'});
             }
+            else{
+               toast.error('You already added your review',{theme:'colored'})
+            }
+            reset();
          })
-         // 
-      console.log(review);
    }
    if (loading) {
       return <Loading />
@@ -60,7 +57,7 @@ const AddReview = () => {
       <div>
          <div id="services-content" className='rounded-none bg-white'>
             <div className="text-center">
-               <h1 className="text-2xl text-slate-800 pt-4 " >Add Review</h1>
+               <h1 className="text-2xl text-slate-800 pt-4" >Add Review</h1>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className="mx-4 pt-8">
