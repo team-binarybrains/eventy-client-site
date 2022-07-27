@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DisplayTotalUsers({allUser, handleDeleteUser}) {
+function DisplayTotalUsers({ allUser, handleDeleteUser }) {
 
     const { _id, email } = allUser
 
@@ -8,12 +8,21 @@ function DisplayTotalUsers({allUser, handleDeleteUser}) {
 
 
     return (
-        <div>
-            <p>{_id}</p>
-            <p>{email}</p>
+            
+                <tr>
+                    <td>
+                        <div class="flex items-center space-x-3">
 
-            <button onClick={()=> handleDeleteUser(_id)}>Delete user</button>
-        </div>
+                            <div>
+                                <div class="text-sm opacity-50">{email}</div>
+                            </div>
+                        </div>
+                    </td>
+
+                    <th>
+                        <button onClick={() => handleDeleteUser(_id)} class="btn btn-xs">Delete</button>
+                    </th>
+                </tr>
     )
 }
 
