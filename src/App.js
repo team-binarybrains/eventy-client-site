@@ -18,7 +18,7 @@ import Booking from "./Components/Dashboard/Booking/Booking";
 import MyBooking from "./Components/Dashboard/MyBooking/MyBooking";
 import Review from "./Components/Dashboard/Review/Review";
 import AddReview from "./Components/Dashboard/AddReview/AddReview";
-import RequireAuth from "./Components/RequireAuth/RequireAuth";
+import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 
