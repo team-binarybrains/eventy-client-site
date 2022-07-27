@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DisplayTotalUsers({allUser}) {
+function DisplayTotalUsers({allUser, handleDeleteUser}) {
 
     const { _id, email } = allUser
 
@@ -12,7 +12,7 @@ function DisplayTotalUsers({allUser}) {
             <p>{_id}</p>
             <p>{email}</p>
 
-            <button>Delete user</button>
+            <button onClick={()=> handleDeleteUser(_id)}>Delete user</button>
         </div>
     )
 }
