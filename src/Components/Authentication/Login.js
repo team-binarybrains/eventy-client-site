@@ -153,11 +153,7 @@ const Login = () => {
                     </div>
                   </div>
                 </div>
-
-
               </div>
-
-
               <SocialLogin></SocialLogin>
             </div>
           </div>
