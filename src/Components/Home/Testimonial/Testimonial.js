@@ -69,7 +69,6 @@ const Testimonail = () => {
         }
     }
 
-    console.log(reviews);
     return (
         <div>
             <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
@@ -77,7 +76,7 @@ const Testimonail = () => {
             </h1>
             <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
                 <Slider {...settings}>
-                    {reviews?.slice(0, 6).map((review) => (
+                    {[...reviews]?.reverse().slice(0, 6).map((review) => (
                         <div className="px-5">
                             <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10">
                                 <div className="text-gray-600 group-hover:text-white flex flex-col items-center">
