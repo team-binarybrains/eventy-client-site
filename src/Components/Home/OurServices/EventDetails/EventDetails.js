@@ -109,13 +109,13 @@ const EventDetails = () => {
       const date = bookingDate;
       const phone = phoneNumber;
       const address = bookingPersonAddress;
-      const eventName = service.eventName;
-      const eventPrice = service.eventPrice;
+      const eventName = service?.eventName;
+      const eventPrice = service?.eventPrice;
       const venuLocation = selectVenu[0].location;
       const venuPrice = selectVenu[0].venuPrice;
       const venuPeopleAttend = selectVenu[0].quantity;
       const totalPrice = selectVenu[0].totalPrice;
-      const eventImage = service.image;
+      const eventImage = service?.image;
       const venuImage = selectVenu[0].image;
       const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice,eventImage,venuImage }
       setBookingDetails(bookingInfo);
@@ -198,7 +198,7 @@ const EventDetails = () => {
               <div className="slider">
                 <div className="slide-ana">
                   <Slider className="w-full h-screen">
-                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu}></SingleVenu>)}
+                    {venu.map((v, i) => <SingleVenu key={v._id} VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu}></SingleVenu>)}
                   </Slider>
                 </div>
               </div>
