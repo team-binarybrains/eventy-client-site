@@ -62,7 +62,7 @@ const AddReview = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className="mx-4 pt-8">
                   <div className=''>
-                     <label htmlFor="reviewDescription" className="text-slate-900 ">Review Description</label>
+                     <label htmlhtmlFor="reviewDescription" className="text-slate-900 ">Review Description</label>
                      <textarea id="reviewDescription" name="servicesDescription" type="text" className="mt-2 appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-slate-900/60 text-gray-900 rounded-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm max-h-40 min-h-[10rem] overflow-y-scroll" placeholder="Please provide the review here"
                         cols="30" rows="5"
                         {...register("reviewDescription", {
@@ -87,11 +87,11 @@ const AddReview = () => {
                <div className="text-center flex items-center m-4 gap-x-3 mb-8">
                   <h3 className='text-slate-900'>Ratings :</h3>
                   <div onClick={countStars} className="rating">
-                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='1' />
-                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='2' />
-                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='3' />
-                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='4' />
-                     <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" value='5' />
+                     <input type="radio" name="rating" className="mask mask-star-2 bg-yellow-500" value='1' />
+                     <input type="radio" name="rating" className="mask mask-star-2 bg-yellow-500" value='2' />
+                     <input type="radio" name="rating" className="mask mask-star-2 bg-yellow-500" value='3' />
+                     <input type="radio" name="rating" className="mask mask-star-2 bg-yellow-500" value='4' />
+                     <input type="radio" name="rating" className="mask mask-star-2 bg-yellow-500" value='5' />
                   </div>
                </div>
 

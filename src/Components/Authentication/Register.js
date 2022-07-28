@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
+import useToken from "../Hooks/useToken";
 import SocialLogin from "./SocialLogin";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -9,6 +11,9 @@ import Loading from "../Share/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [token] = useToken(user);
+
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
   const {
@@ -27,6 +32,12 @@ const Register = () => {
 
     reset();
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, user]);
   console.log(user);
 
   if (loading || updating) {
@@ -39,19 +50,19 @@ const Register = () => {
     );
   }
   return (
-    <div class="card-back ">
-      <div class="center-wrap">
-        <div class="section text-center space-y-5">
-          <h4 class="mb-4 pb-3 text-white">Sign Up</h4>
+    <div className="card-back ">
+      <div className="center-wrap">
+        <div className="section text-center space-y-5">
+          <h4 className="mb-4 pb-3 text-white">Sign Up</h4>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="form-group ">
+            <div className="form-group ">
               <input
                 type="text"
                 // name="logname"
-                class="form-style"
+                className="form-style"
                 placeholder="Your Full Name"
                 id="logname"
-                // autocomplete="on"
+                // autoComplete="on"
                 {...register("name", {
                   required: {
                     value: true,
@@ -67,16 +78,16 @@ const Register = () => {
                 )}
               </label>
 
-              <i class="input-icon uil uil-user"></i>
+              <i className="input-icon uil uil-user"></i>
             </div>
-            <div class="form-group mt-2">
+            <div className="form-group mt-2">
               <input
                 type="email"
                 // name="logemail"
-                class="form-style"
+                className="form-style"
                 placeholder="Your Email"
                 id="logemail"
-                autocomplete="off"
+                autoComplete="off"
                 {...register("email", {
                   required: {
                     value: true,
@@ -97,16 +108,16 @@ const Register = () => {
                   </span>
                 )}
               </label>
-              <i class="input-icon uil uil-at"></i>
+              <i className="input-icon uil uil-at"></i>
             </div>
-            <div class="form-group mt-2">
+            <div className="form-group mt-2">
               <input
                 type="password"
                 // name="logpass"
-                class="form-style"
+                className="form-style"
                 placeholder="Your Password"
                 id="logpass"
-                autocomplete="off"
+                autoComplete="off"
                 {...register("password", {
                   required: {
                     value: true,
@@ -130,7 +141,7 @@ const Register = () => {
                   </span>
                 )}
               </label>
-              <i class="input-icon uil uil-lock-alt"></i>
+              <i className="input-icon uil uil-lock-alt"></i>
             </div>
             {signInError}
             <div className="flex justify-center">

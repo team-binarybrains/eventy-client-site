@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import logo from "./logo.svg";
+
 import "./App.css";
 import Navebar from "./Components/Share/Navebar";
 import Footer from "./Components/Share/Footer";
@@ -21,6 +21,9 @@ import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
+import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
+import Profile from "./Components/Dashboard/Profile/Profile";
+import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+
+        <Route path="/eventDetail/:id" element={<EventDetails></EventDetails>}></Route>
+
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         {/* Dash board */}
@@ -76,7 +82,24 @@ function App() {
               </RequireAuth>
             }
           ></Route>
+
+
+
         </Route>
+        {/* for manage profile */}
+        <Route
+          path="/manage-profile"
+          element={
+            <Profile></Profile>
+          }
+        ></Route>
+        {/* for update user */}
+        <Route
+          path="/update-profile"
+          element={
+            <UpdateUser></UpdateUser>
+          }
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

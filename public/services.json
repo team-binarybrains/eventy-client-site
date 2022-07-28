@@ -1,0 +1,38 @@
+[
+    {
+      "image": "https://i.ibb.co/fSkLx14/marrige.webp",
+      "eventName": "Marriage Ceremony",
+      "eventDetails": "Most wedding ceremonies involve an exchange of marriage vows by a couple, presentation of a gift offering, rings, symbolic item, flowers, money, dress, and a public proclamation of marriage by an authority figure or celebrant.",
+      "eventPrice": 5000
+    },
+    {
+      "image": "https://i.ibb.co/vqZ2qKw/fashion.webp",
+      "eventName": "Fassion Show",
+      "eventDetails": "A fashion show  is an event put on by a fashion designer to showcase their upcoming line of clothing and/or accessories during Fashion Week. Fashion shows debut every season, particularly the Spring/Summer and Fall/Winter seasons.",
+      "eventPrice": 6500
+    },
+    {
+      "image": "https://i.ibb.co/t2pj2VC/iftar.jpg",
+      "eventName": "Iftar Party",
+      "eventDetails": "During the day Muslims are encouraged to engage in charity and devote extra time and attention to spiritual activities, such as praying and reading the Quran. The fast is broken with an evening meal, called iftar, once the sun goes down.",
+      "eventPrice": 7000
+    },
+    {
+      "image": "https://i.ibb.co/XVhFNcB/crits.jpg",
+      "eventName": "Eid event",
+      "eventDetails": "Eid al-Fitr marks the end of Ramadan, the Muslim holy month of fasting, and is celebrated during the first three days of Shawwāl, the 10th month of the Islamic calendar (though the Muslim use of a lunar calendar means that it may fall in any season of the year).",
+      "eventPrice": 9000
+    },
+    {
+      "image": "https://i.ibb.co/2v1Sg87/Birthday.jpg",
+      "eventName": "Birthday Party",
+      "eventDetails": "Celebrating a person's birthday is important because it shows the person you're thinking of them and in turn, they feel valued by you. Wishing someone a happy birthday is an easy way to create a positive experience between you and others. It also helps you build your reputation.",
+      "eventPrice": 10000
+    },
+    {
+      "image": "https://i.ibb.co/M7L8JXM/eid.jpg",
+      "eventName": "Christmas Party",
+      "eventDetails": "Christmas is celebrated to remember the birth of Jesus Christ. Christians believe that Jesus Christ is the Son of God. The name Christmas comes from the mass of Christ. A mass service is where Christians remember that Jesus died for us and then comes back to life.",
+      "eventPrice": 9500
+    }
+  ]
