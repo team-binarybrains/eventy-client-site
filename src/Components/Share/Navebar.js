@@ -24,15 +24,13 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.init";
 import { signOut } from "firebase/auth";
 import Profile from "../Dashboard/Profile/Profile";
-import { AiOutlineUser } from 'react-icons/ai';
-
-
+import { AiOutlineUser } from "react-icons/ai";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [user] = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     signOut(auth);
@@ -113,9 +111,13 @@ const Navebar = () => {
         {user ? (
           <>
             <div className="dropdown dropdown-end">
-              <div tabIndex="0" className=" m-1" onClick={() => {
-                show === 'hidden' ? setShow('block') : setShow('hidden');
-              }}>
+              <div
+                tabIndex="0"
+                className=" m-1"
+                onClick={() => {
+                  show === "hidden" ? setShow("block") : setShow("hidden");
+                }}
+              >
                 {user.photoURL && (
                   <img
                     src={user?.photoURL}
@@ -124,13 +126,17 @@ const Navebar = () => {
                   />
                 )}
 
-                {(user.photoURL === null) &&
-                  <span className=""><AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" /></span>
-                }
+                {user.photoURL === null && (
+                  <span className="">
+                    <AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" />
+                  </span>
+                )}
               </div>
 
-              <ul tabIndex="0" class={`dropdown-content menu p-2 shadow border-2 border-2 bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}>
-
+              <ul
+                tabIndex="0"
+                class={`dropdown-content menu p-2 shadow border-2 border-2 bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}
+              >
                 <div className="grid gap-y-3 pt-7 pb-3">
                   <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                     <div className="flex justify-center -mt-10">
@@ -142,20 +148,31 @@ const Navebar = () => {
                         />
                       )}
 
-                      {(user.photoURL === null) &&
-                        <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" /></span>
-                      }
+                      {user.photoURL === null && (
+                        <span className="">
+                          <AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" />
+                        </span>
+                      )}
                     </div>
                     <div>
                       <p className="pt-3 ">{user.email}</p>
                     </div>
                   </div>
 
-                  <Link to={`/manage-profile`} className='uppercase hover:text-gray-600'>Manage profile</Link>
+                  <Link
+                    to={`/manage-profile`}
+                    className="uppercase hover:text-gray-600"
+                  >
+                    Manage profile
+                  </Link>
 
-                  <button onClick={handleSignOut} className='uppercase hover:text-gray-600'>Sign out</button>
+                  <button
+                    onClick={handleSignOut}
+                    className="uppercase hover:text-gray-600"
+                  >
+                    Sign out
+                  </button>
                 </div>
-
               </ul>
             </div>
           </>
@@ -180,45 +197,60 @@ const Navebar = () => {
             }}
           >
             {user.photoURL && (
-                  <img
-                    src={user?.photoURL}
-                    className="w-10 h-10 rounded-full"
-                    alt=""
-                  />
-                )}
+              <img
+                src={user?.photoURL}
+                className="w-10 h-10 rounded-full"
+                alt=""
+              />
+            )}
 
-                {(user.photoURL === null) &&
-                  <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" /></span>
-                }
+            {user.photoURL === null && (
+              <span className="">
+                <AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" />
+              </span>
+            )}
           </div>
 
-          <ul tabIndex="0" class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-5 -mr-14`}>
-
+          <ul
+            tabIndex="0"
+            class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-5 -mr-14`}
+          >
             <div className="grid gap-y-3 pt-7 pb-3">
               <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                 <div className="flex justify-center -mt-10">
-                {user.photoURL && (
-                        <img
-                          src={user?.photoURL}
-                          className="w-10 h-10 rounded-full"
-                          alt=""
-                        />
-                      )}
+                  {user.photoURL && (
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 rounded-full"
+                      alt=""
+                    />
+                  )}
 
-                      {(user.photoURL === null) &&
-                        <span className=""><AiOutlineUser className="text-black bg-white text-5xl rounded-full" /></span>
-                      }
+                  {user.photoURL === null && (
+                    <span className="">
+                      <AiOutlineUser className="text-black bg-white text-5xl rounded-full" />
+                    </span>
+                  )}
                 </div>
                 <div>
                   <p className="pt-3 ">{user.email}</p>
                 </div>
               </div>
 
-              <Link to={`/manage-profile`} className='uppercase hover:text-gray-600'>Manage profile</Link>
+              <Link
+                to={`/manage-profile`}
+                className="uppercase hover:text-gray-600"
+              >
+                Manage profile
+              </Link>
 
-              <button onClick={handleSignOut} className='uppercase hover:text-gray-600'>Sign out</button>
+              <button
+                onClick={handleSignOut}
+                className="uppercase hover:text-gray-600"
+              >
+                Sign out
+              </button>
             </div>
-
           </ul>
         </div>
       </div>

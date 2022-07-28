@@ -12,8 +12,6 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-
-
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
   const {
@@ -33,19 +31,19 @@ const Register = () => {
       email: data.email,
     };
     fetch(`http://localhost:5000/user/${data.email}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
         // authorization: `Bearer ${localStorage.getItem('token')}`
       },
-      body: JSON.stringify(currentUser)
+      body: JSON.stringify(currentUser),
     })
-      .then(res => res.json())
-      .then(inserted => {
+      .then((res) => res.json())
+      .then((inserted) => {
         if (inserted.acknowledged) {
           // toast.success("name update Successfully");
         }
-      })
+      });
     toast.success("Registered Successfully");
     reset();
   };
@@ -56,7 +54,6 @@ const Register = () => {
       navigate("/");
     }
   }, [token, user, navigate]);
-
 
   if (loading || updating) {
     <Loading></Loading>;
