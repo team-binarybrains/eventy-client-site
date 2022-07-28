@@ -12,44 +12,74 @@ import {
 
 const data = [
   {
-    name: "Page A",
+    name: "January",
     uv: 4000,
     pv: 2400,
     amt: 2400,
   },
   {
-    name: "Page B",
+    name: "February",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Page C",
+    name: "March",
     uv: 2000,
-    pv: 9800,
+    pv: 5800,
     amt: 2290,
   },
   {
-    name: "Page D",
+    name: "April",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Page E",
+    name: "May",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Page F",
+    name: "June",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Page G",
+    name: "July",
     uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "August",
+    uv: 4390,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "September",
+    uv: 5490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "October",
+    uv: 6190,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "November",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: "December",
+    uv: 4490,
     pv: 4300,
     amt: 2100,
   },
@@ -57,20 +87,28 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="bg-gray-200 p-2" style={{ width: "60%", height: 300 }}>
+    <div
+      className="bg-[#334155]  ml-20 -mt-16 rounded-md "
+      style={{ width: "60%", height: 500 }}
+    >
+      <div className="pt-2 pl-5">
+        <h1 className="text-white text-sm">Overview</h1>
+        <h1 className="text-white text-xl mb-6">Salse Value</h1>
+      </div>
+
       <ResponsiveContainer>
         <LineChart
           width={1000}
           height={600}
           data={data}
           margin={{
-            top: 5,
+            top: 0,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 90,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          {/* <CartesianGrid strokeDasharray="" /> */}
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
@@ -78,7 +116,7 @@ export default function Chart() {
           <Line
             type="monotone"
             dataKey="pv"
-            stroke="#8884d8"
+            stroke="#ffffff"
             activeDot={{ r: 8 }}
           />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
