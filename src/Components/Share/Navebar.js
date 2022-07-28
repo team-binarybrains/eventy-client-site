@@ -24,6 +24,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.init";
 import { signOut } from "firebase/auth";
 import Profile from "../Dashboard/Profile/Profile";
+import { AiOutlineUser } from "react-icons/ai";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -117,16 +118,18 @@ const Navebar = () => {
                   show === "hidden" ? setShow("block") : setShow("hidden");
                 }}
               >
-                {user ? (
+                {user.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
                     alt=""
                   />
-                ) : (
-                  <p className="text-2xl text-black rounded-full px-3 py-1 bg-white ">
-                    {user?.displayName.slice(0, 1)}
-                  </p>
+                )}
+
+                {user.photoURL === null && (
+                  <span className="">
+                    <AiOutlineUser className="text-black bg-white text-4xl rounded-full" />
+                  </span>
                 )}
               </div>
 
@@ -137,16 +140,18 @@ const Navebar = () => {
                 <div className="grid gap-y-3 pt-7 pb-3">
                   <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                     <div className="flex justify-center -mt-10">
-                      {user ? (
+                      {user.photoURL && (
                         <img
                           src={user?.photoURL}
-                          className="w-14 h-14 rounded-full"
+                          className="w-10 h-10 rounded-full"
                           alt=""
                         />
-                      ) : (
-                        <p className="text-3xl text-black rounded-full px-3 py-1 bg-white ">
-                          {user?.displayName.slice(0, 1)}
-                        </p>
+                      )}
+
+                      {user.photoURL === null && (
+                        <span className="">
+                          <AiOutlineUser className="text-black bg-white text-5xl rounded-full" />
+                        </span>
                       )}
                     </div>
                     <div>
@@ -191,26 +196,61 @@ const Navebar = () => {
               show === "hidden" ? setShow("block") : setShow("hidden");
             }}
           >
-            {/* <Avatar className="ml-3" size="base" image={user?.photoURL} status="online"/> */}
-
-            {user ? (
+            {user.photoURL && (
               <img
                 src={user?.photoURL}
-                className="md:w-10 md:h-10 w-8 h-8 rounded-full"
+                className="w-10 h-10 rounded-full"
                 alt=""
               />
-            ) : (
-              <p className="text-2xl text-black rounded-full px-3 py-1 bg-white ">
-                {user?.displayName.slice(0, 1)}
-              </p>
+            )}
+
+            {user.photoURL === null && (
+              <span className="">
+                <AiOutlineUser className="text-black bg-white text-4xl rounded-full" />
+              </span>
             )}
           </div>
 
           <ul
-            tabindex="0"
-            class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}
+            tabIndex="0"
+            class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-5 -mr-14`}
           >
-            <button onClick={handleSignOut}>Sign out</button>
+            <div className="grid gap-y-3 pt-7 pb-3">
+              <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
+                <div className="flex justify-center -mt-10">
+                  {user.photoURL && (
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 rounded-full"
+                      alt=""
+                    />
+                  )}
+
+                  {user.photoURL === null && (
+                    <span className="">
+                      <AiOutlineUser className="text-black bg-white text-5xl rounded-full" />
+                    </span>
+                  )}
+                </div>
+                <div>
+                  <p className="pt-3 ">{user.email}</p>
+                </div>
+              </div>
+
+              <Link
+                to={`/manage-profile`}
+                className="uppercase hover:text-gray-600"
+              >
+                Manage profile
+              </Link>
+
+              <button
+                onClick={handleSignOut}
+                className="uppercase hover:text-gray-600"
+              >
+                Sign out
+              </button>
+            </div>
           </ul>
         </div>
       </div>
