@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
+import useToken from "../Hooks/useToken";
 import SocialLogin from "./SocialLogin";
 import { useUpdateProfile } from "react-firebase-hooks/auth";
 import { toast } from "react-toastify";
@@ -9,6 +11,9 @@ import Loading from "../Share/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [token] = useToken(user);
+
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
   const {
@@ -27,6 +32,12 @@ const Register = () => {
 
     reset();
   };
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [token, user]);
   console.log(user);
 
   if (loading || updating) {
