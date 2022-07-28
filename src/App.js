@@ -21,6 +21,7 @@ import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
+import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin";
 
 function App() {
   return (
@@ -40,7 +41,7 @@ function App() {
             path="/dashboard"
             element={
               <RequireAuth>
-                <Booking></Booking>
+                
               </RequireAuth>
             }
           ></Route>
@@ -71,9 +72,17 @@ function App() {
           <Route
             path="/dashboard/total-user"
             element={
-              <RequireAuth>
+              <RequireAdmin>
                 <TotalUser></TotalUser>
-              </RequireAuth>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
+            element={
+              <RequireAdmin>
+                <Booking></Booking>
+              </RequireAdmin>
             }
           ></Route>
         </Route>
