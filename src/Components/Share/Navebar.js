@@ -34,7 +34,7 @@ const Navebar = () => {
 
   const handleSignOut = () => {
     signOut(auth);
-    // localStorage.removeItem('accessToken')
+    localStorage.removeItem('accessToken')
   };
 
   const navigate = useNavigate();

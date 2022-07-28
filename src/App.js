@@ -24,10 +24,11 @@ import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
-
+import Chart from "./Components/Dashboard/Chart/Chart";
+import MainChart from "./Components/Dashboard/Chart/MainChart";
 function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -44,6 +45,14 @@ function App() {
           <Route
             index
             path="/dashboard"
+            element={
+              <RequireAuth>
+                <MainChart></MainChart>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
             element={
               <RequireAuth>
                 <Booking></Booking>
@@ -82,23 +91,13 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-
-
-
         </Route>
         {/* for manage profile */}
-        <Route
-          path="/manage-profile"
-          element={
-            <Profile></Profile>
-          }
-        ></Route>
+        <Route path="/manage-profile" element={<Profile></Profile>}></Route>
         {/* for update user */}
         <Route
           path="/update-profile"
-          element={
-            <UpdateUser></UpdateUser>
-          }
+          element={<UpdateUser></UpdateUser>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

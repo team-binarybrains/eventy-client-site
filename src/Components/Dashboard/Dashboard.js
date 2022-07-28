@@ -29,24 +29,34 @@ const DashBoard = () => {
                 </span>{" "}
               </label>
             </div>
-            <div className="text-center ">
-              <div id="header" className="py-6">
-                {/* <h1 className='text-4xl font-bold font-serif text-slate-300'>Dash Board </h1> */}
-              </div>
-              <div className="text-left px-3">
-                <Outlet></Outlet>
+            <div className="">
+              <div className="text-left -mt-12 lg:-mt-4 w-full">
+
+                {/* <div className="bg-[#0284C7] h-[500px] lg:-mr-3">
+                  <div className="pt-20 flex justify-center">
+                    <Count></Count>
+                  </div> */}
+
+                  <Outlet></Outlet>
+                {/* </div> */}
+
               </div>
             </div>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side w-[180px]">
             <label
               htmlFor="open-dashboard-menu"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 border-r-1 shadow-lg  text-zinc-800">
+            <ul className="menu p-4 overflow-y-auto  bg-slate-200 border-r-1 shadow-lg  text-zinc-800">
               {/* <!-- Sidebar content here --> */}
               <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard"}>
+                  Dashboard
+                </CustomLink>
+              </li>
+              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+                <CustomLink className="" to={"/dashboard/booking"}>
                   Booking
                 </CustomLink>
               </li>
