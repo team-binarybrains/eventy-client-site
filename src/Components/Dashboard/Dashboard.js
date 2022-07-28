@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Count from "./Coutn/Count"
 import "./Dashboard.css";
 
 const DashBoard = () => {
@@ -31,8 +32,9 @@ const DashBoard = () => {
             </div>
             <div className="text-center ">
               <div className="text-left px-3 ">
-                <div className="bg-blue-400 h-96 -mt-4 -mr-5 "></div>
-                <div>
+                <div className="bg-blue-400 h-96 -mt-4 -mr-5 ">
+
+                  <Count className='-mt-20'></Count>
                   
                 </div>
                 <Outlet></Outlet>
