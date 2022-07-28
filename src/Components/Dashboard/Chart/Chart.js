@@ -9,6 +9,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import LineChar from "./LineChar";
 
 const data = [
   {
@@ -53,75 +54,48 @@ const data = [
     pv: 4300,
     amt: 2100,
   },
-  {
-    name: "August",
-    uv: 4390,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "September",
-    uv: 5490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "October",
-    uv: 6190,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "November",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "December",
-    uv: 4490,
-    pv: 4300,
-    amt: 2100,
-  },
 ];
 
 export default function Chart() {
   return (
-    <div
-      className="bg-[#334155]  ml-20 -mt-16 rounded-md "
-      style={{ width: "60%", height: 500 }}>
+    <div className="lg:flex grid ">
+      <div
+        className="h-[400px] w-[90vw] bg-[#334155] lg:ml-5 lg:mt-72 rounded-md 
+      lg:w-[56%] lg:h-[500px] "
+      >
+        <div className="pt-2 pl-5">
+          <h1 className="text-white text-sm">Overview</h1>
+          <h1 className="text-white text-xl mb-6">Salse Value</h1>
+        </div>
 
-      <div className="pt-2 pl-5">
-        <h1 className="text-white text-sm">Overview</h1>
-        <h1 className="text-white text-xl mb-6">Salse Value</h1>
+        <ResponsiveContainer>
+          <LineChart
+            width={1000}
+            height={600}
+            data={data}
+            margin={{
+              top: 0,
+              right: 30,
+              left: 20,
+              bottom: 90,
+            }}
+          >
+            {/* <CartesianGrid strokeDasharray="" /> */}
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey="pv"
+              stroke="#ffffff"
+              activeDot={{ r: 8 }}
+            />
+            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          </LineChart>
+        </ResponsiveContainer>
       </div>
-
-      <ResponsiveContainer>
-        <LineChart
-          width={1000}
-          height={600}
-          data={data}
-          margin={{
-            top: 0,
-            right: 30,
-            left: 20,
-            bottom: 90,
-          }}
-        >
-          {/* <CartesianGrid strokeDasharray="" /> */}
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey="pv"
-            stroke="#ffffff"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
-      </ResponsiveContainer>
+      <LineChar></LineChar>
     </div>
   );
 }

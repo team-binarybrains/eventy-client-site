@@ -8,7 +8,7 @@ function Count() {
             <div className="stats stats-vertical lg:stats-horizontal shadow lg:h-40 gap-x-16 lg:mx-36">
 
 
-                <div className="stat lg:w-72">
+                <div className="stat lg:w-72 w-">
                     <div className="stat-title text-xl font-semibold flex">Traffic </div>
 
                     <CountUp
@@ -16,7 +16,7 @@ function Count() {
                         end={36}
                         duration={4}
                         suffix="K"
-                        className='text-stone-800 text-4xl font-bold'
+                        className='text-stone-800 lg:text-4xl text-2xl font-bold'
                     ></CountUp>
 
                     <div className="stat-desc text-xl">2012 - 2022</div>
@@ -30,7 +30,7 @@ function Count() {
                         start={2500}
                         end={4246}
                         duration={3}
-                        className='text-stone-800 text-4xl font-bold'
+                        className='text-stone-800 lg:text-4xl text-2xl font-bold'
                     ></CountUp>
 
                     <div className="stat-desc  text-xl">↗︎ 450 (22%)</div>
@@ -43,7 +43,7 @@ function Count() {
                         start={123}
                         end={535}
                         duration={2}
-                        className='text-stone-800 text-4xl font-bold'
+                        className='text-stone-800 lg:text-4xl text-2xl font-bold'
                     ></CountUp>
 
                     <div className="stat-desc text-xl">↗︎ Throw your feedback </div>
@@ -57,7 +57,7 @@ function Count() {
                         end={72}
                         duration={3}
                         suffix="%"
-                        className='text-stone-800 text-4xl font-bold'
+                        className='text-stone-800 lg:text-4xl text-2xl font-bold'
                     ></CountUp>
 
                     <div className="stat-desc  text-xl">↗︎ 600 (72%)</div>
