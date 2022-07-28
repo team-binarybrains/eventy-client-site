@@ -5,11 +5,16 @@ import { useNavigate } from "react-router-dom";
 import auth from "../../Firebase/Firebase.init";
 import useToken from "../Hooks/useToken";
 import SocialLogin from "./SocialLogin";
-
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import Loading from "../Share/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
   const [token] = useToken(user);
+
+  const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
   const {
     register,
@@ -21,6 +26,10 @@ const Register = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     console.log(data.name, data.email, data.password);
+    await updateProfile({ displayName: data.name });
+
+    toast.success("Registered Successfully");
+
     reset();
   };
   const navigate = useNavigate();
@@ -29,9 +38,13 @@ const Register = () => {
       navigate("/");
     }
   }, [token, user]);
+  console.log(user);
 
+  if (loading || updating) {
+    <Loading></Loading>;
+  }
   let signInError;
-  if (error) {
+  if (error || updateerror) {
     signInError = (
       <p className="text-red-600 text-[18px] py-3">{error?.message}</p>
     );

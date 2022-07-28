@@ -3,6 +3,7 @@ import "./Testimonail.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import user from "../../../image/userImage/user.jpg"
 
 const Testimonail = () => {
 
@@ -49,7 +50,7 @@ const Testimonail = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch("projectReview.json")
+        fetch("http://localhost:5000/post-review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -77,7 +78,7 @@ const Testimonail = () => {
                 <Slider {...settings}>
                     {reviews?.slice(0, 6).map((review) => (
                         <div className="px-5">
-                            <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10 ">
+                            <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10">
                                 <div className="text-gray-600 group-hover:text-white flex flex-col items-center">
                                     <svg
                                         width={26}
@@ -107,8 +108,8 @@ const Testimonail = () => {
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                    <p className="xl:w-80 text-base leading-normal text-center mt-4">
-                                        {review.description.slice(0, 100)}
+                                    <p className="xl:w-80 text-base leading-normal text-center mt-4 h-24 overflow-hidden mb-3">
+                                        {review?.description.slice(0, 100)}
                                     </p>
                                     <div className="rating rating-sm">
                                         {
@@ -191,9 +192,9 @@ const Testimonail = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col items-center justify-center mt-10">
-                                <img src={review.image} alt="profile pictre" className="testimonial-image rounded-full" />
+                                <img src={review?.image || user} alt="profile pictre" className="testimonial-image rounded-full" />
                                 <p className="text-base font-semibold leading-4 my-2 text-gray-800">
-                                    {review.name}
+                                    {review?.userName}
                                 </p>
                             </div>
                         </div>

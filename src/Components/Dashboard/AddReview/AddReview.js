@@ -21,13 +21,14 @@ const AddReview = () => {
 
       // total review data
       const review = {
+         email: auth?.currentUser?.email,
          userName: user?.displayName,
-         reviewDescription: data.reviewDescription,
+         description: data.reviewDescription,
          rating: stars,
          image: user?.photoURL
       }
       // send services data to database
-      fetch('', {
+      fetch('http://localhost:5000/post-review', {
          method: 'POST',
          headers: {
             'content-type': 'application/json',
@@ -36,19 +37,15 @@ const AddReview = () => {
          body: JSON.stringify(review)
       })
          .then(res => res.json())
-         .then(inserted => {
-            if (inserted.acknowledged) {
-               // Swal.fire(
-               //    'services add success',
-               //    '',
-               //    'success'
-               // )
-               toast.success('review added successful',{theme:'dark'})
-               reset();
+         .then(data => {
+            if(data?.insert){
+               toast.success('Thanks for giving the review',{theme:'colored'});
             }
+            else{
+               toast.error('You already added your review',{theme:'colored'})
+            }
+            reset();
          })
-         // 
-      console.log(review);
    }
    if (loading) {
       return <Loading />
@@ -60,7 +57,7 @@ const AddReview = () => {
       <div>
          <div id="services-content" className='rounded-none bg-white'>
             <div className="text-center">
-               <h1 className="text-2xl text-slate-800 pt-4 " >Add Review</h1>
+               <h1 className="text-2xl text-slate-800 pt-4" >Add Review</h1>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                <div className="mx-4 pt-8">
