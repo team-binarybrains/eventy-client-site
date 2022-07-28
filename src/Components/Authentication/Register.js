@@ -3,10 +3,14 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../Firebase/Firebase.init";
 import SocialLogin from "./SocialLogin";
-
+import { useUpdateProfile } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import Loading from "../Share/Loading";
 const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
+
   const {
     register,
     formState: { errors },
@@ -17,11 +21,19 @@ const Register = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     console.log(data.name, data.email, data.password);
+    await updateProfile({ displayName: data.name });
+
+    toast.success("Registered Successfully");
+
     reset();
   };
+  console.log(user);
 
+  if (loading || updating) {
+    <Loading></Loading>;
+  }
   let signInError;
-  if (error) {
+  if (error || updateerror) {
     signInError = (
       <p className="text-red-600 text-[18px] py-3">{error?.message}</p>
     );
@@ -122,10 +134,9 @@ const Register = () => {
             </div>
             {signInError}
             <div className="flex justify-center">
-              <button
-                type="submit"
-                class=" at-selection type-2  mt-4"
-              >Register</button>
+              <button type="submit" class=" at-selection type-2  mt-4">
+                Register
+              </button>
             </div>
           </form>
         </div>
