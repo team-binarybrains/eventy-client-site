@@ -24,7 +24,7 @@ import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
-
+import Chart from "./Components/Dashboard/Chart/Chart";
 function App() {
   return (
     <div className="overflow-x-hidden">
@@ -47,6 +47,14 @@ function App() {
           <Route
             index
             path="/dashboard"
+            element={
+              <RequireAuth>
+                <Chart></Chart>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
             element={
               <RequireAuth>
                 <Booking></Booking>
