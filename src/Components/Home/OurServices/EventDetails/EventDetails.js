@@ -115,7 +115,9 @@ const EventDetails = () => {
       const venuPrice = selectVenu[0].venuPrice;
       const venuPeopleAttend = selectVenu[0].quantity;
       const totalPrice = selectVenu[0].totalPrice;
-      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice }
+      const eventImage = service.image;
+      const venuImage = selectVenu[0].image;
+      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice,eventImage,venuImage }
       setBookingDetails(bookingInfo);
       setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
     } else {
