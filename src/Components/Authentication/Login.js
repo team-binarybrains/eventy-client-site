@@ -32,50 +32,50 @@ const Login = () => {
     <div>
 
         <div className="bg-transparent">
-          <input type="checkbox" id="login-modal" class="modal-toggle" />
-          <div class="modal overflow-x-hidden">
-            <div class="modal-box rounded-md">
+          <input type="checkbox" id="login-modal" className="modal-toggle" />
+          <div className="modal overflow-x-hidden">
+            <div className="modal-box rounded-md">
               <div className="flex justify-end">
                 <label
-                  for="login-modal"
-                  class="text-white p-2 w-10 text-center hover:bg-black font-bold cursor-pointer rounded-full  bg-green-400 border-none "
+                  htmlFor="login-modal"
+                  className="text-white p-2 w-10 text-center hover:bg-black font-bold cursor-pointer rounded-full  bg-green-400 border-none "
                 >
                   X
                 </label>
               </div>
               {/* start */}
 
-              <div class="section">
-                <div class="">
-                  <div class="row  justify-content-center">
-                    <div class="col-12 text-center align-self-center py-5">
-                      <div class="section pb-5 pt-5 pt-sm-2 text-center">
-                        <h6 class="mb-0 pb-3">
+              <div className="section">
+                <div className="">
+                  <div className="row  justify-content-center">
+                    <div className="col-12 text-center align-self-center py-5">
+                      <div className="section pb-5 pt-5 pt-sm-2 text-center">
+                        <h6 className="mb-0 pb-3">
                           <span>Log In </span>
                           <span>Sign Up</span>
                         </h6>
                         <input
-                          class="checkbox"
+                          className="checkbox"
                           type="checkbox"
                           id="reg-log"
                           name="reg-log"
                         />
-                        <label for="reg-log"> </label>
-                        <div class="card-3d-wrap mx-auto">
-                          <div class="card-3d-wrapper">
-                            <div class="card-front">
-                              <div class="center-wrap">
-                                <div class="section space-y-5 text-center">
-                                  <h4 class="mb-4 pb-3 text-white">Log In</h4>
+                        <label htmlFor="reg-log"> </label>
+                        <div className="card-3d-wrap mx-auto">
+                          <div className="card-3d-wrapper">
+                            <div className="card-front">
+                              <div className="center-wrap">
+                                <div className="section space-y-5 text-center">
+                                  <h4 className="mb-4 pb-3 text-white">Log In</h4>
                                   <form onSubmit={handleSubmit(onSubmit)}>
-                                    <div class="form-group">
+                                    <div className="form-group">
                                       <input
                                         type="email"
                                         name="logemail"
-                                        class="form-style "
+                                        className="form-style "
                                         placeholder="Your Email"
                                         id="logemail"
-                                        autocomplete="off"
+                                        autoComplete="off"
                                         {...register("email", {
                                           required: {
                                             value: true,
@@ -95,16 +95,16 @@ const Login = () => {
                                           </span>
                                         )}
                                       </label>
-                                      <i class="input-icon uil uil-at"></i>
+                                      <i className="input-icon uil uil-at"></i>
                                     </div>
-                                    <div class="form-group mt-2">
+                                    <div className="form-group mt-2">
                                       <input
                                         type="password"
                                         name="logpass"
-                                        class="form-style"
+                                        className="form-style"
                                         placeholder="Your Password"
                                         id="logpass"
-                                        autocomplete="off"
+                                        autoComplete="off"
                                         {...register("password", {
                                           required: {
                                             value: true,
@@ -129,17 +129,17 @@ const Login = () => {
                                           </span>
                                         )}
                                       </label>
-                                      <i class="input-icon uil uil-lock-alt"></i>
+                                      <i className="input-icon uil uil-lock-alt"></i>
                                     </div>
                                     <div className="flex justify-center">
                                       <button
                                         type="submit"
-                                        class=" at-selection type-2  mt-4"
+                                        className=" at-selection type-2  mt-4"
                                       >Log in</button>
                                     </div>
                                   </form>
-                                  <p class="mb-0 mt-4 text-center">
-                                    <a href="#0" class="link">
+                                  <p className="mb-0 mt-4 text-center">
+                                    <a href="#0" className="link">
                                       Forgot your password?
                                     </a>
                                   </p>

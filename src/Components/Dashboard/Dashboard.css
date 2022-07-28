@@ -25,3 +25,14 @@
    --tw-text-opacity: 1;
    color: hsl(var(--pc) / var(--tw-text-opacity)); 
 }
+/* @media only screen and (max-width:470px){
+   #dashboard_dower{
+      width: 70%;
+   }
+} */
+
+/* @media only screen and (max-width:370px){
+   #dashboard_dower{
+      width: 80%;
+   }
+} */

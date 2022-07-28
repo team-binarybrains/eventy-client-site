@@ -21,6 +21,8 @@ import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
+import Profile from "./Components/Dashboard/Profile/Profile";
+import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 
 function App() {
   return (
@@ -76,7 +78,24 @@ function App() {
               </RequireAuth>
             }
           ></Route>
+
+
+
         </Route>
+        {/* for manage profile */}
+        <Route
+          path="/manage-profile"
+          element={
+            <Profile></Profile>
+          }
+        ></Route>
+        {/* for update user */}
+        <Route
+          path="/update-profile"
+          element={
+            <UpdateUser></UpdateUser>
+          }
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

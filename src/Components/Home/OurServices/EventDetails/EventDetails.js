@@ -109,17 +109,17 @@ const EventDetails = () => {
               </p>
               <div className="flex flex-col gap-3 mt-3">
                 <p className="text-base">Event Name : Marrige Event</p>
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Event Price</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Event Price</span>
                   </label>
-                  <input type="text" placeholder="Price" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
+                  <input type="text" placeholder="Price" className="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
                 </div>
-                <div class="form-control w-full max-w-xs">
-                  <label class="label">
-                    <span class="label-text">Phone</span>
+                <div className="form-control w-full max-w-xs">
+                  <label className="label">
+                    <span className="label-text">Phone</span>
                   </label>
-                  <input type="text" placeholder="Phone Number" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
+                  <input type="text" placeholder="Phone Number" className="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
                 </div>
                 <button className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white mt-3">
                   Order Place

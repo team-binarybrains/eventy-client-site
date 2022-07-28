@@ -1,5 +1,5 @@
 import React from 'react';
-import {Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import CustomLink from '../CustomLink/CustomLink';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -13,14 +13,14 @@ const DashBoard = () => {
   return (
     <>
       <div className="mx-auto px-2 lg:px-0">
-        <div className="drawer drawer-mobile bg-slate-200">
+        <div className="drawer drawer-mobile bg-slate-200" id='dashboard_dower'>
           <input id="open-dashboard-menu" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content  flex flex-col" id='drawer'>
             {/* <!-- Page content here --> */}
             {/* <ChevronRightIcon /> */}
             {/* fa-solid fa-square-arrow-right */}
             <div className="text-left mt-4 z-10">
-              <label htmlFor="open-dashboard-menu" className="rounded inline-block cursor-pointer text-white lg:hidden z-50" ><span className='text-2xl bg-green-400 hover:bg-green-500 px-4 py-2 rounded '><FontAwesomeIcon  icon={faChevronRight} /></span> </label>
+              <label htmlFor="open-dashboard-menu" className="rounded inline-block cursor-pointer text-white lg:hidden z-50" ><span className='text-2xl bg-green-400 hover:bg-green-500 px-4 py-2 rounded '><FontAwesomeIcon icon={faChevronRight} /></span> </label>
             </div>
             <div className="text-center ">
               <div id="header" className='py-6'>
