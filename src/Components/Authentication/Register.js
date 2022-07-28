@@ -12,8 +12,6 @@ const Register = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-  const [token] = useToken(user);
-
   const [updateProfile, updating, updateerror] = useUpdateProfile(auth);
 
   const {
@@ -25,20 +23,37 @@ const Register = () => {
 
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
-    console.log(data.name, data.email, data.password);
+    // console.log(data.name, data.email, data.password);
     await updateProfile({ displayName: data.name });
-
+    // for name send backend
+    const currentUser = {
+      displayName: data.name,
+      email: data.email,
+    };
+    fetch(`http://localhost:5000/user/${data.email}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+        // authorization: `Bearer ${localStorage.getItem('token')}`
+      },
+      body: JSON.stringify(currentUser),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.acknowledged) {
+          // toast.success("name update Successfully");
+        }
+      });
     toast.success("Registered Successfully");
-
     reset();
   };
+  const [token] = useToken(user);
   const navigate = useNavigate();
   useEffect(() => {
     if (token) {
       navigate("/");
     }
-  }, [token, user]);
-  console.log(user);
+  }, [token, user, navigate]);
 
   if (loading || updating) {
     <Loading></Loading>;
@@ -58,7 +73,7 @@ const Register = () => {
             <div className="form-group ">
               <input
                 type="text"
-                // name="logname"
+                name="userName"
                 className="form-style"
                 placeholder="Your Full Name"
                 id="logname"
@@ -83,7 +98,7 @@ const Register = () => {
             <div className="form-group mt-2">
               <input
                 type="email"
-                // name="logemail"
+                name="email"
                 className="form-style"
                 placeholder="Your Email"
                 id="logemail"
@@ -113,7 +128,7 @@ const Register = () => {
             <div className="form-group mt-2">
               <input
                 type="password"
-                // name="logpass"
+                name="password"
                 className="form-style"
                 placeholder="Your Password"
                 id="logpass"
