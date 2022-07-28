@@ -57,7 +57,7 @@ const data = [
 
 export default function Chart() {
   return (
-    <div className="bg-gray-200 p-2" style={{ width: "60%", height: 300 }}>
+    <div className="bg-gray-700 p-2" style={{ width: "60%", height: 300 }}>
       <ResponsiveContainer>
         <LineChart
           width={1000}
