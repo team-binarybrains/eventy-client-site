@@ -4,13 +4,13 @@ import auth from "../../../Firebase/Firebase.init";
 import Loading from "../../Share/Loading";
 import profileImg from "../../../image/employer/2.jpg";
 import { FiEdit } from "react-icons/fi";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+// import {
+//   useQuery,
+//   useMutation,
+//   useQueryClient,
+//   QueryClient,
+//   QueryClientProvider,
+// } from "@tanstack/react-query";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -19,34 +19,40 @@ const Profile = () => {
   const [updateUser, setUpdateUser] = useState([]);
   const [user, loading, error] = useAuthState(auth);
   const email = user?.email;
+  // 
+  useEffect(() => {
+    axios.get(`http://localhost:5000/single-user/${email}`).then((res) => {
+      const { data } = res;
+      console.log(data);
+    });
+  }, [email]);
 
   if (loading) {
     return <Loading />;
   }
-
   return (
     <section className="my-40 container mx-auto px-4">
       <div
         className="relative flex flex-col min-w-0 break-words bg-white w-full  mb-6 shadow-xl rounded-lg mt-16 "
         id="profileSection"
       >
-        <div className="px-6">
+        <div className="px-6"> 
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4 flex justify-center">
               <div className="relative">
-                {user ? (
+                {user?.photoURL?
                   <img
                     className="w-52 h-52 rounded-full mt-[-50%]"
                     src={user?.photoURL}
                     alt="profile photos"
                   />
-                ) : (
+                  :
                   <img
                     className="w-52 h-52 rounded-full mt-[-50%]"
                     src={profileImg}
                     alt=""
                   />
-                )}
+                }
               </div>
             </div>
             <div className="w-full px-4 text-start mt-[-5%]">
@@ -88,7 +94,7 @@ const Profile = () => {
             <h3 className="text-xl font-semibold leading-normal  text-blueGray-700 mb-2">
               Name: {user?.displayName}
             </h3>
-            <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400  uppercase">
+            <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 ">
               <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
               <span className="font-bold">Email:</span> {user?.email}
             </div>
