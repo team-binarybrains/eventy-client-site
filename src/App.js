@@ -21,7 +21,7 @@ import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
-
+import Chart from "./Components/Dashboard/Chart/Chart";
 function App() {
   return (
     <div className="overflow-x-hidden">
@@ -38,6 +38,14 @@ function App() {
           <Route
             index
             path="/dashboard"
+            element={
+              <RequireAuth>
+                <Chart></Chart>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
             element={
               <RequireAuth>
                 <Booking></Booking>
