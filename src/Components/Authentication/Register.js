@@ -38,7 +38,7 @@ const Register = () => {
       navigate("/");
     }
   }, [token, user]);
-  console.log(user);
+  // console.log(user);
 
   if (loading || updating) {
     <Loading></Loading>;
