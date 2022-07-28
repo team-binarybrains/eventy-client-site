@@ -1,15 +1,18 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import CustomLink from '../CustomLink/CustomLink';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faChevronRight
-} from "@fortawesome/free-solid-svg-icons";
-import './Dashboard.css'
-
-
+import React from "react";
+import { Outlet } from "react-router-dom";
+import CustomLink from "../CustomLink/CustomLink";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import "./Dashboard.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import useAdmin from "../Hooks/useAdmin";
+import auth from "../../Firebase/Firebase.init";
 
 const DashBoard = () => {
+  const [user,] = useAuthState(auth);
+  const [admin,] = useAdmin(user);
+  // console.log(admin);
+
   return (
     <>
       <div className="mx-auto px-2 lg:px-0">
@@ -38,31 +41,31 @@ const DashBoard = () => {
             ></label>
             <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 border-r-1 shadow-lg  text-zinc-800">
               {/* <!-- Sidebar content here --> */}
-              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              {admin && <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard"}>
                   Booking
                 </CustomLink>
-              </li>
-              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              </li>}
+              {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/my-booking"}>
                   My Booking
                 </CustomLink>
-              </li>
-              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              </li>}
+              {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/review"}>
                   Review
                 </CustomLink>
-              </li>
-              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              </li>}
+              {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/add-review"}>
                   Add Review
                 </CustomLink>
-              </li>
-              <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              </li>}
+              {admin && <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/total-user"}>
                   All Users
                 </CustomLink>
-              </li>
+              </li>}
             </ul>
           </div>
         </div>

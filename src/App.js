@@ -24,6 +24,7 @@ import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
+import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin";
 
 function App() {
   return (
@@ -46,7 +47,7 @@ function App() {
             path="/dashboard"
             element={
               <RequireAuth>
-                <Booking></Booking>
+                
               </RequireAuth>
             }
           ></Route>
@@ -77,9 +78,17 @@ function App() {
           <Route
             path="/dashboard/total-user"
             element={
-              <RequireAuth>
+              <RequireAdmin>
                 <TotalUser></TotalUser>
-              </RequireAuth>
+              </RequireAdmin>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
+            element={
+              <RequireAdmin>
+                <Booking></Booking>
+              </RequireAdmin>
             }
           ></Route>
 
