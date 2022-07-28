@@ -10,57 +10,45 @@ const MyBooking = () => {
    const [user] = useAuthState(auth);
    const [items, setItems] = useState([]);
    const navigate = useNavigate();
-   useEffect(() => {
-     const myBooking = async () => {
-       const email = user.email;
-       const url = `http://localhost:5000/myBooking?email=${email}`;
- 
-       try {
-         const { data } = await axios.get(url, {
-           headers: {
-             authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
-           },
-         });
-         setItems(data);
-       } catch (error) {
-         console.log(error.message);
-         if (error.response.status === 401 || error.response.status === 403) {
-           signOut(auth);
-           navigate("/login");
-         }
-       }
-     };
-     myBooking();
-   }, [user]);
+useEffect(() => {
+   const email=user.email;
+   const url = `http://localhost:5000/myBooking?email=${email}`;
+   fetch(url)
+   .then(res=> res.json())
+   .then(data=> setItems(data))
+},[])
 
+const productDeleteHandle = (id) => {
+   const proceed = window.confirm("Are you sure cancel booking?");
+   if (proceed) {
+     const url = `http://localhost:5000/myBooking/${id}`;
+     fetch(url, {
+       method: "DELETE",
+     })
+       .then((res) => res.json())
+       .then((data) => {
+         const remaining = items.filter(
+           (OrderItems) => OrderItems._id !== id
+         );
+         setItems(remaining);
+       });
+   }
+ };
 
    return (
       <div>
         
-        <h1>my order </h1>
+        <h1 className='pt-3 pb-3 '>my order {items.length}</h1>
 
-<div className="overflow-x-auto">
-  <table className="table table-zebra w-full">
-    <thead>
-      <tr>
-        {/* <th>SL</th> */}
-        <th className="text-xl font-bold">Details</th>
-
-        <th className="text-xl font-bold">Payment</th>
-        <th className="text-xl font-bold">cancel</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {items?.map((user) => (
+<div className="grid md:grid-cols-2 gap-7 sm:grid-cols-1 px-3 pt-7">
+{items?.map(user => (
         <SingleMyBooking
           key={user._id}
           user={user}
-         //  productDeleteHandle={productDeleteHandle}
+          productDeleteHandle={productDeleteHandle}
         ></SingleMyBooking>
       ))}
-    </tbody>
-  </table>
+      
 </div>
       </div>
    );
