@@ -42,7 +42,7 @@ const EventDetails = () => {
   }, [id])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/selectVenu`)
+    fetch(`http://localhost:5000/selectVenu/${email}`)
       .then(res => res.json())
       .then(data => {
         setSelectVenu(data);
@@ -69,8 +69,8 @@ const EventDetails = () => {
       .then((data) => {
         if (data.acknowledged) {
           setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
-        }else{
-          toast.error("You have already Select Venu");
+        } else {
+          toast.error(data.message);
         }
       })
   }
@@ -124,35 +124,40 @@ const EventDetails = () => {
   }
 
   const handleBookingConfirm = (id) => {
-    fetch('http://localhost:5000/booking', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bookingDetails),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          setBookingDetails({});
-          toast.success(`${bookingDetails.eventName} Event Booking`);
-          setBookingDate("");
-          setPhoneNumber("");
-          setAddress("");
-        } else {
-          toast.error(data.message);
-        }
+    if (selectVenu.length && bookingDate && bookingPersonAddress && phoneNumber) {
+      fetch('http://localhost:5000/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingDetails),
       })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            setBookingDetails({});
+            toast.success(`${bookingDetails.eventName} Event Booking`);
+            setBookingDate("");
+            setPhoneNumber("");
+            setAddress("");
+          } else {
+            toast.error(data.message);
+          }
+        })
 
-    fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
-      method: "DELETE"
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.acknowledged) {
-          setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
-        }
+      fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+        method: "DELETE"
       })
+        .then(res => res.json())
+        .then(data => {
+          if (data.acknowledged) {
+            setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
+          }
+        })
+    }else{
+      toast.error("Please select venu Or Fill the input field");
+    }
+
   }
 
   return (
