@@ -35,7 +35,10 @@ function App() {
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
 
-        <Route path="/eventDetail/:id" element={<EventDetails></EventDetails>}></Route>
+        <Route
+          path="/eventDetail/:id"
+          element={<EventDetails></EventDetails>}
+        ></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
@@ -82,23 +85,13 @@ function App() {
               </RequireAuth>
             }
           ></Route>
-
-
-
         </Route>
         {/* for manage profile */}
-        <Route
-          path="/manage-profile"
-          element={
-            <Profile></Profile>
-          }
-        ></Route>
+        <Route path="/manage-profile" element={<Profile></Profile>}></Route>
         {/* for update user */}
         <Route
           path="/update-profile"
-          element={
-            <UpdateUser></UpdateUser>
-          }
+          element={<UpdateUser></UpdateUser>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
