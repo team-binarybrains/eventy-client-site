@@ -42,7 +42,7 @@ const EventDetails = () => {
   }, [id])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/selectVenu`)
+    fetch(`http://localhost:5000/selectVenu/${email}`)
       .then(res => res.json())
       .then(data => {
         setSelectVenu(data);
@@ -69,8 +69,8 @@ const EventDetails = () => {
       .then((data) => {
         if (data.acknowledged) {
           setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
-        }else{
-          toast.error("You have already Select Venu");
+        } else {
+          toast.error(data.message);
         }
       })
   }
@@ -109,13 +109,15 @@ const EventDetails = () => {
       const date = bookingDate;
       const phone = phoneNumber;
       const address = bookingPersonAddress;
-      const eventName = service.eventName;
-      const eventPrice = service.eventPrice;
+      const eventName = service?.eventName;
+      const eventPrice = service?.eventPrice;
       const venuLocation = selectVenu[0].location;
       const venuPrice = selectVenu[0].venuPrice;
       const venuPeopleAttend = selectVenu[0].quantity;
       const totalPrice = selectVenu[0].totalPrice;
-      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice }
+      const eventImage = service?.image;
+      const venuImage = selectVenu[0].image;
+      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice,eventImage,venuImage }
       setBookingDetails(bookingInfo);
       setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
     } else {
@@ -124,35 +126,40 @@ const EventDetails = () => {
   }
 
   const handleBookingConfirm = (id) => {
-    fetch('http://localhost:5000/booking', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bookingDetails),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.acknowledged) {
-          setBookingDetails({});
-          toast.success(`${bookingDetails.eventName} Event Booking`);
-          setBookingDate("");
-          setPhoneNumber("");
-          setAddress("");
-        } else {
-          toast.error(data.message);
-        }
+    if (selectVenu.length && bookingDate && bookingPersonAddress && phoneNumber) {
+      fetch('http://localhost:5000/booking', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingDetails),
       })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.acknowledged) {
+            setBookingDetails({});
+            toast.success(`${bookingDetails.eventName} Event Booking`);
+            setBookingDate("");
+            setPhoneNumber("");
+            setAddress("");
+          } else {
+            toast.error(data.message);
+          }
+        })
 
-    fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
-      method: "DELETE"
-    })
-      .then(res => res.json())
-      .then(data => {
-        if (data.acknowledged) {
-          setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
-        }
+      fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+        method: "DELETE"
       })
+        .then(res => res.json())
+        .then(data => {
+          if (data.acknowledged) {
+            setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
+          }
+        })
+    }else{
+      toast.error("Please select venu Or Fill the input field");
+    }
+
   }
 
   return (
@@ -191,7 +198,7 @@ const EventDetails = () => {
               <div className="slider">
                 <div className="slide-ana">
                   <Slider className="w-full h-screen">
-                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu}></SingleVenu>)}
+                    {venu.map((v, i) => <SingleVenu key={v._id} VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu}></SingleVenu>)}
                   </Slider>
                 </div>
               </div>
@@ -235,8 +242,8 @@ const EventDetails = () => {
                 {
                   selectVenu.length ?
                     <>
-                      <span className="text-sm pr-0 sm:pr-3 font-bold border-r-4">Location : {selectVenu[0]?.location}</span>
-                      <span className="text-sm font-bold pl-3">Capacity : {selectVenu[0]?.quantity} Peoples</span>
+                      <span className="text-sm pr-2 sm:pr-3 font-bold border-r-4">Location : {selectVenu[0]?.location}</span>
+                      <span className="text-sm font-bold pl-2 sm:pl-3">Capacity : {selectVenu[0]?.quantity} Peoples</span>
                     </>
                     :
                     ""
