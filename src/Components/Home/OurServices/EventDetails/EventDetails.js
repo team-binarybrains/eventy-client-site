@@ -2,22 +2,143 @@ import React, { useEffect, useState } from "react";
 import {
   CarouselProvider,
   Slider,
-  Slide,
   ButtonBack,
   ButtonNext,
 } from "pure-react-carousel";
 import "pure-react-carousel/dist/react-carousel.es.css";
-import "./EventDetailsl.css"
+import "./EventDetails.css"
+import { useParams } from "react-router-dom";
+import SingleVenu from "./SingleVenu";
+import auth from "../../../../Firebase/Firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+
 
 const EventDetails = () => {
 
+  const [user] = useAuthState(auth);
+  const name = user?.displayName;
+  const email = user?.email;
+  const { id } = useParams();
   const [venu, setVenu] = useState([]);
+  const [service, setService] = useState({});
+  const [selectVenu, setSelectVenu] = useState([]);
+  const [venuSelectDeleteRefetch, setvenuSelectDeleteRefetch] = useState(0);
+  const [bookingDate, setBookingDate] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [bookingPersonAddress, setAddress] = useState("");
+  const [bookingDetails, setBookingDetails] = useState({});
 
   useEffect(() => {
-    fetch("Venu.json")
+    fetch(`http://localhost:5000/allservices/${id}`)
+      .then(res => res.json())
+      .then(data => setService(data))
+  }, [id, selectVenu])
+
+  useEffect(() => {
+    fetch("http://localhost:5000/allvenues")
       .then(res => res.json())
       .then(data => setVenu(data))
-  }, [])
+  }, [id])
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/selectVenu/${email}`)
+      .then(res => res.json())
+      .then(data => {
+        setSelectVenu(data);
+      })
+  }, [venuSelectDeleteRefetch, email])
+
+
+  const handleSelectVenu = (VenuDetails) => {
+
+    const { image, location, price, quantity, description } = VenuDetails;
+    const totalPrice = service.eventPrice + price;
+    const email = user?.email;
+    const venuPrice = price;
+    const selectEventDetails = { email, image, location, totalPrice, quantity, description, venuPrice }
+
+    fetch('http://localhost:5000/venuInsert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(selectEventDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
+        }
+      })
+  }
+
+  const selectedVenuDelete = (id) => {
+
+    fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
+        }
+      })
+
+  }
+
+  const handleBookingDate = (e) => {
+    setBookingDate(e.target.value);
+  }
+
+  const handlePhoneNumber = (e) => {
+    setPhoneNumber(e.target.value);
+  }
+
+  const handleAddress = (e) => {
+    setAddress(e.target.value);
+  }
+
+  const handleBookingSubmit = () => {
+
+    if (selectVenu.length) {
+      const bookingPersonName = name;
+      const bookingPersonEmail = email;
+      const date = bookingDate;
+      const phone = phoneNumber;
+      const address = bookingPersonAddress;
+      const eventName = service.eventName;
+      const eventPrice = service.eventPrice;
+      const venuLocation = selectVenu[0].location;
+      const venuPrice = selectVenu[0].venuPrice;
+      const venuPeopleAttend = selectVenu[0].quantity;
+      const totalPrice = selectVenu[0].totalPrice;
+      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice }
+      setBookingDetails(bookingInfo);
+      setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
+    } else {
+      toast.warning("Please Select Venu");
+    }
+  }
+
+  const handleBookingConfirm = () => {
+    fetch('http://localhost:5000/booking', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookingDetails),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.acknowledged) {
+          setBookingDetails({});
+          toast.success(`${bookingDetails.eventName} Event Booking`);
+        }else{
+           toast.error("Please Again fill the form");
+        }
+      })
+  }
 
   return (
     <div>
@@ -55,22 +176,7 @@ const EventDetails = () => {
               <div className="slider">
                 <div className="slide-ana">
                   <Slider className="w-full h-screen">
-                    {venu.map((v, i) => <Slide index={i}>
-                      <div>
-                        <img
-                          src={v.image}
-                          alt="A black chair with wooden legs"
-                          className=""
-                        />
-                        <div className="p-3">
-                          <p className="text-lg"><b>Event Location :</b> {v.location}</p>
-                          <p className="text-base pt-1"><b>Price :</b> {v.price}</p>
-                          <p className="text-base pt-1"><b>Quantity :</b> {v.quantity} peoples</p>
-                          <p className="w-full pt-1"><b>Details : </b> {v.description.slice(0, 190)}...</p>
-                          <button className="bg-gray-800 text-white mt-3 px-10 py-2">Select Venu</button>
-                        </div>
-                      </div>
-                    </Slide>)}
+                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu} selectVenu={selectVenu}></SingleVenu>)}
                   </Slider>
                 </div>
               </div>
@@ -99,32 +205,69 @@ const EventDetails = () => {
             </CarouselProvider>
             <div className="lg:w-1/2 mt-7 md:mt-8 lg:mt-0 pb-8 lg:pb-0">
               <h1 className="text-3xl lg:text-4xl font-semibold text-gray-800">
-                Marrige Event
+                {service.eventName}
               </h1>
+              <p className="text-xl font-bold leading-normal text-gray-800 mt-2">
+                Price : ${service.eventPrice}
+              </p>
               <p className="text-base leading-normal text-gray-600 mt-2">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia nostrum nobis ut, beatae in amet repellendus molestiae error voluptatem delectus fugiat aliquid repellat magnam cumque?
+                {service.eventDetails}
               </p>
-              <p className="text-3xl font-medium text-gray-800 mt-3 md:mt-5">
-                Order Form
+              <span className="text-lg font-bold leading-normal inline-block mt-4 mr-5">
+                Selcet Venu : {selectVenu.length ? selectVenu[0].location : <span className="text-gray-400 font-medium">Please Select Venu</span>}
+              </span>
+
+              {selectVenu.length ? <button onClick={() => selectedVenuDelete(selectVenu[0]._id)} className="bg-red-500 text-white px-3 py-1 rounded">Cancle Venu</button> : ""}
+
+              <p className="text-3xl font-semibold text-gray-800 mt-3 md:mt-5">
+                Booking Form
               </p>
-              <div className="flex flex-col gap-3 mt-3">
-                <p className="text-base">Event Name : Marrige Event</p>
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Event Price</span>
-                  </label>
-                  <input type="text" placeholder="Price" className="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
+
+              <p className="text-2xl font-semibold leading-normal mt-5 mb-4">
+                Total Price : ${selectVenu.length ? selectVenu[0].totalPrice : service.eventPrice}
+              </p>
+
+              <form>
+                <div className="flex flex-col gap-3 mt-3">
+                  <div class="form-control w-full max-w-xs">
+                    <input type="date" name="date" onBlur={(e) => handleBookingDate(e)} placeholder="Event Date" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" required />
+                  </div>
+                  <div class="form-control w-full max-w-xs">
+                    <input type="text" name="phone" onBlur={(e) => handlePhoneNumber(e)} placeholder="Phone Number" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required />
+                  </div>
+                  <div class="form-control w-full max-w-xs">
+                    <input type="text" name="address" onBlur={(e) => handleAddress(e)} placeholder="Address" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required />
+                  </div>
+
+                  <label onClick={() => handleBookingSubmit()} for="my-modal-6" className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none capitalize py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white mt-3 text-center" >Booking Service</label>
+
+
+                  <input type="checkbox" id="my-modal-6" class="modal-toggle" />
+                  <div class="modal modal-bottom sm:modal-middle">
+                    <div class="modal-box">
+                      <h3 class="font-bold text-2xl">Booking {service.eventName}</h3>
+                      <ul className=" text-black font-medium mt-4 ml-2">
+                        <li className="font-medium">Name : {bookingDetails.bookingPersonName}</li>
+                        <li>Email : {bookingDetails.bookingPersonEmail}</li>
+                        <li>Phone : {bookingDetails.phone}</li>
+                        <li className="mb-5">Address : {bookingDetails.address}</li>
+                        <li>Event Name : {bookingDetails.eventName}</li>
+                        <li>Event Price : ${bookingDetails.eventPrice}</li>
+                        <li>Event Date : {bookingDetails.date}</li>
+                        <li>Venu Location : {bookingDetails.venuLocation}</li>
+                        <li>Venu Price : ${bookingDetails.venuPrice}</li>
+                        <li>Event Attend : {bookingDetails.venuPeopleAttend} People</li>
+                        <li className="text-lg font-bold">Total Price : ${bookingDetails.totalPrice}</li>
+                      </ul>
+                      <div class="modal-action">
+                        <label onClick={() => setBookingDetails({})} for="my-modal-6" class="bg-red-500 px-5 py-2 text-white font-medium">Cancle</label>
+                        <label onClick={() => handleBookingConfirm()} for="my-modal-6" class="bg-green-500 px-5 py-2 text-white font-medium">Booking Confirm</label>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
-                <div className="form-control w-full max-w-xs">
-                  <label className="label">
-                    <span className="label-text">Phone</span>
-                  </label>
-                  <input type="text" placeholder="Phone Number" className="input input-bordered w-full max-w-xs rounded-none focus:outline-none" />
-                </div>
-                <button className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none uppercase py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white mt-3">
-                  Order Place
-                </button>
-              </div>
+              </form>
             </div>
           </div>
         </div>
