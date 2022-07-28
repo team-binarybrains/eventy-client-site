@@ -9,7 +9,7 @@ const DashBoard = () => {
   return (
     <>
       <div className="mx-auto px-2 lg:px-0">
-        <div className="drawer drawer-mobile bg-slate-200" id="dashboard_dower">
+        <div className="drawer drawer-mobile bg-slate-100" id="dashboard_dower">
           <input
             id="open-dashboard-menu"
             type="checkbox"
