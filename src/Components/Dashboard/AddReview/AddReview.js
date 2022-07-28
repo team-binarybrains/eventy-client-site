@@ -10,15 +10,11 @@ import './AddReview.css'
 const AddReview = () => {
    const [user, loading, error] = useAuthState(auth);
    const { register, handleSubmit, reset, formState: { errors } } = useForm();
-   const [stars,setStars] = useState(5);
-
-   const countStars = (e)=> {
+   const [stars, setStars] = useState(5);
+   const countStars = (e) => {
       setStars(e.target.value);
    }
-
    const onSubmit = data => {
-      
-
       // total review data
       const review = {
          email: auth?.currentUser?.email,
@@ -38,11 +34,11 @@ const AddReview = () => {
       })
          .then(res => res.json())
          .then(data => {
-            if(data?.insert){
-               toast.success('Thanks for giving the review',{theme:'colored'});
+            if (data?.insert) {
+               toast.success('Thanks for giving the review', { theme: 'colored' });
             }
-            else{
-               toast.error('You already added your review',{theme:'colored'})
+            else {
+               toast.error('You already added your review', { theme: 'colored' })
             }
             reset();
          })
@@ -81,7 +77,7 @@ const AddReview = () => {
                         )}
                      </label>
                   </div>
-                  
+
                </div>
 
                <div className="text-center flex items-center m-4 gap-x-3 mb-8">
