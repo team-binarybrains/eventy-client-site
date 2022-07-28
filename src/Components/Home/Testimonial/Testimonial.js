@@ -3,6 +3,7 @@ import "./Testimonail.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import user from "../../../image/userImage/user.jpg"
 
 const Testimonail = () => {
 
@@ -49,22 +50,35 @@ const Testimonail = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch("projectReview.json")
+        fetch("http://localhost:5000/post-review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
 
+    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>;
+
+    const showStars = (star)=> {
+        if(star>1){
+            return <>
+                {ratingStar}
+                {showStars(star-1)}
+            </>
+        }
+        else{
+            return ratingStar;
+        }
+    }
 
     return (
         <div>
-            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 text-gray-800 pt-20 uppercase  text-center title_line">
+            <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold px-4 leading-10 pt-20 uppercase  text-center title_line">
                 What our client says
             </h1>
             <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
                 <Slider {...settings}>
                     {reviews?.slice(0, 6).map((review) => (
                         <div className="px-5">
-                            <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10 ">
+                            <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10">
                                 <div className="text-gray-600 group-hover:text-white flex flex-col items-center">
                                     <svg
                                         width={26}
@@ -94,9 +108,14 @@ const Testimonail = () => {
                                             </clipPath>
                                         </defs>
                                     </svg>
-                                    <p className="xl:w-80 text-base leading-normal text-center mt-4">
-                                        {review.description.slice(0, 100)}
+                                    <p className="xl:w-80 text-base leading-normal text-center mt-4 h-24 overflow-hidden mb-3">
+                                        {review?.description.slice(0, 100)}
                                     </p>
+                                    <div className="rating rating-sm">
+                                        {
+                                            showStars(review?.rating)
+                                        }
+                                    </div>
                                 </div>
                                 <div className="text-white group-hover:text-green-400 absolute bottom-0 -mb-6">
                                     <svg
@@ -173,12 +192,9 @@ const Testimonail = () => {
                                 </div>
                             </div>
                             <div className="flex flex-col items-center justify-center mt-10">
-                                <img src={review.image} alt="profile pictre" className="testimonial-image rounded-full" />
+                                <img src={review?.image || user} alt="profile pictre" className="testimonial-image rounded-full" />
                                 <p className="text-base font-semibold leading-4 my-2 text-gray-800">
-                                    {review.name}
-                                </p>
-                                <p className="text-base leading-4 text-center text-gray-600">
-                                    Developer
+                                    {review?.userName}
                                 </p>
                             </div>
                         </div>
