@@ -33,7 +33,7 @@ const EventDetails = () => {
     fetch(`http://localhost:5000/allservices/${id}`)
       .then(res => res.json())
       .then(data => setService(data))
-  }, [id, selectVenu])
+  }, [id, selectVenu, bookingDate])
 
   useEffect(() => {
     fetch("http://localhost:5000/allvenues")
@@ -42,7 +42,7 @@ const EventDetails = () => {
   }, [id])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/selectVenu/${email}`)
+    fetch(`http://localhost:5000/selectVenu`)
       .then(res => res.json())
       .then(data => {
         setSelectVenu(data);
@@ -69,6 +69,8 @@ const EventDetails = () => {
       .then((data) => {
         if (data.acknowledged) {
           setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
+        }else{
+          toast.error("You have already Select Venu");
         }
       })
   }
@@ -121,7 +123,7 @@ const EventDetails = () => {
     }
   }
 
-  const handleBookingConfirm = () => {
+  const handleBookingConfirm = (id) => {
     fetch('http://localhost:5000/booking', {
       method: 'POST',
       headers: {
@@ -134,8 +136,21 @@ const EventDetails = () => {
         if (data.acknowledged) {
           setBookingDetails({});
           toast.success(`${bookingDetails.eventName} Event Booking`);
-        }else{
-           toast.error("Please Again fill the form");
+          setBookingDate("");
+          setPhoneNumber("");
+          setAddress("");
+        } else {
+          toast.error(data.message);
+        }
+      })
+
+    fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+      method: "DELETE"
+    })
+      .then(res => res.json())
+      .then(data => {
+        if (data.acknowledged) {
+          setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
         }
       })
   }
@@ -176,7 +191,7 @@ const EventDetails = () => {
               <div className="slider">
                 <div className="slide-ana">
                   <Slider className="w-full h-screen">
-                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu} selectVenu={selectVenu}></SingleVenu>)}
+                    {venu.map((v, i) => <SingleVenu VenuDetails={v} index={i} servicePrice={service.eventPrice} handleSelectVenu={handleSelectVenu}></SingleVenu>)}
                   </Slider>
                 </div>
               </div>
@@ -213,34 +228,42 @@ const EventDetails = () => {
               <p className="text-base leading-normal text-gray-600 mt-2">
                 {service.eventDetails}
               </p>
-              <span className="text-lg font-bold leading-normal inline-block mt-4 mr-5">
-                Selcet Venu : {selectVenu.length ? selectVenu[0].location : <span className="text-gray-400 font-medium">Please Select Venu</span>}
-              </span>
+              <div className="h-24">
+                <p className="text-lg font-bold leading-normal mt-3">
+                  Selceted Venu : {selectVenu.length ? "" : <span className="text-gray-400 font-medium">Please Select Venu...</span>}
+                </p>
+                {
+                  selectVenu.length ?
+                    <>
+                      <span className="text-sm pr-0 sm:pr-3 font-bold border-r-4">Location : {selectVenu[0]?.location}</span>
+                      <span className="text-sm font-bold pl-3">Capacity : {selectVenu[0]?.quantity} Peoples</span>
+                    </>
+                    :
+                    ""
+                }
 
-              {selectVenu.length ? <button onClick={() => selectedVenuDelete(selectVenu[0]._id)} className="bg-red-500 text-white px-3 py-1 rounded">Cancle Venu</button> : ""}
+                <div className="mt-1">
+                  {selectVenu.length ? <button onClick={() => selectedVenuDelete(selectVenu[0]._id)} className="bg-red-500 text-xs font-semibold text-white px-3 py-1 rounded">Cancle Venu</button> : ""}
+                </div>
 
-              <p className="text-3xl font-semibold text-gray-800 mt-3 md:mt-5">
-                Booking Form
-              </p>
-
-              <p className="text-2xl font-semibold leading-normal mt-5 mb-4">
+              </div>
+              <p className="text-2xl font-semibold leading-normal mb-4">
                 Total Price : ${selectVenu.length ? selectVenu[0].totalPrice : service.eventPrice}
               </p>
 
               <form>
                 <div className="flex flex-col gap-3 mt-3">
                   <div class="form-control w-full max-w-xs">
-                    <input type="date" name="date" onBlur={(e) => handleBookingDate(e)} placeholder="Event Date" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" required />
+                    <input type="date" name="date" onChange={(e) => handleBookingDate(e)} placeholder="Event Date" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none" value={bookingDate} required />
                   </div>
                   <div class="form-control w-full max-w-xs">
-                    <input type="text" name="phone" onBlur={(e) => handlePhoneNumber(e)} placeholder="Phone Number" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required />
+                    <input type="text" name="phone" onChange={(e) => handlePhoneNumber(e)} placeholder="Phone Number" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required value={phoneNumber} />
                   </div>
                   <div class="form-control w-full max-w-xs">
-                    <input type="text" name="address" onBlur={(e) => handleAddress(e)} placeholder="Address" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required />
+                    <input type="text" name="address" onChange={(e) => handleAddress(e)} placeholder="Address" class="input input-bordered w-full max-w-xs rounded-none focus:outline-none mt-1" required value={bookingPersonAddress} />
                   </div>
 
-                  <label onClick={() => handleBookingSubmit()} for="my-modal-6" className="w-full md:w-3/5 border border-gray-800 text-base font-medium leading-none capitalize py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white mt-3 text-center" >Booking Service</label>
-
+                  <label onClick={() => handleBookingSubmit()} for="my-modal-6" className="w-3/5 border border-gray-800 text-base font-medium leading-none capitalize py-6 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 bg-gray-800 text-white mt-3 text-center" >Booking Service</label>
 
                   <input type="checkbox" id="my-modal-6" class="modal-toggle" />
                   <div class="modal modal-bottom sm:modal-middle">
@@ -256,12 +279,12 @@ const EventDetails = () => {
                         <li>Event Date : {bookingDetails.date}</li>
                         <li>Venu Location : {bookingDetails.venuLocation}</li>
                         <li>Venu Price : ${bookingDetails.venuPrice}</li>
-                        <li>Event Attend : {bookingDetails.venuPeopleAttend} People</li>
+                        <li>Event Capacity : {bookingDetails.venuPeopleAttend} Peoples</li>
                         <li className="text-lg font-bold">Total Price : ${bookingDetails.totalPrice}</li>
                       </ul>
                       <div class="modal-action">
                         <label onClick={() => setBookingDetails({})} for="my-modal-6" class="bg-red-500 px-5 py-2 text-white font-medium">Cancle</label>
-                        <label onClick={() => handleBookingConfirm()} for="my-modal-6" class="bg-green-500 px-5 py-2 text-white font-medium">Booking Confirm</label>
+                        <label type="reset" onClick={() => handleBookingConfirm(selectVenu[0]._id)} for="my-modal-6" class="bg-green-500 px-5 py-2 text-white font-medium">Booking Confirm</label>
                       </div>
                     </div>
                   </div>
