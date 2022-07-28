@@ -27,7 +27,7 @@ import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 import Chart from "./Components/Dashboard/Chart/Chart";
 function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden overflow-y-hidden">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
