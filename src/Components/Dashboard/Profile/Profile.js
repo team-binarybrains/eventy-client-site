@@ -4,16 +4,11 @@ import auth from "../../../Firebase/Firebase.init";
 import Loading from "../../Share/Loading";
 import profileImg from "../../../image/employer/2.jpg";
 import { FiEdit } from "react-icons/fi";
-// import {
-//   useQuery,
-//   useMutation,
-//   useQueryClient,
-//   QueryClient,
-//   QueryClientProvider,
-// } from "@tanstack/react-query";
+import { AiOutlineUser } from "react-icons/ai";
 import "./Profile.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import userIcon from '../../../image/user/1946429.png'
 
 const Profile = () => {
   const [updateUser, setUpdateUser] = useState([]);
@@ -21,12 +16,15 @@ const Profile = () => {
   const email = user?.email;
   // 
   useEffect(() => {
-    axios.get(`http://localhost:5000/single-user/${email}`).then((res) => {
-      const { data } = res;
-      setUpdateUser(data);
-    });
+    // axios.get(`http://localhost:5000/single-user/${email}`).then((res) => {
+    //   const { data } = res;
+    //   setUpdateUser(data);
+    // });
+    fetch(`http://localhost:5000/single/${email}`)
+      .then(res => res.json())
+      .then(data => setUpdateUser(data))
   }, [email]);
-
+  // console.log(updateUser[0]);
   if (loading) {
     return <Loading />;
   }
@@ -40,18 +38,29 @@ const Profile = () => {
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4 flex justify-center">
               <div className="relative">
-                {user?.photoURL ?
+                {/* {user &&
                   <img
                     className="w-52 h-52 rounded-full mt-[-50%]"
-                    src={user?.photoURL}
-                    alt="profile photos"
-                  />
-                  :
-                  <img
-                    className="w-52 h-52 rounded-full mt-[-50%]"
-                    src={profileImg}
+                    src={updateUser[0]?.image}
                     alt=""
                   />
+                }
+                {
+                  !updateUser[0]?.image && <span className=""><AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full w-52 h-52 rounded-full mt-[-95%]" /></span>
+                } */}
+                {
+                  user ?
+                    <img
+                      className="w-52 h-52 rounded-full mt-[-50%]"
+                      src={updateUser[0]?.image}
+                      alt=""
+                    />
+                    :
+                    <img
+                      className="w-5 h-5 rounded-full mt-[-50%]"
+                      src={userIcon}
+                      alt=""
+                    />
                 }
               </div>
             </div>
@@ -103,17 +112,17 @@ const Profile = () => {
 
               <div className="mb-2 text-blueGray-600 mt-0">
                 <p className="text-base font-semibold leading-normal text-slate-700 mb-1">Country : {
-                  updateUser?.country ? updateUser?.country : 'Set Your Country Name'
+                  updateUser[0]?.country ? updateUser[0]?.country : "Set Your City Name"
                 } </p>{" "}
 
 
               </div>
               <div className="">
-                <p className="text-base font-semibold leading-normal text-slate-700 mb-1">City : {updateUser?.city ? updateUser?.city : "Set Your City Name"}</p>
+                <p className="text-base font-semibold leading-normal text-slate-700 mb-1">City : {updateUser[0]?.city ? updateUser[0]?.city : "Set Your City Name"}</p>
               </div>
               <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
                 <p className="text-base leading-normal text-slate-700 mb-1">Address :
-                  {updateUser?.address ? updateUser?.address : " Set Your Address"}
+                  {updateUser[0]?.address ? updateUser[0]?.address : " Set Your Address"}
                 </p>
               </div>
             </div>
@@ -122,7 +131,7 @@ const Profile = () => {
                 <div className="w-full lg:w-9/12 px-4">
                   <p className="text-xl pb-5">About Me</p>
                   <p className="text-base text-slate-600 font-normal mb-1">
-                    {updateUser?.aboutMe ? updateUser?.aboutMe : "Added About Me"}
+                    {updateUser[0]?.aboutMe ? updateUser[0]?.aboutMe : "Added About Me"}
                   </p>
                   <a
                     href="#pablo"

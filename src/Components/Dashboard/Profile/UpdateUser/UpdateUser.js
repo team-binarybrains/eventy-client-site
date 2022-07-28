@@ -1,19 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../../../Firebase/Firebase.init";
 import Loading from "../../../Share/Loading";
 import { toast } from "react-toastify";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UpdateUser = () => {
   const [user, loading, error] = useAuthState(auth);
-  const email = user.email;
+  const [userData, setUserData] = useState([])
+  const navigate = useNavigate();
+  const email = user?.email;
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    axios.get(`http://localhost:5000/single/${email}`).then((res) => {
+      const { data } = res;
+      setUserData(data);
+    });
+  }, [email]);
+
   const onSubmit = (data) => {
     const imgbbAPIKey = "e32b2607a3f00cb963832ebb13d8a672";
     const image = data.image[0];
@@ -45,16 +57,18 @@ const UpdateUser = () => {
             },
             body: JSON.stringify(user),
           })
+
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.acknowledged) {
                 toast.success("updated");
+                navigate('/manage-profile')
                 reset();
               }
             });
-          // console.log(services);
         }
       });
+
   };
 
   // for user
@@ -65,6 +79,7 @@ const UpdateUser = () => {
   if (error) {
     console.log(error);
   }
+  console.log(userData[0]);
   return (
     <section className="my-20 container mx-auto px-4">
       <div className="rounded bg-white shadow-2xl" id="profile_container">
@@ -85,6 +100,7 @@ const UpdateUser = () => {
                     User Name{" "}
                   </label>
                   <input
+                    defaultValue={userData[0]?.displayName}
                     id="displayName"
                     name="displayName"
                     type="text"
@@ -115,17 +131,19 @@ const UpdateUser = () => {
                     Email Address
                   </label>
                   <input
+                    value={email}
+                    readOnly
                     id="email"
                     name="email"
                     type="text"
                     className="mt-2 appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
                     placeholder="Email Address"
-                    {...register("email", {
-                      required: {
-                        value: true,
-                        message: "Enter Email Address",
-                      },
-                    })}
+                  // {...register("email", {
+                  //   required: {
+                  //     value: true,
+                  //     message: "Enter Email Address",
+                  //   },
+                  // })}
                   />
                 </div>
                 <label className="text-left sm:text-start block">
@@ -147,6 +165,8 @@ const UpdateUser = () => {
                     Country
                   </label>
                   <input
+                    // defaultValue={userData[0]?.country? userData[0]?.country : "Enter Your Country"}
+                    defaultValue={userData[0]?.country}
                     id="country"
                     name="country"
                     type="text"
@@ -177,6 +197,7 @@ const UpdateUser = () => {
                     City
                   </label>
                   <input
+                    defaultValue={userData[0]?.city}
                     id="city"
                     name="city"
                     type="text"
@@ -208,6 +229,7 @@ const UpdateUser = () => {
                   Address
                 </label>
                 <input
+                  defaultValue={userData[0]?.address}
                   id="address"
                   name="address"
                   type="text"
@@ -239,6 +261,7 @@ const UpdateUser = () => {
                   About Me{" "}
                 </label>
                 <textarea
+                  defaultValue={userData[0]?.aboutMe}
                   id="aboutMe"
                   name="aboutMe"
                   type="text"
