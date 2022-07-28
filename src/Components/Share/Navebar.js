@@ -116,7 +116,7 @@ const Navebar = () => {
               <div tabIndex="0" className=" m-1" onClick={() => {
                 show === 'hidden' ? setShow('block') : setShow('hidden');
               }}>
-                {user.photoURL && (
+                {user?.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
@@ -124,7 +124,7 @@ const Navebar = () => {
                   />
                 )}
 
-                {(user.photoURL === null) &&
+                {(user?.photoURL === null) &&
                   <span className=""><AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" /></span>
                 }
               </div>
@@ -134,7 +134,7 @@ const Navebar = () => {
                 <div className="grid gap-y-3 pt-7 pb-3">
                   <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                     <div className="flex justify-center -mt-10">
-                      {user.photoURL && (
+                      {user?.photoURL && (
                         <img
                           src={user?.photoURL}
                           className="w-10 h-10 rounded-full"
@@ -142,12 +142,12 @@ const Navebar = () => {
                         />
                       )}
 
-                      {(user.photoURL === null) &&
+                      {(user?.photoURL === null) &&
                         <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" /></span>
                       }
                     </div>
                     <div>
-                      <p className="pt-3 ">{user.email}</p>
+                      <p className="pt-3 ">{user?.email}</p>
                     </div>
                   </div>
 
@@ -179,7 +179,7 @@ const Navebar = () => {
               show === "hidden" ? setShow("block") : setShow("hidden");
             }}
           >
-            {user.photoURL && (
+            {user?.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
@@ -187,7 +187,7 @@ const Navebar = () => {
                   />
                 )}
 
-                {(user.photoURL === null) &&
+                {(user?.photoURL === null) &&
                   <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" /></span>
                 }
           </div>
@@ -197,7 +197,7 @@ const Navebar = () => {
             <div className="grid gap-y-3 pt-7 pb-3">
               <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                 <div className="flex justify-center -mt-10">
-                {user.photoURL && (
+                {user?.photoURL && (
                         <img
                           src={user?.photoURL}
                           className="w-10 h-10 rounded-full"
@@ -205,12 +205,12 @@ const Navebar = () => {
                         />
                       )}
 
-                      {(user.photoURL === null) &&
+                      {(user?.photoURL === null) &&
                         <span className=""><AiOutlineUser className="text-black bg-white text-5xl rounded-full" /></span>
                       }
                 </div>
                 <div>
-                  <p className="pt-3 ">{user.email}</p>
+                  <p className="pt-3 ">{user?.email}</p>
                 </div>
               </div>
 
