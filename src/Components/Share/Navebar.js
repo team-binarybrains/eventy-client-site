@@ -23,6 +23,7 @@ import Login from "../Authentication/Login";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.init";
 import { signOut } from "firebase/auth";
+import Profile from "../Dashboard/Profile/Profile";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -108,40 +109,29 @@ const Navebar = () => {
         <span className="px-4 caret-black text-black text-2xl">|</span>
         {user ? (
           <>
-            <div class="dropdown dropdown-end">
-              <div
-                tabindex="0"
-                class=" m-1"
-                onClick={() => {
-                  show === "hidden" ? setShow("block") : setShow("hidden");
-                }}
-              >
-                {/* <Avatar className="ml-3" size="base" image={user?.photoURL} status="online"/> */}
-
-                {user ? (
-                  <img
-                    src={user?.photoURL}
-                    className="w-10 h-10 rounded-full"
-                    alt=""
-                  />
-                ) : (
-                  <p className="text-2xl text-black rounded-full px-3 py-1 bg-white ">
-                    {user?.displayName.slice(0, 1)}
-                  </p>
-                )}
+            <div className="dropdown dropdown-end">
+              <div tabIndex="0" className=" m-1" onClick={() => {
+                show === 'hidden' ? setShow('block') : setShow('hidden');
+              }}>
+                {/* <Avatar
+                  className="ml-3"
+                  size="base"
+                  // image={user?.photoURL}
+                  status="online"
+                /> */}
               </div>
 
-              <ul
-                tabindex="0"
-                class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}
-              >
+              <ul tabIndex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
+              {/* manage profile */}
+                <Link to={`/manage-profile`}>Manage profile</Link>
+                <br />
                 <button onClick={handleSignOut}>Sign out</button>
               </ul>
             </div>
           </>
         ) : (
           <label
-            for="login-modal"
+            htmlFor="login-modal"
             className="text-gray-700 font-bold
           text-xl hover:text-gray-500 cursor-pointer ml-4"
           >
@@ -230,7 +220,7 @@ const Navebar = () => {
             <div className="flex">
               {!user && (
                 <label
-                  for="login-modal"
+                  htmlFor="login-modal"
                   className="text-gray-200 font-bold
                     text-xl hover:text-gray-500"
                 >
