@@ -240,8 +240,8 @@ const EventDetails = () => {
                 {
                   selectVenu.length ?
                     <>
-                      <span className="text-sm pr-0 sm:pr-3 font-bold border-r-4">Location : {selectVenu[0]?.location}</span>
-                      <span className="text-sm font-bold pl-3">Capacity : {selectVenu[0]?.quantity} Peoples</span>
+                      <span className="text-sm pr-2 sm:pr-3 font-bold border-r-4">Location : {selectVenu[0]?.location}</span>
+                      <span className="text-sm font-bold pl-2 sm:pl-3">Capacity : {selectVenu[0]?.quantity} Peoples</span>
                     </>
                     :
                     ""
