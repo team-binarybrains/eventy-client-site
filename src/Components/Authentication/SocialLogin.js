@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import auth from "../../Firebase/Firebase.init";
 import {
   useSignInWithFacebook,
@@ -11,6 +11,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 // import axios from 'axios';
 import "../ContactUs/ContactUs.css";
+import useToken from "../Hooks/useToken";
+import Loading from "../Share/Loading";
 
 const SocialLogin = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
@@ -18,23 +20,31 @@ const SocialLogin = () => {
 
   const [signInWithFacebook, facebookUser, FacebookLoading, FacebookError] =
     useSignInWithFacebook(auth);
+  const [token] = useToken(googleUser);
 
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
+  useEffect(() => {
+    if (googleUser || facebookUser) {
+      navigate(from, { replace: true });
+
+      toast.success(
+        "Congratulation ! You are Loged In successfully. Enjoy our more feature here."
+      );
+    }
+  }, [token, facebookUser, googleUser]);
 
   if (googleError || FacebookError) {
-    // toast.error(<>{googleError?.message}, {FacebookError?.message}</>)
+    toast.error(
+      <>
+        {googleError?.message}, {FacebookError?.message}
+      </>
+    );
   }
 
   if (googleLoading || FacebookLoading) {
-    // return <Loading></Loading>
-  }
-
-  if (googleUser || facebookUser) {
-    navigate(from, { replace: true });
-
-    // toast.success('Congratulation ! You are Loged In successfully. Enjoy our more feature here.')
+    return <Loading></Loading>;
   }
 
   // const googleSignIn = async () => {
