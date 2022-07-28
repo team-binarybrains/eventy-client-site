@@ -10,15 +10,15 @@ const MainChart = () => {
 
       <div className="text-left">
 
-        <div className="bg-[#0284C7] h-[500px] lg:-mr-3 w-[1650px]">
-          <div className="pt-20 flex justify-center">
+        <div className="bg-[#0284C7] h-[500px] lg:-mr-3 lg:w-[1650px]">
+          <div className="lg:pt-20 pt-3 flex justify-center">
             <Count></Count>
           </div>
 
         </div>
       </div>
 
-      <div className="-mt-[450px] px-7">
+      <div className="lg:-mt-[450px] mt-3 lg:px-7">
         <Chart></Chart>
         <div className="grid lg:flex justify-center gap-2 overflow-x-hidden">
           <CardPageVisits></CardPageVisits>
