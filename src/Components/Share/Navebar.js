@@ -128,14 +128,14 @@ const Navebar = () => {
 
                 {user.photoURL === null && (
                   <span className="">
-                    <AiOutlineUser className="text-black bg-white text-4xl rounded-full" />
+                    <AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" />
                   </span>
                 )}
               </div>
 
               <ul
                 tabIndex="0"
-                class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}
+                class={`dropdown-content menu p-2 shadow border-2 border-2 bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}
               >
                 <div className="grid gap-y-3 pt-7 pb-3">
                   <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
@@ -150,7 +150,7 @@ const Navebar = () => {
 
                       {user.photoURL === null && (
                         <span className="">
-                          <AiOutlineUser className="text-black bg-white text-5xl rounded-full" />
+                          <AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" />
                         </span>
                       )}
                     </div>
@@ -206,7 +206,7 @@ const Navebar = () => {
 
             {user.photoURL === null && (
               <span className="">
-                <AiOutlineUser className="text-black bg-white text-4xl rounded-full" />
+                <AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" />
               </span>
             )}
           </div>
