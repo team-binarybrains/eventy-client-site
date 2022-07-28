@@ -23,7 +23,7 @@ function OurServices() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
-        {services.map(service => <div className="mb-4 cursor-pointer">
+        {services?.map(service => <div className="mb-4 cursor-pointer">
           <div className="relative overflow-hidden bg-no-repeat bg-cover max-w-xs">
             <img
               src={service.image}

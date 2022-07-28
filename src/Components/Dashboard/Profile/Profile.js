@@ -23,7 +23,7 @@ const Profile = () => {
   useEffect(() => {
     axios.get(`http://localhost:5000/single-user/${email}`).then((res) => {
       const { data } = res;
-      console.log(data);
+      setUpdateUser(data);
     });
   }, [email]);
 
@@ -33,14 +33,14 @@ const Profile = () => {
   return (
     <section className="my-40 container mx-auto px-4">
       <div
-        className="relative flex flex-col min-w-0 break-words bg-white w-full  mb-6 shadow-xl rounded-lg mt-16 "
+        className="relative flex flex-col min-w-0 break-words border-2 bg-white w-full  mb-6 shadow-xl rounded-lg mt-16 "
         id="profileSection"
       >
-        <div className="px-6"> 
+        <div className="px-6">
           <div className="flex flex-wrap justify-center">
             <div className="w-full px-4 flex justify-center">
               <div className="relative">
-                {user?.photoURL?
+                {user?.photoURL ?
                   <img
                     className="w-52 h-52 rounded-full mt-[-50%]"
                     src={user?.photoURL}
@@ -90,43 +90,48 @@ const Profile = () => {
               </Link>
             </div>
           </div>
-          <div className="text-center mt-12">
-            <h3 className="text-xl font-semibold leading-normal  text-blueGray-700 mb-2">
-              Name: {user?.displayName}
-            </h3>
-            <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 ">
-              <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-              <span className="font-bold">Email:</span> {user?.email}
-            </div>
+          <div className="text-center mt-6">
+            <div className="">
+              <div className="">
+                <h3 className="text-lg font-semibold leading-normal text-slate-700 mb-1">
+                  Name: {user?.displayName}
+                </h3>
+              </div>
+              <div className="text-base font-semibold leading-normal text-slate-700 mb-1">
+                <span className="">Email : </span> {user?.email}
+              </div>
 
-            <div className="mb-2 text-blueGray-600 mt-10">
-              <i className="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>
-              <span>Country:{updateUser?.country} </span>{" "}
-              <span>City:{updateUser?.city}</span>
-            </div>
-            <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
-              <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
-              <span className="font-bold">Address:</span>
-              {updateUser?.address}
-            </div>
-          </div>
-          <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
-            <div className="flex flex-wrap justify-center">
-              <div className="w-full lg:w-9/12 px-4">
-                <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                  An artist of considerable range, Jenna the name taken by
-                  Melbourne-raised, Brooklyn-based Nick Murphy writes, performs
-                  and records all of his own music, giving it a warm, intimate
-                  feel with a solid groove structure. An artist of considerable
-                  range.
+              <div className="mb-2 text-blueGray-600 mt-0">
+                <p className="text-base font-semibold leading-normal text-slate-700 mb-1">Country : {
+                  updateUser?.country ? updateUser?.country : 'Set Your Country Name'
+                } </p>{" "}
+
+
+              </div>
+              <div className="">
+                <p className="text-base font-semibold leading-normal text-slate-700 mb-1">City : {updateUser?.city ? updateUser?.city : "Set Your City Name"}</p>
+              </div>
+              <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">
+                <p className="text-base leading-normal text-slate-700 mb-1">Address :
+                  {updateUser?.address ? updateUser?.address : " Set Your Address"}
                 </p>
-                <a
-                  href="#pablo"
-                  className="font-normal text-lightBlue-500"
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Show more
-                </a>
+              </div>
+            </div>
+            <div className="mt-10 py-10 border-t border-blueGray-200 text-start">
+              <div className="">
+                <div className="w-full lg:w-9/12 px-4">
+                  <p className="text-xl pb-5">About Me</p>
+                  <p className="text-base text-slate-600 font-normal mb-1">
+                    {updateUser?.aboutMe ? updateUser?.aboutMe : "Added About Me"}
+                  </p>
+                  <a
+                    href="#pablo"
+                    className="font-normal text-lightBlue-500"
+                    onClick={(e) => e.preventDefault()}
+                  >
+                    Show more
+                  </a>
+                </div>
               </div>
             </div>
           </div>
