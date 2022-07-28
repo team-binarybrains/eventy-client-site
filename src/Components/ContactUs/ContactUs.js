@@ -53,12 +53,14 @@ const ContactUs = () => {
           >
             <div className="flex gap-8">
               <input
+                required
                 className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
                 type="text"
                 placeholder="Your name"
                 name="user_name"
               />
               <input
+                required
                 className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
                 type="email"
                 placeholder="Your email"
@@ -66,12 +68,14 @@ const ContactUs = () => {
               />
             </div>
             <input
+              required
               className="border-2 border-gray-900/30 text-paragraph h-[60px] outline-none pl-6 w-full font-body text-[15px] rounded-md focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
               type="text"
               placeholder="Subject"
               name="subject"
             />
             <textarea
+              required
               className="border-2 border-gray-900/30 resize-none w-full outline-none p-6 rounded-md h-[200px] focus:outline focus:outline-1 focus:outline-accent placeholder:text-gray-900/50"
               placeholder="Your message"
               name="message"

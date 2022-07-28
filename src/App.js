@@ -21,6 +21,7 @@ import AddReview from "./Components/Dashboard/AddReview/AddReview";
 import RequireAuth from "./Components/Authentication/RequireAuth/RequireAuth";
 import BackTopBtn from "./Components/BackTopBtn/BackTopBtn";
 import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
+import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 
@@ -33,6 +34,9 @@ function App() {
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+
+        <Route path="/eventDetail/:id" element={<EventDetails></EventDetails>}></Route>
+
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         {/* Dash board */}
