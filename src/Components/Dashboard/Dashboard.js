@@ -15,7 +15,7 @@ const DashBoard = () => {
             type="checkbox"
             className="drawer-toggle"
           />
-          <div className="drawer-content  flex flex-col" id="drawer">
+          <div className="  drawer-content  flex flex-col" id="drawer">
             {/* <!-- Page content here --> */}
             {/* <ChevronRightIcon /> */}
             {/* fa-solid fa-square-arrow-right */}
@@ -31,17 +31,16 @@ const DashBoard = () => {
             </div>
             <div className="text-center ">
               <div className="text-left px-3 ">
-                <div className="bg-blue-400 h-96 -mt-4 -mr-5 "></div>
                 <Outlet></Outlet>
               </div>
             </div>
           </div>
-          <div className="drawer-side">
+          <div className="drawer-side w-[180px]">
             <label
               htmlFor="open-dashboard-menu"
               className="drawer-overlay"
             ></label>
-            <ul className="menu p-4 overflow-y-auto w-80 bg-slate-100 border-r-1 shadow-lg  text-zinc-800">
+            <ul className="menu p-4 overflow-y-auto  bg-slate-100 border-r-1 shadow-lg  text-zinc-800">
               {/* <!-- Sidebar content here --> */}
               <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard"}>

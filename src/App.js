@@ -25,9 +25,10 @@ import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetail
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 import Chart from "./Components/Dashboard/Chart/Chart";
+import MainChart from "./Components/Dashboard/Chart/MainChart";
 function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -49,7 +50,7 @@ function App() {
             path="/dashboard"
             element={
               <RequireAuth>
-                <Chart></Chart>
+                <MainChart></MainChart>
               </RequireAuth>
             }
           ></Route>
