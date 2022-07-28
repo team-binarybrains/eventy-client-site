@@ -3,20 +3,19 @@ import { Outlet } from "react-router-dom";
 import CustomLink from "../CustomLink/CustomLink";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-// import Count from "./Coutn/Count"
 import "./Dashboard.css";
 
 const DashBoard = () => {
   return (
     <>
       <div className="mx-auto px-2 lg:px-0">
-        <div className="drawer drawer-mobile bg-slate-100" id="dashboard_dower">
+        <div className="drawer drawer-mobile bg-slate-200" id="dashboard_dower">
           <input
             id="open-dashboard-menu"
             type="checkbox"
             className="drawer-toggle"
           />
-          <div className="  drawer-content  flex flex-col" id="drawer">
+          <div className="drawer-content  flex flex-col" id="drawer">
             {/* <!-- Page content here --> */}
             {/* <ChevronRightIcon /> */}
             {/* fa-solid fa-square-arrow-right */}
