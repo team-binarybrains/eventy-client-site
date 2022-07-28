@@ -113,7 +113,7 @@ const Navebar = () => {
               <div tabIndex="0" className=" m-1" onClick={() => {
                 show === 'hidden' ? setShow('block') : setShow('hidden');
               }}>
-                 {user ? (
+                {user ? (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
@@ -126,11 +126,33 @@ const Navebar = () => {
                 )}
               </div>
 
-              <ul tabIndex="0" class={`dropdown-content menu p-2 shadow ring-4 ring-black ring-opacity-50 bg-[#BAD4B6] rounded-sm w-52 ${show} text-black text-center mt-4 -mr-5`}>
-              {/* manage profile */}
-                <Link to={`/manage-profile`}>Manage profile</Link>
-                <br />
-                <button onClick={handleSignOut}>Sign out</button>
+              <ul tabIndex="0" class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}>
+
+                <div className="grid gap-y-3 pt-7 pb-3">
+                  <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
+                    <div className="flex justify-center -mt-10">
+                    {user ? (
+                      <img
+                        src={user?.photoURL}
+                        className="w-14 h-14 rounded-full"
+                        alt=""
+                      />
+                    ) : (
+                      <p className="text-3xl text-black rounded-full px-3 py-1 bg-white ">
+                        {user?.displayName.slice(0, 1)}
+                      </p>
+                    )}
+                    </div>
+                    <div>
+                      <p className="pt-3 ">{user.email}</p>
+                    </div>
+                  </div>
+
+                  <Link to={`/manage-profile`} className='uppercase hover:text-gray-600'>Manage profile</Link>
+
+                  <button onClick={handleSignOut} className='uppercase hover:text-gray-600'>Sign out</button>
+                </div>
+
               </ul>
             </div>
           </>
