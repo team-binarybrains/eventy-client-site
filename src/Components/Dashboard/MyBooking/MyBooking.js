@@ -1,6 +1,39 @@
-import React from 'react';
+import { signOut } from 'firebase/auth';
+import axios from "axios";
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../../Firebase/Firebase.init';
+import SingleMyBooking from './SinglMyBooking/SinglMyBooking';
 
 const MyBooking = () => {
+   const [user] = useAuthState(auth);
+   const [items, setItems] = useState([]);
+   const navigate = useNavigate();
+   useEffect(() => {
+     const myBooking = async () => {
+       const email = user.email;
+       const url = `http://localhost:5000/myBooking?email=${email}`;
+ 
+       try {
+         const { data } = await axios.get(url, {
+           headers: {
+             authorization: ` Bearer ${localStorage.getItem("accessToken")}`,
+           },
+         });
+         setItems(data);
+       } catch (error) {
+         console.log(error.message);
+         if (error.response.status === 401 || error.response.status === 403) {
+           signOut(auth);
+           navigate("/login");
+         }
+       }
+     };
+     myBooking();
+   }, [user]);
+
+
    return (
       <div>
         
@@ -19,13 +52,13 @@ const MyBooking = () => {
     </thead>
 
     <tbody>
-      {/* {items?.map((user) => (
-        <SingleMyOrder
+      {items?.map((user) => (
+        <SingleMyBooking
           key={user._id}
           user={user}
-          productDeleteHandle={productDeleteHandle}
-        ></SingleMyOrder>
-      ))} */}
+         //  productDeleteHandle={productDeleteHandle}
+        ></SingleMyBooking>
+      ))}
     </tbody>
   </table>
 </div>
