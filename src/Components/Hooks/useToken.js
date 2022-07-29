@@ -9,7 +9,7 @@ const useToken = (user) => {
     const name = user?.user?.displayName;
     const currentUser = { email: email, displayName: name };
     if (email) {
-      fetch(`https://powerful-cove-50894.herokuapp.com/user/${email}`, {
+      fetch(`http://localhost:5000/user/${email}`, {
         method: "PUT",
         body: JSON.stringify(currentUser),
         headers: {

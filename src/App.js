@@ -32,7 +32,7 @@ import AllReview from "./Components/AllReview/AllReview";
 import AllEmployers from "./Components/Home/OurEmployer/AllEmployers";
 function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden bg-white">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -41,9 +41,14 @@ function App() {
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
         <Route path="/all-review" element={<AllReview></AllReview>}></Route>
 
-        <Route path="/eventDetail/:id" element={<RequireAuth><EventDetails></EventDetails></RequireAuth>}></Route>
-        
-        <Route path="/allEmployers" element={<AllEmployers></AllEmployers>}></Route>
+        <Route
+          path="/eventDetail/:id"
+          element={
+            <RequireAuth>
+              <EventDetails></EventDetails>
+            </RequireAuth>
+          }
+        ></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
@@ -54,7 +59,6 @@ function App() {
             path="/dashboard"
             element={
               <RequireAuth>
-                
                 <MainChart></MainChart>
               </RequireAuth>
             }

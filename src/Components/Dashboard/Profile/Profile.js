@@ -16,11 +16,11 @@ const Profile = () => {
   const email = user?.email;
   // 
   useEffect(() => {
-    // axios.get(`https://powerful-cove-50894.herokuapp.com/single-user/${email}`).then((res) => {
+    // axios.get(`http://localhost:5000/single-user/${email}`).then((res) => {
     //   const { data } = res;
     //   setUpdateUser(data);
     // });
-    fetch(`https://powerful-cove-50894.herokuapp.com/single/${email}`)
+    fetch(`http://localhost:5000/single/${email}`)
       .then(res => res.json())
       .then(data => setUpdateUser(data))
   }, [email]);

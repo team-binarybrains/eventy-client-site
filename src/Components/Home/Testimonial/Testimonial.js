@@ -52,7 +52,7 @@ const Testimonail = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch("https://powerful-cove-50894.herokuapp.com/post-review")
+        fetch("http://localhost:5000/post-review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
@@ -204,7 +204,7 @@ const Testimonail = () => {
                 </Slider>
             </div>
             <div className="text-center mb-12">
-                <button onClick={()=> {
+                <button onClick={() => {
                     navigate('/all-review')
                 }} className="btnc btn-gradient gradient2 text-center">
                     See More
