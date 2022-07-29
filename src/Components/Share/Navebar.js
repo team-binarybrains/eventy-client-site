@@ -24,19 +24,17 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../Firebase/Firebase.init";
 import { signOut } from "firebase/auth";
 import Profile from "../Dashboard/Profile/Profile";
-import { AiOutlineUser } from 'react-icons/ai';
-
-
+import { AiOutlineUser } from "react-icons/ai";
 
 const Navebar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [user] = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     signOut(auth);
-    // localStorage.removeItem('accessToken')
+    localStorage.removeItem('accessToken')
   };
 
   const navigate = useNavigate();
@@ -116,7 +114,7 @@ const Navebar = () => {
               <div tabIndex="0" className=" m-1" onClick={() => {
                 show === 'hidden' ? setShow('block') : setShow('hidden');
               }}>
-                {user.photoURL && (
+                {user?.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
@@ -124,17 +122,19 @@ const Navebar = () => {
                   />
                 )}
 
-                {(user.photoURL === null) &&
+                {(user?.photoURL === null) &&
                   <span className=""><AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" /></span>
                 }
               </div>
 
-              <ul tabIndex="0" class={`dropdown-content menu p-2 shadow border-2 border-2 bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}>
-
+              <ul
+                tabIndex="0"
+                class={`dropdown-content menu p-2 shadow border-2 border-2 bg-white rounded-sm w-60 ${show} text-black text-center mt-4 -mr-5`}
+              >
                 <div className="grid gap-y-3 pt-7 pb-3">
                   <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                     <div className="flex justify-center -mt-10">
-                      {user.photoURL && (
+                      {user?.photoURL && (
                         <img
                           src={user?.photoURL}
                           className="w-10 h-10 rounded-full"
@@ -142,20 +142,29 @@ const Navebar = () => {
                         />
                       )}
 
-                      {(user.photoURL === null) &&
+                      {(user?.photoURL === null) &&
                         <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" /></span>
                       }
                     </div>
                     <div>
-                      <p className="pt-3 ">{user.email}</p>
+                      <p className="pt-3 ">{user?.email}</p>
                     </div>
                   </div>
 
-                  <Link to={`/manage-profile`} className='uppercase hover:text-gray-600'>Manage profile</Link>
+                  <Link
+                    to={`/manage-profile`}
+                    className="uppercase hover:text-gray-600"
+                  >
+                    Manage profile
+                  </Link>
 
-                  <button onClick={handleSignOut} className='uppercase hover:text-gray-600'>Sign out</button>
+                  <button
+                    onClick={handleSignOut}
+                    className="uppercase hover:text-gray-600"
+                  >
+                    Sign out
+                  </button>
                 </div>
-
               </ul>
             </div>
           </>
@@ -179,46 +188,57 @@ const Navebar = () => {
               show === "hidden" ? setShow("block") : setShow("hidden");
             }}
           >
-            {user.photoURL && (
+            {user?.photoURL && (
                   <img
                     src={user?.photoURL}
                     className="w-10 h-10 rounded-full"
-                    alt=""
+                    alt="pic"
                   />
                 )}
 
-                {(user.photoURL === null) &&
+                {(user?.photoURL === null) &&
                   <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" /></span>
                 }
           </div>
 
-          <ul tabIndex="0" class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-5 -mr-14`}>
-
+          <ul
+            tabIndex="0"
+            class={`dropdown-content menu p-2 shadow bg-white rounded-sm w-60 ${show} text-black text-center mt-5 -mr-14`}
+          >
             <div className="grid gap-y-3 pt-7 pb-3">
               <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                 <div className="flex justify-center -mt-10">
-                {user.photoURL && (
+                {user?.photoURL && (
                         <img
                           src={user?.photoURL}
                           className="w-10 h-10 rounded-full"
-                          alt=""
+                          alt="pic"
                         />
                       )}
 
-                      {(user.photoURL === null) &&
+                      {(user?.photoURL === null) &&
                         <span className=""><AiOutlineUser className="text-black bg-white text-5xl rounded-full" /></span>
                       }
                 </div>
                 <div>
-                  <p className="pt-3 ">{user.email}</p>
+                  <p className="pt-3 ">{user?.email}</p>
                 </div>
               </div>
 
-              <Link to={`/manage-profile`} className='uppercase hover:text-gray-600'>Manage profile</Link>
+              <Link
+                to={`/manage-profile`}
+                className="uppercase hover:text-gray-600"
+              >
+                Manage profile
+              </Link>
 
-              <button onClick={handleSignOut} className='uppercase hover:text-gray-600'>Sign out</button>
+              <button
+                onClick={handleSignOut}
+                className="uppercase hover:text-gray-600"
+              >
+                Sign out
+              </button>
             </div>
-
           </ul>
         </div>
       </div>

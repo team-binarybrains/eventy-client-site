@@ -24,10 +24,13 @@ import TotalUser from "./Components/Dashboard/TotalUser/TotalUser";
 import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetails";
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
+import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin";
 
+import Chart from "./Components/Dashboard/Chart/Chart";
+import MainChart from "./Components/Dashboard/Chart/MainChart";
 function App() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-hidden ">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -35,7 +38,7 @@ function App() {
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
 
-        <Route path="/eventDetail/:id" element={<EventDetails></EventDetails>}></Route>
+        <Route path="/eventDetail/:id" element={<RequireAuth><EventDetails></EventDetails></RequireAuth>}></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
@@ -44,6 +47,15 @@ function App() {
           <Route
             index
             path="/dashboard"
+            element={
+              <RequireAuth>
+                
+                <MainChart></MainChart>
+              </RequireAuth>
+            }
+          ></Route>
+          <Route
+            path="/dashboard/booking"
             element={
               <RequireAuth>
                 <Booking></Booking>
@@ -77,28 +89,26 @@ function App() {
           <Route
             path="/dashboard/total-user"
             element={
-              <RequireAuth>
+              <RequireAdmin>
                 <TotalUser></TotalUser>
-              </RequireAuth>
+              </RequireAdmin>
             }
           ></Route>
-
-
-
+          <Route
+            path="/dashboard/booking"
+            element={
+              <RequireAdmin>
+                <Booking></Booking>
+              </RequireAdmin>
+            }
+          ></Route>
         </Route>
         {/* for manage profile */}
-        <Route
-          path="/manage-profile"
-          element={
-            <Profile></Profile>
-          }
-        ></Route>
+        <Route path="/manage-profile" element={<Profile></Profile>}></Route>
         {/* for update user */}
         <Route
           path="/update-profile"
-          element={
-            <UpdateUser></UpdateUser>
-          }
+          element={<UpdateUser></UpdateUser>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

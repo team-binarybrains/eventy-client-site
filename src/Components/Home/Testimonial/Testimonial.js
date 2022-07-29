@@ -77,7 +77,7 @@ const Testimonail = () => {
             <div className="overflow-x-hidden overflow-y-hidden pt-8 pb-20">
                 <Slider {...settings}>
                     {reviews?.slice(0, 6).map((review) => (
-                        <div className="px-5">
+                        <div key={review._id} className="px-5">
                             <div className="group w-full bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10">
                                 <div className="text-gray-600 group-hover:text-white flex flex-col items-center">
                                     <svg
