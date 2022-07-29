@@ -32,92 +32,94 @@ function App() {
   return (
     <div className="overflow-x-hidden bg-white">
       <Navebar></Navebar>
-      <Routes>
-        <Route path="/" element={<Home></Home>}></Route>
-        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
-        <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
-        <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+      <div className="pt-20">
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+          <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
+          <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
 
-        <Route
-          path="/eventDetail/:id"
-          element={
-            <RequireAuth>
-              <EventDetails></EventDetails>
-            </RequireAuth>
-          }
-        ></Route>
+          <Route
+            path="/eventDetail/:id"
+            element={
+              <RequireAuth>
+                <EventDetails></EventDetails>
+              </RequireAuth>
+            }
+          ></Route>
 
-        <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/register" element={<Register></Register>}></Route>
-        {/* Dash board */}
-        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/register" element={<Register></Register>}></Route>
+          {/* Dash board */}
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route
+              index
+              path="/dashboard"
+              element={
+                <RequireAuth>
+                  <MainChart></MainChart>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/booking"
+              element={
+                <RequireAuth>
+                  <Booking></Booking>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/my-booking"
+              element={
+                <RequireAuth>
+                  <MyBooking></MyBooking>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/review"
+              element={
+                <RequireAuth>
+                  <Review></Review>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/add-review"
+              element={
+                <RequireAuth>
+                  <AddReview></AddReview>
+                </RequireAuth>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/total-user"
+              element={
+                <RequireAdmin>
+                  <TotalUser></TotalUser>
+                </RequireAdmin>
+              }
+            ></Route>
+            <Route
+              path="/dashboard/booking"
+              element={
+                <RequireAdmin>
+                  <Booking></Booking>
+                </RequireAdmin>
+              }
+            ></Route>
+          </Route>
+          {/* for manage profile */}
+          <Route path="/manage-profile" element={<Profile></Profile>}></Route>
+          {/* for update user */}
           <Route
-            index
-            path="/dashboard"
-            element={
-              <RequireAuth>
-                <MainChart></MainChart>
-              </RequireAuth>
-            }
+            path="/update-profile"
+            element={<UpdateUser></UpdateUser>}
           ></Route>
-          <Route
-            path="/dashboard/booking"
-            element={
-              <RequireAuth>
-                <Booking></Booking>
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/dashboard/my-booking"
-            element={
-              <RequireAuth>
-                <MyBooking></MyBooking>
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/dashboard/review"
-            element={
-              <RequireAuth>
-                <Review></Review>
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/dashboard/add-review"
-            element={
-              <RequireAuth>
-                <AddReview></AddReview>
-              </RequireAuth>
-            }
-          ></Route>
-          <Route
-            path="/dashboard/total-user"
-            element={
-              <RequireAdmin>
-                <TotalUser></TotalUser>
-              </RequireAdmin>
-            }
-          ></Route>
-          <Route
-            path="/dashboard/booking"
-            element={
-              <RequireAdmin>
-                <Booking></Booking>
-              </RequireAdmin>
-            }
-          ></Route>
-        </Route>
-        {/* for manage profile */}
-        <Route path="/manage-profile" element={<Profile></Profile>}></Route>
-        {/* for update user */}
-        <Route
-          path="/update-profile"
-          element={<UpdateUser></UpdateUser>}
-        ></Route>
-        <Route path="*" element={<NotFound></NotFound>}></Route>
-      </Routes>
+          <Route path="*" element={<NotFound></NotFound>}></Route>
+        </Routes>
+      </div>
       <Footer></Footer>
       <BackTopBtn></BackTopBtn>
       <ToastContainer />
