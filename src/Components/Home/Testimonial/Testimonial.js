@@ -55,16 +55,16 @@ const Testimonail = () => {
             .then((data) => setReviews(data));
     }, []);
 
-    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>;
+    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled />;
 
-    const showStars = (star)=> {
-        if(star>1){
+    const showStars = (star) => {
+        if (star > 1) {
             return <>
                 {ratingStar}
-                {showStars(star-1)}
+                {showStars(star - 1)}
             </>
         }
-        else{
+        else {
             return ratingStar;
         }
     }
