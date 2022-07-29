@@ -33,7 +33,7 @@ const AllEmployers = () => {
                 <div className="container mx-auto px-2 ">
                     <div id="OurEmployer">
                         <div className="">
-                            <h1 className='text-4xl py-2 pb-5 text-center title_line uppercase'>Our Employer</h1>
+                            <h1 className='text-4xl py-2 pb-5 text-center title_line uppercase'>All Employer</h1>
                         </div>
                         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 items-center gap-4">
                             {employer.map((e, index) => (
