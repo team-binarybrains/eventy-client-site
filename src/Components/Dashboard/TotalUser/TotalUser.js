@@ -8,7 +8,7 @@ const TotalUser = () => {
   // console.log(allUsers);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/allusers").then((res) => {
+    axios.get("https://powerful-cove-50894.herokuapp.com/allusers").then((res) => {
       const { data } = res;
       setAllUsers(data);
     });
@@ -17,7 +17,7 @@ const TotalUser = () => {
   const handleDeleteUser = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `http://localhost:5000/delete-user/${id}`;
+      const url = `https://powerful-cove-50894.herokuapp.com/delete-user/${id}`;
       fetch(url, {
         method: "DELETE",
       })

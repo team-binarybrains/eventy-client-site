@@ -28,7 +28,7 @@ const AllReview = () => {
 
     return (
         <div className='min-h-[calc(100vh-480px)] bg-white flex flex-wrap p-8 py-12 justify-center gap-10'>
-            <h1 className='basis-full text-center text-3xl title_line uppercase'>Our All Reviews</h1>
+            <h1 className='basis-full text-center text-4xl title_line uppercase'>Our All Reviews</h1>
             {reviews?.map((review) => (
                 <div key={review._id} className="px-5 grow-0">
                     <div className="group w-full max-w-sm bg-white relative flex flex-col items-center hover:bg-green-400 cursor-pointer shadow-md p-5 md:p-10">

@@ -21,7 +21,7 @@ const MyBooking = () => {
   const productDeleteHandle = (id) => {
     const proceed = window.confirm("Are you sure cancel booking?");
     if (proceed) {
-      const url = `http://localhost:5000/myBooking/${id}`;
+      const url = `https://powerful-cove-50894.herokuapp.com/myBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })

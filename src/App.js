@@ -40,6 +40,8 @@ function App() {
           <Route path="/blogs" element={<Blogs></Blogs>}></Route>
           <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
           <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+          <Route path="/all-review" element={<AllReview></AllReview>}></Route>
+          <Route path="/allEmployers" element={<AllEmployers></AllEmployers>}></Route>
 
           <Route
             path="/eventDetail/:id"
