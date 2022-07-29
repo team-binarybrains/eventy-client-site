@@ -1,28 +1,38 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../Firebase/Firebase.init";
+import userIcon from '../../../image/user/1946429.png'
 
 function DisplayTotalUsers({ allUser, handleDeleteUser }) {
   const { _id, email } = allUser;
-
+  // console.log(allUser.image);
   return (
     <tr class="bg-white border-b-2 border-gray-200">
       <td class="px-16 py-2 flex flex-row items-center">
-        <img
-          class="h-8 w-8 rounded-full object-cover "
-          src="https://randomuser.me/api/portraits/men/30.jpg"
-          alt=""
-        />
+        {
+          allUser?.image ? <img
+            class="h-8 w-8 rounded-full object-cover "
+            src={allUser?.image}
+            alt=""
+          />
+            :
+            <img
+              class="h-8 w-8 rounded-full object-cover "
+              src={userIcon}
+              alt="f"
+            />
+        }
+
       </td>
       <td>
-        <span class="text-center ml-2 font-semibold">John Doe</span>
+        <span class="text-center ml-2 font-semibold">{allUser?.displayName}</span>
       </td>
 
       <td class="px-16 py-2">{email}</td>
 
-      <td class="px-16 py-2">
-        <span class="text-yellow-500 flex">
-          <svg
+      <td class="px-16 py-2 ">
+        <span class="text-yellow-500 flex justify-end">
+          {/* <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5 text-green-700 mx-2"
             viewBox="0 0 20 20"
@@ -34,7 +44,7 @@ function DisplayTotalUsers({ allUser, handleDeleteUser }) {
               d="M2 6a2 2 0 012-2h4a1 1 0 010 2H4v10h10v-4a1 1 0 112 0v4a2 2 0 01-2 2H4a2 2 0 01-2-2V6z"
               clip-rule="evenodd"
             />
-          </svg>
+          </svg> */}
           <button onClick={() => handleDeleteUser(_id)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
