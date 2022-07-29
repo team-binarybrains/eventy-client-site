@@ -5,7 +5,7 @@ import DisplayTotalUsers from "./DisplayTotalUsers";
 
 const TotalUser = () => {
   const [allUsers, setAllUsers] = useState([]);
-  console.log(allUsers);
+  // console.log(allUsers);
 
   useEffect(() => {
     axios.get("https://powerful-cove-50894.herokuapp.com/allusers").then((res) => {
@@ -42,7 +42,7 @@ const TotalUser = () => {
             </th>
 
             <th class="px-16 py-2">
-              <span class="text-gray-100 font-semibold">Date</span>
+              <span class="text-gray-100 font-semibold">Email</span>
             </th>
 
             <th class="px-16 py-2">
