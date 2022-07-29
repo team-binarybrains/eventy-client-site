@@ -25,18 +25,22 @@ import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetail
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin";
-
-import Chart from "./Components/Dashboard/Chart/Chart";
 import MainChart from "./Components/Dashboard/Chart/MainChart";
+import AllReview from "./Components/AllReview/AllReview";
+import AllEmployers from "./Components/Home/OurEmployer/AllEmployers";
+import ScrollToTop from "./ScrollToTop";
 function App() {
   return (
     <div className="overflow-x-hidden bg-white">
+      <ScrollToTop></ScrollToTop>
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+        <Route path="/all-review" element={<AllReview></AllReview>}></Route>
+        <Route path="/allEmployers" element={<AllEmployers></AllEmployers>}></Route>
 
         <Route
           path="/eventDetail/:id"

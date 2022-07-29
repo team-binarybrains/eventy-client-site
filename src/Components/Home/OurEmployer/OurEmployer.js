@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import employer1 from "../../../image/employer/1.jpg";
 import employer2 from "../../../image/employer/2.jpg";
 import employer3 from "../../../image/employer/3.jpg";
@@ -9,6 +10,9 @@ import employer6 from "../../../image/employer/6.jpg";
 // css add
 import "./OurEmployer.css";
 const OurEmployer = () => {
+
+  const navigate = useNavigate();
+
   const employer = [
     { image: employer1, employerName: "James", profession: "Event Planner" },
     { image: employer2, employerName: "Robert", profession: "Wedding Planner" },
@@ -48,7 +52,7 @@ const OurEmployer = () => {
             ))}
           </div>
           <div className="text-center mb-12 pt-6">
-            <button className="btnc btn-gradient gradient2 text-center">
+            <button onClick={() => navigate("/allEmployers")} className="btnc btn-gradient gradient2 text-center">
               See More
             </button>
           </div>
