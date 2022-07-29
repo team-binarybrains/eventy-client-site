@@ -24,7 +24,7 @@ const Login = () => {
   } = useForm();
 
   const { user } = useAuthState(auth);
-  console.log(user);
+  // console.log(user);
 
   const onSubmit = async (data) => {
     signInWithEmailAndPassword(data.email, data.password);
