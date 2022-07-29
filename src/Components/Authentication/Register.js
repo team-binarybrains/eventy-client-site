@@ -30,7 +30,7 @@ const Register = () => {
       displayName: data.name,
       email: data.email,
     };
-    fetch(`http://localhost:5000/user/${data.email}`, {
+    fetch(`https://powerful-cove-50894.herokuapp.com/user/${data.email}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
