@@ -24,7 +24,7 @@ const AddReview = () => {
          image: user?.photoURL
       }
       // send services data to database
-      fetch('https://powerful-cove-50894.herokuapp.com/post-review', {
+      fetch('http://localhost:5000/post-review', {
          method: 'POST',
          headers: {
             'content-type': 'application/json',

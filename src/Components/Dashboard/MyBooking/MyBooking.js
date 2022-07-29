@@ -12,7 +12,7 @@ const MyBooking = () => {
 
   useEffect(() => {
     const email = user.email;
-    const url = `https://powerful-cove-50894.herokuapp.com/myBooking/${email}`;
+    const url = `http://localhost:5000/myBooking/${email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItems(data));
@@ -21,7 +21,7 @@ const MyBooking = () => {
   const productDeleteHandle = (id) => {
     const proceed = window.confirm("Are you sure cancel booking?");
     if (proceed) {
-      const url = `https://powerful-cove-50894.herokuapp.com/myBooking/${id}`;
+      const url = `http://localhost:5000/myBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })
