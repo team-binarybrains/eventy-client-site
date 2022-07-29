@@ -97,11 +97,11 @@ const Navebar = () => {
         </Link>
       </div>
       <div className="items-center hidden lg:flex ">
-        <FontAwesomeIcon
+        {/* <FontAwesomeIcon
           // onClick={handleGotocart}
           icon={faCartShopping}
           className="ml-6 text-2xl cursor-pointer text-gray-700"
-        />
+        /> */}
 
         <FontAwesomeIcon
           icon={faBell}

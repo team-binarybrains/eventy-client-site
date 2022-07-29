@@ -3,13 +3,13 @@
 import "./App.css";
 import Navebar from "./Components/Share/Navebar";
 import Footer from "./Components/Share/Footer";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import NotFound from "./Components/Share/NotFound";
 import ContactUs from "./Components/ContactUs/ContactUs";
 import AboutUs from "./Components/AboutUs/AboutUs";
 import Dashboard from "./Components/Dashboard/Dashboard";
-import Login from "./Components/Authentication/Login";
+// import Login from "./Components/Authentication/Login";
 import Register from "./Components/Authentication/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -52,7 +52,7 @@ function App() {
             }
           ></Route>
 
-          <Route path="/login" element={<Login></Login>}></Route>
+          <Route path="/login" element={<Navigate to={'/'}></Navigate>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
           {/* Dash board */}
           <Route path="/dashboard" element={<Dashboard />}>
