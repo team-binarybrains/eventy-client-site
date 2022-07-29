@@ -72,11 +72,11 @@ const DashBoard = () => {
                   My Booking
                 </CustomLink>
               </li>}
-              {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
+              {/* {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/review"}>
                   My Review
                 </CustomLink>
-              </li>}
+              </li>} */}
               {admin || <li className="py-1 text-lg hover:bg-slate-300 rounded">
                 <CustomLink className="" to={"/dashboard/add-review"}>
                   Add Review
