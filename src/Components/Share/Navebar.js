@@ -48,7 +48,7 @@ const Navebar = () => {
   const [show, setShow] = useState("hidden");
 
   return (
-    <div className="flex items-center sticky top-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
+    <div className="flex items-center fixed top-0 right-0 left-0 h-20 px-6 bg-[#BAD4B6] justify-between text-white  z-40">
       <Link to="/">
         <h2 className=" text-black text-4xl logo-1 ">EVENTY</h2>
       </Link>
