@@ -30,19 +30,19 @@ const EventDetails = () => {
   const [bookingDetails, setBookingDetails] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allservices/${id}`)
+    fetch(`https://powerful-cove-50894.herokuapp.com/allservices/${id}`)
       .then(res => res.json())
       .then(data => setService(data))
   }, [id, selectVenu, bookingDate])
 
   useEffect(() => {
-    fetch("http://localhost:5000/allvenues")
+    fetch("https://powerful-cove-50894.herokuapp.com/allvenues")
       .then(res => res.json())
       .then(data => setVenu(data))
   }, [id])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/selectVenu/${email}`)
+    fetch(`https://powerful-cove-50894.herokuapp.com/selectVenu/${email}`)
       .then(res => res.json())
       .then(data => {
         setSelectVenu(data);
@@ -58,7 +58,7 @@ const EventDetails = () => {
     const venuPrice = price;
     const selectEventDetails = { email, image, location, totalPrice, quantity, description, venuPrice }
 
-    fetch('http://localhost:5000/venuInsert', {
+    fetch('https://powerful-cove-50894.herokuapp.com/venuInsert', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ const EventDetails = () => {
 
   const selectedVenuDelete = (id) => {
 
-    fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+    fetch(`https://powerful-cove-50894.herokuapp.com/selectVenuDelete/${id}`, {
       method: "DELETE"
     })
       .then(res => res.json())
@@ -127,7 +127,7 @@ const EventDetails = () => {
 
   const handleBookingConfirm = (id) => {
     if (selectVenu.length && bookingDate && bookingPersonAddress && phoneNumber) {
-      fetch('http://localhost:5000/booking', {
+      fetch('https://powerful-cove-50894.herokuapp.com/booking', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ const EventDetails = () => {
           }
         })
 
-      fetch(`http://localhost:5000/selectVenuDelete/${id}`, {
+      fetch(`https://powerful-cove-50894.herokuapp.com/selectVenuDelete/${id}`, {
         method: "DELETE"
       })
         .then(res => res.json())

@@ -34,7 +34,7 @@ const Navebar = () => {
 
   const handleSignOut = () => {
     signOut(auth);
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem("accessToken");
   };
 
   const navigate = useNavigate();
@@ -111,9 +111,13 @@ const Navebar = () => {
         {user ? (
           <>
             <div className="dropdown dropdown-end">
-              <div tabIndex="0" className=" m-1" onClick={() => {
-                show === 'hidden' ? setShow('block') : setShow('hidden');
-              }}>
+              <div
+                tabIndex="0"
+                className=" m-1"
+                onClick={() => {
+                  show === "hidden" ? setShow("block") : setShow("hidden");
+                }}
+              >
                 {user?.photoURL && (
                   <img
                     src={user?.photoURL}
@@ -122,9 +126,11 @@ const Navebar = () => {
                   />
                 )}
 
-                {(user?.photoURL === null) &&
-                  <span className=""><AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" /></span>
-                }
+                {user?.photoURL === null && (
+                  <span className="">
+                    <AiOutlineUser className="border-2 border-black text-black bg-white bg-opacity-50 text-4xl rounded-full" />
+                  </span>
+                )}
               </div>
 
               <ul
@@ -142,9 +148,11 @@ const Navebar = () => {
                         />
                       )}
 
-                      {(user?.photoURL === null) &&
-                        <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" /></span>
-                      }
+                      {user?.photoURL === null && (
+                        <span className="">
+                          <AiOutlineUser className="text-black border-2 border-black bg-white text-5xl rounded-full" />
+                        </span>
+                      )}
                     </div>
                     <div>
                       <p className="pt-3 ">{user?.email}</p>
@@ -189,16 +197,18 @@ const Navebar = () => {
             }}
           >
             {user?.photoURL && (
-                  <img
-                    src={user?.photoURL}
-                    className="w-10 h-10 rounded-full"
-                    alt="pic"
-                  />
-                )}
+              <img
+                src={user?.photoURL}
+                className="w-10 h-10 rounded-full"
+                alt="pic"
+              />
+            )}
 
-                {(user?.photoURL === null) &&
-                  <span className=""><AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" /></span>
-                }
+            {user?.photoURL === null && (
+              <span className="">
+                <AiOutlineUser className="text-black border-2 border-black bg-white text-4xl rounded-full" />
+              </span>
+            )}
           </div>
 
           <ul
@@ -208,17 +218,19 @@ const Navebar = () => {
             <div className="grid gap-y-3 pt-7 pb-3">
               <div className="bg-gray-200 grid justify-center p-4 rounded-sm">
                 <div className="flex justify-center -mt-10">
-                {user?.photoURL && (
-                        <img
-                          src={user?.photoURL}
-                          className="w-10 h-10 rounded-full"
-                          alt="pic"
-                        />
-                      )}
+                  {user?.photoURL && (
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 rounded-full"
+                      alt="pic"
+                    />
+                  )}
 
-                      {(user?.photoURL === null) &&
-                        <span className=""><AiOutlineUser className="text-black bg-white text-5xl rounded-full" /></span>
-                      }
+                  {user?.photoURL === null && (
+                    <span className="">
+                      <AiOutlineUser className="text-black bg-white text-5xl rounded-full" />
+                    </span>
+                  )}
                 </div>
                 <div>
                   <p className="pt-3 ">{user?.email}</p>
