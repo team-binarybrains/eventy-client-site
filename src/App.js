@@ -29,6 +29,7 @@ import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin"
 import Chart from "./Components/Dashboard/Chart/Chart";
 import MainChart from "./Components/Dashboard/Chart/MainChart";
 import AllReview from "./Components/AllReview/AllReview";
+import AllEmployers from "./Components/Home/OurEmployer/AllEmployers";
 function App() {
   return (
     <div className="overflow-x-hidden">
@@ -41,6 +42,8 @@ function App() {
         <Route path="/all-review" element={<AllReview></AllReview>}></Route>
 
         <Route path="/eventDetail/:id" element={<RequireAuth><EventDetails></EventDetails></RequireAuth>}></Route>
+        
+        <Route path="/allEmployers" element={<AllEmployers></AllEmployers>}></Route>
 
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
