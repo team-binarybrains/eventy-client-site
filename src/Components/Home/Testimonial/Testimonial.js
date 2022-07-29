@@ -4,8 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import user from "../../../image/userImage/user.jpg"
+import { useNavigate } from "react-router-dom";
 
 const Testimonail = () => {
+    const navigate = useNavigate();
 
     const settings = {
         className: "center",
@@ -55,16 +57,16 @@ const Testimonail = () => {
             .then((data) => setReviews(data));
     }, []);
 
-    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled/>;
+    const ratingStar = <input type="radio" name="rating" class="mask mask-star-2 bg-yellow-500" checked disabled />;
 
-    const showStars = (star)=> {
-        if(star>1){
+    const showStars = (star) => {
+        if (star > 1) {
             return <>
                 {ratingStar}
-                {showStars(star-1)}
+                {showStars(star - 1)}
             </>
         }
-        else{
+        else {
             return ratingStar;
         }
     }
@@ -202,7 +204,9 @@ const Testimonail = () => {
                 </Slider>
             </div>
             <div className="text-center mb-12">
-                <button className="btnc btn-gradient gradient2 text-center">
+                <button onClick={() => {
+                    navigate('/all-review')
+                }} className="btnc btn-gradient gradient2 text-center">
                     See More
                 </button>
             </div>
