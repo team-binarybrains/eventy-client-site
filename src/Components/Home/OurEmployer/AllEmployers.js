@@ -5,9 +5,9 @@ import employer3 from "../../../image/employer/3.jpg";
 import employer4 from "../../../image/employer/4.jpg";
 import employer5 from "../../../image/employer/5.jpg";
 import employer6 from "../../../image/employer/6.jpg";
-import employer7 from "../../../image/employer/responsive_big_webp_EsIkRAdJtyQG7N9SsTHDY6RCi5bYfKYV1DFH_fL0zcg.webp"
-import employer8 from "../../../image/employer/1633365559-GettyImages-1041967716.jpg"
-import employer9 from "../../../image/employer/0223_637256793905100705.jpg"
+import employer7 from "../../../image/employer/training_800_600.jpg"
+import employer8 from "../../../image/employer/employee wellness center_hero.jpg"
+import employer9 from "../../../image/employer/2.jpg"
 
 const AllEmployers = () => {
 
@@ -39,7 +39,7 @@ const AllEmployers = () => {
                             {employer.map((e, index) => (
                                 <div key={index} className="Employer shadow-2xl ">
                                     <div id="EmployerImg" className="shadow-2xl">
-                                        <img className="rounded w-[410px] h-[310px] object-cover" src={e.image} alt="" />
+                                        <img className="rounded " src={e.image} alt="" />
                                         <div id="EmployerContent">
                                             <div id="EmployerText" className="py-4 px-4">
                                                 <h1 className="text-lg sm:text-xl text-white capitalize">
