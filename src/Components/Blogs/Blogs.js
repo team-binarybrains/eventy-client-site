@@ -4,7 +4,7 @@ import ReadMoreAndLess from "react-read-more-less";
 const Blogs = () => {
   
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex bg-white justify-center items-center">
       <div className="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
         <div className="flex flex-col items-center justify-center">
           <h1 className="text-4xl font-semibold leading-9 text-center text-gray-800">

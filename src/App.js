@@ -28,15 +28,18 @@ import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin"
 
 import Chart from "./Components/Dashboard/Chart/Chart";
 import MainChart from "./Components/Dashboard/Chart/MainChart";
+import AllReview from "./Components/AllReview/AllReview";
+import AllEmployers from "./Components/Home/OurEmployer/AllEmployers";
 function App() {
   return (
-    <div className=" overflow-x-hidden ">
+    <div className="overflow-x-hidden bg-white">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="/contact-us" element={<ContactUs></ContactUs>}></Route>
         <Route path="/about-us" element={<AboutUs></AboutUs>}></Route>
+        <Route path="/all-review" element={<AllReview></AllReview>}></Route>
 
         <Route
           path="/eventDetail/:id"

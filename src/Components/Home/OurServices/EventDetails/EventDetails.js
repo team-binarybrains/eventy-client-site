@@ -117,7 +117,7 @@ const EventDetails = () => {
       const totalPrice = selectVenu[0].totalPrice;
       const eventImage = service?.image;
       const venuImage = selectVenu[0].image;
-      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice,eventImage,venuImage }
+      const bookingInfo = { bookingPersonName, bookingPersonEmail, date, phone, address, eventName, eventPrice, venuLocation, venuPrice, venuPeopleAttend, totalPrice, eventImage, venuImage }
       setBookingDetails(bookingInfo);
       setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1);
     } else {
@@ -156,7 +156,7 @@ const EventDetails = () => {
             setvenuSelectDeleteRefetch(venuSelectDeleteRefetch + 1)
           }
         })
-    }else{
+    } else {
       toast.error("Please select venu Or Fill the input field");
     }
 
