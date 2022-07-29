@@ -20,7 +20,7 @@ const UpdateUser = () => {
   } = useForm();
 
   useEffect(() => {
-    axios.get(`https://powerful-cove-50894.herokuapp.com/single/${email}`).then((res) => {
+    axios.get(`http://localhost:5000/single/${email}`).then((res) => {
       const { data } = res;
       setUserData(data);
     });
@@ -50,7 +50,7 @@ const UpdateUser = () => {
             image: img,
           };
 
-          fetch(`https://powerful-cove-50894.herokuapp.com/updateuser/${email}`, {
+          fetch(`http://localhost:5000/updateuser/${email}`, {
             method: "PUT",
             headers: {
               "content-type": "application/json",

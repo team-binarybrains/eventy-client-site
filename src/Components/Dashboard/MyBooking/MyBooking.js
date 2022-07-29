@@ -21,7 +21,7 @@ const MyBooking = () => {
   const productDeleteHandle = (id) => {
     const proceed = window.confirm("Are you sure cancel booking?");
     if (proceed) {
-      const url = `https://powerful-cove-50894.herokuapp.com/myBooking/${id}`;
+      const url = `http://localhost:5000/myBooking/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -36,7 +36,7 @@ const MyBooking = () => {
   return (
     <div>
       <h1 className="pt-3 pb-3  text-3xl mt-4 uppercase ml-5">
-      Total order: {items.length}
+        Total order: {items.length}
       </h1>
 
       <div className="grid md:grid-cols-2 gap-7 sm:grid-cols-1 px-3 pt-7">
