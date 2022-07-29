@@ -4,8 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import user from "../../../image/userImage/user.jpg"
+import { useNavigate } from "react-router-dom";
 
 const Testimonail = () => {
+    const navigate = useNavigate();
 
     const settings = {
         className: "center",
@@ -202,7 +204,9 @@ const Testimonail = () => {
                 </Slider>
             </div>
             <div className="text-center mb-12">
-                <button className="btnc btn-gradient gradient2 text-center">
+                <button onClick={()=> {
+                    navigate('/all-review')
+                }} className="btnc btn-gradient gradient2 text-center">
                     See More
                 </button>
             </div>
