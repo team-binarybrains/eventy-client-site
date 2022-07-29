@@ -52,7 +52,7 @@ const Testimonail = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch("https://powerful-cove-50894.herokuapp.com/post-review")
+        fetch("http://localhost:5000/post-review")
             .then((res) => res.json())
             .then((data) => setReviews(data));
     }, []);
