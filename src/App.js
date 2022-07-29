@@ -30,7 +30,7 @@ import Chart from "./Components/Dashboard/Chart/Chart";
 import MainChart from "./Components/Dashboard/Chart/MainChart";
 function App() {
   return (
-    <div className="overflow-x-hidden ">
+    <div className="overflow-x-hidden">
       <Navebar></Navebar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

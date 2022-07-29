@@ -9,7 +9,7 @@ function OurServices() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/allservices")
+    fetch("https://powerful-cove-50894.herokuapp.com/allservices")
       .then(res => res.json())
       .then(data => setServices(data))
   }, [])
