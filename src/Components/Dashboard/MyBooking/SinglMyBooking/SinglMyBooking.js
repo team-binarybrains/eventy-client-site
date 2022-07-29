@@ -3,49 +3,44 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import './SingleMyBooking.css'
 
 const SingleMyBooking = (props) => {
+    console.log(props);
     const { productDeleteHandle, user } = props;
-    const {Id}=useParams()
-    const { bookingPersonName, phone,bookingPersonEmail, date,address, eventName,eventPrice,venuLocation,venuPrice,venuPeopleAttend,totalPrice, _id } = user;
-    const navigate=useNavigate()
-    const payMent=(id) => {
-      navigate(`/payMent/${_id}`)  
-  }
+    const { bookingPersonName, phone,bookingPersonEmail, date,address, eventName,eventPrice,venuLocation,venuPrice,venuPeopleAttend,totalPrice,eventImage,venuImage, _id } = user;
+ 
+ 
     return (
         <div className=''>
-    <div className="bookingModal rounded px-5 py-4 bg-white hover:scale-105 transition-all
+    <div className="bookingModal rounded px-5 py-4 bg-white h transition-all
    
     ">
        
 <div className='flex  justify-around gap-4'>
 <div className=''>
-        <img className="w-[50%] h-[50%] rounded mx-auto" src="https://i.ibb.co/pwXySBZ/vicky-hladynets-C8-Ta0gw-Pb-Qg-unsplash.jpg" alt="" />
+        <img className="w-[216px] h-[50%] rounded mx-auto" src={eventImage} alt="" />
         <div className="pt-3">
-        <h1><span className=" pr-1"> Name:</span>{bookingPersonName}</h1>
-        <p><span className="font-bold pr-1"> Event Name: </span>{eventName}</p>
-        <p><span className="font-bold pr-1"> Event Price: </span> {eventPrice}</p>
-        <p><span className="font-bold pr-1"> Address: </span>{address}</p>
-        <p><span className="font-bold pr-1"> Email:</span>{bookingPersonEmail}</p>
+        <p className="text-xl"><span className="font-bold pr-1"> Event Name: </span>{eventName}</p>
+        <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Event Price: $</span> {eventPrice}</p>
+        <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Address: </span>{address}</p>
+        <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Email:</span>{bookingPersonEmail}</p>
 
         </div>
      </div>
 
         <div className=''>
-        <img className="w-[50%] h-[50%] rounded mx-auto" src="https://i.ibb.co/pwXySBZ/vicky-hladynets-C8-Ta0gw-Pb-Qg-unsplash.jpg" alt="" />
+        <img className="w-[216px] h-[50%] rounded mx-auto" src={venuImage} alt="" />
             <div className='pt-3'>
-            <p><span className="font-bold pr-1"> Venue Location: </span>{venuLocation}</p>
-            <p><span className="font-bold pr-1"> Venue Attend: </span>{venuPeopleAttend}</p>
-            <p><span className="font-bold pr-1"> Venue Price: </span>{venuPrice}</p>
-            <p><span className="font-bold pr-1"> Phone: </span>{phone}</p>
-            <p><span className="font-bold pr-1"> Date: </span>{date}</p>
-       
+            <p className="text-xl"><span className="font-bold pr-1"> Venue Location: </span>{venuLocation}</p>
+            <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Venue capacity: </span>{venuPeopleAttend}</p>
+            <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Venue Price: $</span>{venuPrice}</p>
+            <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Phone: </span>{phone}</p>
+            <p className='py-1 font-bold text-lg'><span className="font-bold pr-1"> Date: </span>{date}</p>
             </div>
-        </div>
-        
+        </div>    
 </div>
    
        <div className=''>
         <div className=''>
-        <p className='text-xl'><span className="font-bold pr-1 "> Total Price: $</span>{totalPrice}</p>
+        <p className='text-xl text-center py-4'><span className="font-bold pr-1 "> Total Price: $</span>{totalPrice}</p>
         </div>
        </div>
         <div className='flex justify-center gap-4 mt-1'>

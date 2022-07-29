@@ -1,4 +1,3 @@
-
 /* @import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap'); */
 
 @tailwind base;
@@ -20,7 +19,7 @@ code {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -28,11 +27,34 @@ code {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(95, 209, 95);
+  background-color: rgb(249, 255, 249);
   border-radius: 20px;
 }
 
-h1{
-  font-family: 'Ubuntu', sans-serif;
+h1 {
+  font-family: "Ubuntu", sans-serif;
   letter-spacing: 3px;
+}
+
+.title_line::before {
+  content: "";
+  background: rgb(74 222 128);
+  height: 5px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  transform: translateY(63px);
+}
+
+.title_line::after {
+  content: "";
+  background: rgb(74 222 128);
+  height: 10px;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  display: block;
+  transform: translateY(15px);
 }

@@ -25,12 +25,14 @@ import EventDetails from "./Components/Home/OurServices/EventDetails/EventDetail
 import Profile from "./Components/Dashboard/Profile/Profile";
 import UpdateUser from "./Components/Dashboard/Profile/UpdateUser/UpdateUser";
 import RequireAdmin from "./Components/Authentication/RequireAdmin/RequireAdmin";
-
-import Chart from "./Components/Dashboard/Chart/Chart";
 import MainChart from "./Components/Dashboard/Chart/MainChart";
+import AllReview from "./Components/AllReview/AllReview";
+import AllEmployers from "./Components/Home/OurEmployer/AllEmployers";
+import ScrollToTop from "./ScrollToTop";
 function App() {
   return (
     <div className="overflow-x-hidden bg-white">
+      <ScrollToTop></ScrollToTop>
       <Navebar></Navebar>
       <div className="pt-20">
         <Routes>
